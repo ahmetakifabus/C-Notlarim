@@ -4,8 +4,11 @@ Ders 1 (5.06.2021)
 ---
 C nasıl bir dil?
 ---
-Imperative -> Buyurgan
-Procedural -> Prosedüral
+Imperative -> Buyurgan 
+ 
+ 
+Procedural -> Prosedüral 
+
 Non-Proprietary -> Mülkiyeti yok
 Middle level -> Orta Seviyeli
 Static Typing -> Statik tür kavramı
