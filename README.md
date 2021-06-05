@@ -50,7 +50,9 @@ Dinamik tür kavramında verinin ne olduğu programın çalışma zamanında bel
 
 
 
-
+{
+sadfsdf
+}
 
 
 
