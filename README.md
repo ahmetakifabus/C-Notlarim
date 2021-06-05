@@ -48,11 +48,56 @@ Static tür ve Dimanik Tür
 Static tür kavramına sahip dillerde çevirici program koda bakarak verinin ne olduğunu anlıyor. (Çeviri sürecinde program biliyor)
 Dinamik tür kavramında verinin ne olduğu programın çalışma zamanında belli oluyor. (Çevirici koda bakara verinin ne olduğunu bilmiyor)
 
+Static tür kavramına sahip dilelrin avantajı, kodlama hatalarının daha erken süreçte bulunabilmesidir.
+
+x = 12;
+x = 21.84;
+x = "ali"
+
+-> Eğer böyle ise bu dinamik tür kavramına sahip bir dildir.
+C, sadece static tür kavrmaını destekelrken, c++, C#, java gibi diller dinamik tür kavramını da bellir bir ölçüde destekliyorlar. (Esas olan static tür fakat dinamik türe yönelik araçlar var)
+
+C'de 
+x=10;
+x=15;
+diyebiliriz. Bu onu dinamik yapmaz mı?(X'i float tanımlarsak)
+-> X'i float tanımlamak demek zaten onun static tür kavramına sahip bir veri olduğunu gösteriyor zaten.
+
+C, Yapay Bir Dil! (Artificial)
+---
+İnsanın konuştuğu dile benzerlik sağlamak yerine, uzaklaşmış ve tamamen uydurma kurallar ile bir anlatım benimsenmiştir.
+Java, c# gibi diller programcının verimli olması açısından geliştirilmiştir, fakat c ve c++ dilelrinde odak noktası programın verimli olmasıdır. (İşlemcinin verimli kullanılması, yapılacak iş daha az işlem ile yapılsın.)
+
+C'den sonra geliştirilen programlama dillerinin çok önemli bir kısmı C'nin sentaksından, genel yapısından, ifade gücünün yüksekliğinden faydalanmıştır.
+
+Taşınabilir bir dil!
+---
+Java her yerde çalışıyor demek diin portable olduğunu göstermez. Bu taşınabilirlik kaynak kodu kapsamıyor.
+
+3.. Kuşak diller
+---
+3. kuşak diller 3 tane dilden türetilmişler.
+    Fortran, Cobol, Algol.
+    
+Günümüzdeki dillerin soy ağacı buraya gidiyor.
+ 
+Fortran -> 1954 yılında geliştirilmiş bir dil.
+Formula + translation = Fortran
+
+C'nin doğum tarihi -> 1970
 
 
-{
-sadfsdf
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
