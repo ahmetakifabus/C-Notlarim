@@ -1,6 +1,6 @@
 # C-Notlarim
 
-Ders 1
+Ders 1 (5.06.2021)
 ---
 C nasıl bir dil?
 ---
