@@ -13,12 +13,18 @@ Non-Proprietary -> Mülkiyeti yok
 Middle level -> Orta Seviyeli 
 
 Static Typing -> Statik tür kavramı 
-General Purpose -> Genel Amaçlı
-Efficient -> Verimli
-Artificial -> Yapay
-Standard - Standart
-Portable -> Taşınabilir
-Expressive -> İfade gücü yüksek
+
+General Purpose -> Genel Amaçlı 
+
+Efficient -> Verimli 
+
+Artificial -> Yapay 
+
+Standard - Standart 
+
+Portable -> Taşınabilir 
+
+Expressive -> İfade gücü yüksek 
 
 Programlama dilleri 2 tür olabiliyor;
 1) Declarative (Bildirimsel)
