@@ -86,8 +86,37 @@ Formula + translation = Fortran
 
 C'nin doğum tarihi -> 1970
 
+Ders 2 (5.06.2021)
+---
+C kaynak dosyaları ASCII text file denilen bir formatta. Kaynak dosyadaki her bir karakter 1 byte ile ifade ediliyor.
+
+Uzantısı .h olan dosyalara header file deniyor. (Başlık dosyası)
+
+Bizim kaynak dosyadan C'nin sentaksına uygun olarak oluşturduğumuz metni makina kodlarına dönüştürecek programlara ihtiyacımız var.
+
+Bir dili başka bir dile çeviren -> Translator
+Eğer kaynak dil daha yüksek seviyeli ise -> Compiler(Derleyici)
+
+İlerleyen konularda biz derleyici programın bu işi nasıl yaptığını öğreneceğiz.
+Derleyicinin çalıştırıldığı ve bizim kaynak dosyamızı makina kodlarınna dönüştürdüğü sürece compile time deniliyor. 
+Makina kodu üretildi, işimiz bitti diyemeyiz. Bundan sonra bir program daha kullanmak durumundayız. Bu programa linker deniliyor.(Bağlayıcı)
+
+Neden böyle bir programa ihtiyaç var? (Linker)
+---
+Derleyici dosyanın girdisi kaynak dosya. (Projemizde birden fazla kaynak dosya olacak)
+Bu kaynak dosyalar bizim projemizin birer parçası, fakat derleyici bu kaynak dosylar arasındaki ilişkiden haberdar değil.
+
+Kaç tane kaynak dosyamız varsa derleyicimizi o kadar çalıştırıyoruz.
+
+Derleyici kendisinden sonra gelen bir bağlayıcı program olduğunun farkıonda olduğu için bir kaynak dosyadaki bir kod bir başka dosyadaki kodu kullandığında, derleyici üretmek durumunda olduğu kodları üretiyor fakat başka kaynak dosyadaki kodun kullanıldığını anlatmak için bağlayıcı programa bunları birleştirme için referans isimler yazıyor.
 
 
+
+Neden 1 kaynak dosya değil de birden fazla kaynak dosya var?
+---
+-> Kodun mantıksal açıdan diğer işlemelrden izole edilmesini daha kolay test edilmesini, farklı kişi ve şirketler tarafından oluşturulabilmesini, tekrar kullanılabilirliğini sağlıyor.
+
+ 
 
 
 
