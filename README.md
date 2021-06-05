@@ -12,7 +12,7 @@ Non-Proprietary -> Mülkiyeti yok
 
 Middle level -> Orta Seviyeli 
 
-Static Typing -> Statik tür kavramı
+Static Typing -> Statik tür kavramı 
 General Purpose -> Genel Amaçlı
 Efficient -> Verimli
 Artificial -> Yapay
