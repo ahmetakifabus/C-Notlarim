@@ -2,6 +2,9 @@
 
 Ders 1
 ---
+C nasıl bir dil?
+---
 
-sdfsdg
+
+
 
