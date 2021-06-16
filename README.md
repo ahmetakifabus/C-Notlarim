@@ -141,6 +141,8 @@ C/C++ Derleyicileri
 ---
 Bu derleyicilere optimizing compiler deniliyor. Derleyicinin kalitesini etkileyen en etkili faktör code optimization. 
 
+Ders 3 (16.06.2021)
+---
 
 
 
