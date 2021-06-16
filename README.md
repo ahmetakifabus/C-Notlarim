@@ -143,6 +143,179 @@ Bu derleyicilere optimizing compiler deniliyor. Derleyicinin kalitesini etkileye
 
 Ders 3 (16.06.2021)
 ---
+İşaretli ikili sayı sisteminde en sondaki bit işaret biti oluyor. 
+-> İşaret biti 0 ise sayı pozitif
+-> İşaret biti " ise sayı negatif
+
+Bir C derleyicisi ilk olarak ne yapıyor?
+---
+Derleyici translation unit ile karşılaştığında ilk olarak kaynak kodu token denilen birimlere ayırıyor. Bu işleme tokenizing deniliyor.
+Token=Atom
+Kaynak kodun derleyici tarafından anlamlı en küçük birimi.
+Her şey kaynak kodu tokenlara ayırmak ile başlıyor.
+Bu tokenlar belirli kategorilere ayrılıyor.
+
+Tokenlar
+---
+Keywords   -> Anahtar sözcükler
+Identifier -> İsimler
+Sabitler   -> Constants
+Operators  -> Operatörler
+String Literals  -> String sabitleri
+Delimeter  -> Ayıraçlar
+
+Anahtar sözcükler 
+---
+Dil tarafından özel anlam yüklenmiş, özel görevler verilmiş, başka amaçlar ile kullanımı yasaklanmış rezerve edilmiş sözcükler.
+
+İsimler
+---
+Varlıklara verilen adlar. İsim ve değişken aynı şey değil. Değişkenler sadece ismi olan varlıklardan birisi.
+
+Başka hangi varlıkların isimleri var?
+-Fonksiyonlar
+-Diziler
+..
+Sadece değişken ile ilişkilendirilen bir kavram değil. Fonksiyonalrın sabitlerin etiketlerin türlerin isimleri olabiliyor.
+
+Compiler extension (Derleyici eklentisi)
+---
+Derleyiciler, standart C'nin özellikleri dışında programcının işini kolaylaştırmak için standart olmayan bazı araçlar veriyorlar.
+
+-> GCC derleyicisi 100 den fazla eklentiye sahip.
+
+String Literals
+---
+Çift tırnak içerisinde yazılanlar.
+
+x = y + 5;
+
+6 tane token var.
+
+"x = y + 5;"
+
+1 tane token var.
+
+Printf -> Identifier (Anahtar sözcük değil)
+İsmin standart kütüphaneye ait olması onun bir isim olduğu gerçeğini değşitirmiyor.
+
+biz x = 12; yazdığımızda bir bellek alanına yazma amacıyla erişiliyor ve oraya tam sayı değeri ikilik sayı sisteminde yazılıyor.
+
+Expression (İfade)
+---
+Sabitlerin, isimlerin yada sabitlerin, isimlerin, operatörlerin bir araya gelerek oluşturduğu birim.
+
+1) ifadenin türü
+2) Değer kategorisi (Value category)
+
+-> R Value (Nesne gösteren ifadeler)
+-> L Value (Bellekte belirgin bir yere ilişkin olmayan ifadeler)
+Bir ifadenin değer kategorisi ikisinden biri olmak zorunda.
+
+Aritmetik ifadelerle oluşturulanlar R value expression.
+Değişken isimlerinin oluşturduğu ifadeler L value expression.
+
+x L value
+x+5 R Value
+12  R Value
+
+Başına & eklersen hata vermezse L value expression verirse R valu expression.
+Constant Expression (Sabit İfadesi)
+---
+10 * 5 + 20 -> Derleyici derleme zamanında bu ifayenin değerini anlıyor, Hesaplamak için bir zamana ihtiyaç yok.
+=70 yazmak ile arasında bir fark yok
+
+x=5 -> ifade
+x=5; -> İfade deyimi (Expression statement)
+
+
+C'nin cümleleri 2 kategoriye ayrılıyor;
+---
+Declaration (Bildirim) : İsimlerin ne olduğunu anlatır.
+Statement   (Deyim) : 
+
+y = x + 5;   ->  x ve y atomlarının birer identifier olduğunu derleme sürecinin ilk aşamasında (tokenizing) anlıyor.
+Fakat İfade içindeki isimlerin hangi varlıklar ile ilişkin olduğunun anlaşılması işlemi gerekiyor. Bir ismin neyin ismi olduğunun derleyici tarafından anlaşılması. (Name Lookup)
+
+Biz bir ismi kullanabilmek için o ismi bildirmek zorundayız. Çünkü bir ismi kullandığımız zaman o ismin bildirimi aranacak ve görmediği zaman sentaks hatası verilecek.
+
+Statement ( Deyim)
+---
+Derleyicinin doğrudan makina koduna dönüştürdüğü C cümleleri.
+x = y + 10;
+Bu işlemin yapılabilmesi için makina kodlarının yürütülmesi gerekiyor o zaman bu bir deyim.(İsim tanıtılmıyor, doğrudan iş yapırılıyor.)
+
+
+Namespace
+---
+Global namespace -> Fonksiyonun dışı genel kod yeri 
+Local namespace  -> Fonksiyon birimlerinin içindeki alan 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
