@@ -251,7 +251,14 @@ Namespace
 Global namespace -> Fonksiyonun dışı genel kod yeri 
 Local namespace  -> Fonksiyon birimlerinin içindeki alan 
 
+Ders 4 (23.06.2021)
+---
 
+"#" ile başlayan komutlar derleyici programa değil, önişlemciye gönderilen komutlar. (Derleyiciden önce çalışan program, preprocessing)
+
+Bir ismi kullandığınız zaman o ismin derleyici tarafından aranması, bulunması gerekiyor.
+"#include <stdio.h>" 
+Önişlemci programı bu komutu yürüttüğünde (printf ismini kullandıysak) oraya printf isminin ne olduğunu anlatan kodlar yapıştırılıyor.  Yani derleyici namelookup yapıyor
 
 
 
