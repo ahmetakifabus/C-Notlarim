@@ -324,6 +324,7 @@ Initialization is not assignment!
 int y = 5; // ilk değer verme
 y = 34; //assign - Atama (Bildirim yok, bu bir ifade)
 
+1.55
  
 
  
