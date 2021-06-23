@@ -258,10 +258,75 @@ Ders 4 (23.06.2021)
 
 Bir ismi kullandığınız zaman o ismin derleyici tarafından aranması, bulunması gerekiyor.
 "#include <stdio.h>" 
-Önişlemci programı bu komutu yürüttüğünde (printf ismini kullandıysak) oraya printf isminin ne olduğunu anlatan kodlar yapıştırılıyor.  Yani derleyici namelookup yapıyor
+Önişlemci programı bu komutu yürüttüğünde (printf ismini kullandıysak) oraya printf isminin ne olduğunu anlatan kodlar yapıştırılıyor.  Yani derleyici namelookup yapıyor.
+
+Sentaks: Dilin kuralları bütünü
+
+Data Types
+---
+1) Basic Types
+2) User - Defined Types (C'nin bazı araçlarını kullanark kendi değişkenimizi oluşturma)
+
+Basic Types
+---
+Sizin bir bildirim yapmanıza gerek yok. Bunlar dil tarafından hazır sunulan değişken türleri.
+
+1) integer types
+2) floating types
 
 
 
+_Bool  1 byte
+
+char 1 byte
+signed char 1 byte 
+unsigned char 1 byte
+
+signed short int 2 byte
+unsignedshort int 2 byte
+
+signed long int 4-8 byte
+unsigned long int 4-8 byte
+
+signed long long int 8 byte
+
+unsigned long long int 8 byte
+
+signed int 2-4-8 byte
+unsigned int 2-4-8 byte
+
+Soru
+---
+C'de neden geleneksel olarak 1 byte lık char tüeü yerine 4 byte lık int türü kullanılıyor?
+>> İşlemciniz 32 bitlik bir işlemciyse belleğe 4 byte'ın katları şeklinde erişir. 1 Byte ın kullanılması bir avantaj sağlamıyor. 
+
+Soru 
+---
+Değişken boyutlarının derleyiciler için farklı olması farklı ortamlarda compile edilecek kodlar için sorun oluşturmaz mı?
+>> int_32_t >> Taşınabilirlik konusunda destek sağlayan araçlardan biri. ;Bu kodu nerde derlersn derle 32 bitlik işaretli bir değişken. Taşınabilirlik problemi olur ama dikkat edersek olmaz.
+
+Tam sayı türlerinin öz evaladı -> int
+Gerçek sayıların efendisi -> double
+
+Bildirim ve Tanımlama (Declaration and Definition)
+--- 
+Bildirim: Bir ismin derleyiciye tanıtımı
+Kod içinde bir ismi kullanabilmemiz için derleyicinin compile time'da bu ismin neyin ismi olduğunu anlaması gerekiyor.
+
+1) İsim arama belirli bir sırayla yapılır (Curly Bracked, Name lookup)
+2) İsim arama aranan ismin bulunmasıyla biter ve bir daha başlamaz.
+
+Bir bildirimde ilk olarak yazılan değişkenin türünü anlatan sözcük.
+
+Initialization is not assignment! 
+---
+İlk değer verme atama değildir.
+int y = 5; // ilk değer verme
+y = 34; //assign - Atama (Bildirim yok, bu bir ifade)
+
+ 
+
+ 
 
 
 
