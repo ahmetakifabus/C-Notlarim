@@ -393,5 +393,10 @@ static int x=10;
 X'in static ömürlü bir değişken olduğunu ve hayata geldiğinde 10 değeriyle gelmesi gerektiğini anlatıyor.
 Static ömürlü olduğu için hayata 1 kez gelecek.
 
+Ders 5 (24.06.2021)
+---
+
+
+
 
 
