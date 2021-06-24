@@ -324,113 +324,74 @@ Initialization is not assignment!
 int y = 5; // ilk değer verme
 y = 34; //assign - Atama (Bildirim yok, bu bir ifade)
 
-1.55
- 
+Değişken ömrü
+---
+Statik ömürlü değişkenler ilk değer verilmeden tanımlandıklarında 0 ile başlarlar.
 
- 
+		1) Global değişkenler
+		2) Statik anahtar sözcüğüyle tanımlanmış yerel değişkenler
 
+		Otomatik ömürlüye değer vermezsen tanımsız davranış olur.
 
+		Defined behaviour->Tanımlanmış davranış->cevap belliyse
+		
+		Undefined behaviour->Tanımsız davranış >> 
+			
+			C standartları yazılan bi kodun çalışması durumunda ne olacağı durumuna behaviour terimi ile yaklaşıyor.
+			Yazdığın kodun çevrilmiş halinin runtime'da çalışması durumunda ne olacağının garantisi yok.
+			Undefined behaviour kesinlikle olmaması gerek.
 
+		Neden c, c++ 'ta böyle bir şey var?
 
+		1) c, c++ derleyicileri optimizing compiler olmaları.
 
+		Doğru çalışsa bile bir sonrakinde çalışma ihtimali yok.
+  Standartlar hangi kodların undefined behaviour olduğunu belirtiyor.
+		Otomatik ömürlüler ilk değer verilmezse garbage value ile başlarlar.
+		Garbage value olması tanımsız davranış değil ama garbage value'yu kullanmak tanımsız davranıştır.
 
+		- Otomatik ömür-- > Akış koda geldiğinde nesne hayata geliyor ve çıkınca çıkıyor.
+		- Statik ömür-- > Programın başından sonuna kadar nesne hayatta
+		- Dinamik ömür-- > Ne zaman istersek başlatıp bitirebiliyoruz
 
+		Otomatik-- > Yerel değişkenler  
+		Statik-- > Static ile tanımlanan yerel değişkenler ve Global değişkenler
 
+		Garbage Value-- > İndetermined Value 
+			Garbage value kullanmak undefined behaviour
 
 
+örnek
+---
+void func()
+{
+int x=10;
+printf(x);
+x+=10;
+}
 
+int main
+{
+func();
+func();
+func();
+}
 
+Açıklama
+---
+X otomatik ömürlü olduğu için program derleyip çalıştırıldığında x değeri hep 10 olarak yazdırılacak.
 
+x tanımlarken başına "static" anahtar sözcüğünü kullanırsam yerel değilken olacak fakat ömrü static ömür olacak ve her yazdırıldığında değeri 10 artacak.
 
+int x;
+x=10;
 
+Eğer bir atama olursa fonksiyıon her çağırıldığında bu kod yürütülecekti.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Ama bur bir bildirim -> 
+static int x=10;
+X'in static ömürlü bir değişken olduğunu ve hayata geldiğinde 10 değeriyle gelmesi gerektiğini anlatıyor.
+Static ömürlü olduğu için hayata 1 kez gelecek.
 
 
 
