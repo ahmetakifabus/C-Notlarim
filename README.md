@@ -396,6 +396,131 @@ Static ömürlü olduğu için hayata 1 kez gelecek.
 Ders 5 (24.06.2021)
 ---
 
+Defined behaviour -> Kodun nasıl çalışacağı dilin kurallarına göre bellidir. (Olması geren durum)
+
+Tanımsız davranış kullanırsak derleyiciye vermiş olduğumuz sözü çiğniyoruz.
+
+Unspecified Behaviour
+---
+Hata değildir. Kodu başka şekilde üretilebilir.
+
+Örnek
+---
+a= f1() + f2();
+Hangi fonksiyon daha önce çağırılacak? -> Unspecified behaviour.
+Bir derleyicide f1 önce diğerinde f2 önce olabilir.
+
+Derleyiciye güvenerek yazılmamalıdır, taşıyıcılık açısından sorun çıkarabiliyor.
+
+Garbage value Tam anlamı
+---
+X değişkeni tanımlandığında bellekte rastgele bir alan ayrılıyor. Fakat sen ilk değer atamazsan bu bellekte ayrılan yerdeki daha önceki bilgiler bizim tarafımızdan yazılmış gibi kabul edilecek. Fakat bu bilgiler biz yazmadık. Bu bir tanımsız davranıştır.
+
+Eğer static olarak tanımlarsak bellekteki ayırdığı yere 0 yazmışız gibi kabul ediyor bu yüzden undefined behaviour olmuyor.
+
+---
+Static ömürlü değişkenelere ilk değer veren ifaderler sabit ifadesi olmak zorunda. Bu otomatik ömürlüler için şart değildir. Şart değildir fakat tanımsız davranıştır çünkü çöp değeri direkt kullanıyoruz.
+int y=x;
+Bu hatalıdır. Sabit ifadesi değildir. Syntax hatası.
+
+örnekler
+---
+signed double x; -> Geçersiz (Gerçek sayı türleri için işaret anahtar sözcükleri kullanılmaz doğuştan işaretli olur)
+
+signed x; -> Geçerli (signed int x olur)
+
+int long unsigned x = 4; -> geçerli
+
+
+---
+Bildirim: İsmin ne olduğunu anlatan cümle.
+
+Eğer bir bildirim sonucunda derleyici bir yer ayırıyorsa o aynı zamanda bir tanımlamadır. Her bildirim bir tanımlama olmak orunda değil ama her tanımlama bir bildirim.
+
+
+İsimlerin Kapsamı
+---
+name lookup -> Derleyici compile time'da ismin neyin ismi olduğunu anlama süreci. İsim arama.
+
+Scope
+---
+Kaynak kodda bildirilen her isim Şu kapsam kategorilerindenbirine ait olmak zorunda.
+
+1) file scope (Dosya Kapsamı)
+2) Block scope (Blok kapsamı)
+3) Function prototype scope (Fonksiyon prototip kapsamı)
+4) Function Scope (Fonksiyon kapsamı)
+
+Örnek
+---
+int x;
+
+void func(void)
+{
+Static int y;
+}
+
+İkisi de static ömürlü fakat aralarındaki fark birisi dosya kapsamındadır diğeri blok kapsamındadır.
+
+Örnek
+---
+
+void func(void)
+{
+int x=10;
+static int y = 10;
+printf(x,y);
+x++;
+y++;
+}
+
+int main()
+{
+func();
+func();
+func();
+}
+
+
+x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon çağırıldığında 10 değerini alıyor. Ama y hayata 10 değeri ile geldi ve derğini değiştirdiğimizde hala hayatta.
+
+Ayrıca y ismi main fonk. içinde kullanılamaz. Bunun ömür ile değil kapsam ile alakası var.
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
