@@ -486,6 +486,9 @@ x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon �
 
 Ayrıca y ismi main fonk. içinde kullanılamaz. Bunun ömür ile değil kapsam ile alakası var.
 
+Ders 6 (24.06.2021) 23.16 
+---
+
 
 
 
