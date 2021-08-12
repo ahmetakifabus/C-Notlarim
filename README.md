@@ -486,8 +486,97 @@ x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon �
 
 Ayrıca y ismi main fonk. içinde kullanılamaz. Bunun ömür ile değil kapsam ile alakası var.
 
-Ders 6 (24.06.2021) 23.16 
+Ders 6 (12.08.2021) 10.00 
 ---
+
+int printf = 0;
+
+printf("tahsin onur");
+
+printf bir isim, derleyici bu ismi arayacak ve name lookup bitecek, sentaks hatasının nedeni int türden bir değişkenin isminin bir fonksiyon çağrı operatörünün operantı olması.
+
+Önişlemci programı, include komutunun bulunduğu yere başlık dosyasının içindeki bildirimleri yapıştırıyor.
+
+Printf -> Bu ismi standart kütüphanenin kullanması bunun bir isim olduğu gerçeğini değiştirmiyor.
+
+
+Fonksiyonlar
+---
+C'deki temel yapıtaşı. Bir işi yapan kod.
+
+1. Fonksiyonu tanımlamak (İşi yapmasını sağlayan c kodunu yazmak)
+2. Fonksiyonu çağırmalk (Bu noktada bu fonksiyon çalışsın)
+3. Fonksiyonu bildirmek (Fonksiyon hakkında deleyiciye bilgi vermek, ne olduğunu açıklamak)
+
+
+
+
+Çağrılan fonksiyonun çağıran fonksiyona değer iletmesinin C'de 3 tane yöntemi var.
+
+1. Geri dönüş değeri (Return value)
+2. Call by reference (Nesnenin adresini gönderiyor, geri dönüş değeri adrese yazılıyor)
+3. Global değişkene değer yazıp okumak
+
+Variyadik fonk. -> Değişken sayıda parametreye sahip fonksiyonlar. (Scanf)
+
+Fonksiyona geri dönüş değeri yazmazsan int yazfdın kabul eder hata vermez ama uyarı verir.
+
+Statement (Deyim)
+---
+Expression Statement (İfade Deyimi)
+Compound Statement (Bileşik Deyim)
+Null Statement (Boş Deytim)
+Control Statement (Kontrol Deyimi)
+
+z = 10; Expression Statement
+++a; Expression Statement
+
+Comtrol Statement (Küme Parantezi içine alınmış)
+
+Null Statement -> Noktalı virgülün öncesinde ifade olmadan kullanılması
+
+Copntrol Statement
+---
+En az bir anahtar sözcük içerir, Programın akışını kontrol eden deyimler.
+
+
+Return Deyimi
+---
+Geri dönüş değeri olmayanlar için ifadesiz return deyimi - return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
