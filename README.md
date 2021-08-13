@@ -544,6 +544,80 @@ Return Deyimi
 ---
 Geri dönüş değeri olmayanlar için ifadesiz return deyimi - return;
 
+Ders 7 (13.08.2021) 08.00
+---
+
+C'de bazı fonksiyonların geri dönüş değeri başarı bilgisidir. Aslında bazı fonksiyonlar bir işi yapmak için vardır. 
+
+Bazılarının geri dönüş değeri int ve başarı bilgisi, 
+0 -> başarı bilgisi
+non-zero -> başarısızlık bilgisi
+
+C99 standartlarına göre main fonksiyonunda return deyimi koymazsan return 0 yazmış kabul ediliyor.
+
+
+Fonksiyonun void olması geri dönüş değeri olmadığı anlamına geliyor fakat değer iletmediği anlamına gelmiyor. Adrese yazma yolu ile iletiyor olabilir.
+
+() -> Fonksiyon çağrı operatörü, function call operator
+
+Bir fonksiyon çağrı ifadesi ile neler yapılabilir?
+---
+
+max2(x,y) 	-> İfade
+max2(x,y);	-> Deyim (İfade Deyimi)
+
+Call by Value - Call by Reference
+---
+
+func(x);
+Eğer bu fonksiyon çağrısı karşılığı değişkenin değerini fonksiyonun parametre değişkenine kopyalıyorsa (Fonksiyonun parametre değişkeni, fonksiyon çağırıldığında x'in kendisi değil) 
+Nesnenin kendisini göndermiyor, kopyasını gönderip üzeirnde çalışıyor.
+
+Call by reference ise nesnenin direkt kendisini kllanıyor.
+
+C'de tüm fonksiyon çağrıları call by value dur.
+
+int main()
+{
+	int x= 10;
+	printf("x = %d\n", x);
+	foo(x);
+	printf("x = %d\n",x);
+}
+
+Burada x değeri ekrana 10 olarak yazdırılır çünkü fonksiyon çağrıları call by value olduğu için x değerini değiştiremez.
+
+Bir fonksiyon başka vbir fonksiyonun değişkjenine ancak adresi yolu ile erişebilir. Pointer denilen şeyin amacı da budur.
+
+Ders 8 (13.08.2021) 09.35
+---
+Standart C kütüphanesi nedir?
+---
+Dil tarafından derleyicilerin size sunulması garantşisi verilen hazırr bazı kodlar.
+
+Başlık dosylarında standart C fonksiyonlarının bildirimleri var, kodları değil (stdio.h)
+
+Bildirim -> bir ismin  ne anlama geldiğini anlatan C cğmleleri.
+
+Standartlar printf fonksiyonunun kodunu değil bildirimini (ne olduğunu) verir. Kodunu insanlar yazar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
