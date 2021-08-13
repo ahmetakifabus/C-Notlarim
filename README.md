@@ -601,8 +601,19 @@ Bildirim -> bir ismin  ne anlama geldiğini anlatan C cğmleleri.
 
 Standartlar printf fonksiyonunun kodunu değil bildirimini (ne olduğunu) verir. Kodunu insanlar yazar.
 
+Ders 9 (13.08.2021) 14.33
+---
+Karakter Sabitleri
+---
+C'de karakter sabitlerinin türü int türüdür.
+ASCII karakter kodlamasında büyük ve küçük harfler arasındaki fark 32 sayı bunun sebebi yazmayı kolaylaştırmak, büyük yerine küçük yazılması için 5. biti değiştirmek yeterli oluyor.
 
+Diziler söz konusu olduğunda dizilerin fonksiyonlara call by reference olarak gtirilebilir. Yani fonksiyona yazıyı göndermenin yolu, yazıyı tutan dizinin adresini göndermek.
+Yani printf fonksiyonunun parametresinin pointer olmasının sebebi bir yazının adresini istemesidir. Başındaki const anahtar sözcüğü de adresteki nesneyi salt okuma amaçlı erişeceğini göstermesidir. 
 
+%d int türden değerleri 10'luk sayı sisteminde 
+%x int-unsigned türden değerkeri 16'lık sistemde
+%ld long türden değerleri 10'luk sistemde
 
 
 
