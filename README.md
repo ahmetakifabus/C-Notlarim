@@ -657,10 +657,76 @@ Variyadik olma sebebi birden fazla değişkeni tek çağrı ile set edebilmek.
 
 scanf başarı garantisi olan bir fonksiyon değil, değişkeni set etmemiş olacak, çöp değeri ile kullanacak. Bu da bir tanımsız davranış. scanf geri dönüş değeri başarılı olup olmadığını anlatıyor. 
 
+Ders 10 (16.09.2021) 09.15
+---
+
+int scanf(const char* p, ...);
+
+1. parametreye gönedrdiğimiz yazı scanf fonksiyonu tarafından parse edilecek (ayrıştırılacak), oradaki formatlama dönüştürücülerinin ne olduğuna bağlı olarak gönderdiğimiz adreslerdeki değişkenler set edilecek. 
+
+Değişkenleri set eden fonksiyon olduğu içiçn call by reference biçiminde çağırılmalı. (Her zaman adres gönderiyoruz.)
+
+scanf geri dönüş değeri başarı ile set ettiği değişken sayısıdır.
+
+scanf("%d%d%d" , &x, &y, &z);
+
+Geri dönüş değeri kaç tane değer set ettiğidir.
+
+Operatörler
+---
+
+Her operatörün ürettii bir değer var. Operatörün ürettiği değer yapılan işlemin sonucu.
+Atama operatörün ile ürettiği bir değer var. 
+
+Birden fazla operatör olduğunda hangi operatörün ürettiği değer hangi operatörün operandı olacak? (Operatör önceliği)
+
+Bir ifadenin alt ifadelerinin hangisinin daha önce daçıklanacağı unspecified behaviour.
 
 
+int x = f1() + f2() * 5;
+
+Hangi fonksiyon daha önce çağırılacak?
+Operatör önceliği bir işlemin fiziksel olarak daha önce yapıldğı anlamına gelmiyor. 
+Operatör önceliği neyi belirliyor?
+Birden fazla operatör olduğunda hangi operatörün ürettiği değer hangi operatörün operandı olcağını belirliyor. (Çarpma operatörünün ürettiği değer toplama operatörünün sağ operandı olacak.)
+
+Hangisinin daha önce çağırılacağı unspecified behaviour. 
+
+Standartlar programlama dilini öğrenmek isteyenler için oluşturulan bir döküman değil. Dilin kurallarını anlatan belge. Derleyici yazanların uynması gereken kuralları anlatıyor.
 
 
+1. ()  []  .  ->
+2. +  -  !  sizeof  (type)  & * ++ --
+3. *  /  %
+4. +  -
+5. >>  <<
+6. >  >=  <  <=
+7. ==  !=
+8. &
+9. ^
+10. |
+11. &&
+12. ||
+13. ?  
+14. =  +=  -=  *=  /=  %=  ^=  |=  >>=  <<=
+15. ,
+
+
++x ve x yazmak arasında değer oarak bir farklılık yok, o zman neden +x yazılır?
+
+x ifadesinin değer kategorisi L value expression ama +x ifadesinin değer kategorisi R value expression.
+
+Yani ifadenin değerini değiştirmeden değer kategorisini değiştirmek istersen +x yap.
+
+Binler  x / 1000;
+Yuzler  x % 1000 / 100;
+Yuzler  x / 100 % 10;
+Onlar   x % 100 / 10;
+Birler  x % 10;
+
+++ operatörlerin operandları L value expression olmak zorunda. ++5 ifadesi sentaks hatası. Çünkü L value expression olmak zorunda. 
+
+Ön ek vay son ek kullanımındadki fark oepratörün ürettiği değerde.
 
 
 
