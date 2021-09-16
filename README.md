@@ -608,12 +608,56 @@ Karakter Sabitleri
 C'de karakter sabitlerinin türü int türüdür.
 ASCII karakter kodlamasında büyük ve küçük harfler arasındaki fark 32 sayı bunun sebebi yazmayı kolaylaştırmak, büyük yerine küçük yazılması için 5. biti değiştirmek yeterli oluyor.
 
+Karakter sabiti ve string sabiti farklı, string sabiti "" içnde yazılan yazılar.
+
+"adasd" 	String literal
+'aasd'  	Character constant
+
+Formatlama
+---
+Giriş ve çıkış yapılacak verinin insanın anlayacağı forma sokulması.
+
+printf, scanf, - Formattan geliyor.
+
+Output width -  
+Fill character - sağa veya sola dayalı.
+
+Fonksiyonda son parametre ... ise variadic function, çağıran tarafın dilediği kadar argnam gönderebilmesini sağlar.
+
+"%"  -  printf için bir alt dil oluşturulnuş. Karakterin formatlama bilgisini gönderiyor. 
+
+
+
+
 Diziler söz konusu olduğunda dizilerin fonksiyonlara call by reference olarak gtirilebilir. Yani fonksiyona yazıyı göndermenin yolu, yazıyı tutan dizinin adresini göndermek.
 Yani printf fonksiyonunun parametresinin pointer olmasının sebebi bir yazının adresini istemesidir. Başındaki const anahtar sözcüğü de adresteki nesneyi salt okuma amaçlı erişeceğini göstermesidir. 
 
 %d int türden değerleri 10'luk sayı sisteminde 
 %x int-unsigned türden değerkeri 16'lık sistemde
 %ld long türden değerleri 10'luk sistemde
+
+
+Örnek
+---
+int main()
+{
+	int = 987123;
+	
+	printf(%d, printf( %d, printf("%d , x")));
+}
+
+printf geri dönüş değeri ekrana yazdırdığı kadarkter sayısı olduğu için ekrana yazılan değer 98712361 olur.
+
+scanf (const char *p, ...)
+---
+
+Call by reference olmak zorunda, hangi değişkeni set etmek istiyorsan o değişkenin adresine gönderiliyor. 
+
+Variyadik olma sebebi birden fazla değişkeni tek çağrı ile set edebilmek.
+
+scanf başarı garantisi olan bir fonksiyon değil, değişkeni set etmemiş olacak, çöp değeri ile kullanacak. Bu da bir tanımsız davranış. scanf geri dönüş değeri başarılı olup olmadığını anlatıyor. 
+
+
 
 
 
