@@ -694,7 +694,8 @@ Hangisinin daha önce çağırılacağı unspecified behaviour.
 
 Standartlar programlama dilini öğrenmek isteyenler için oluşturulan bir döküman değil. Dilin kurallarını anlatan belge. Derleyici yazanların uynması gereken kuralları anlatıyor.
 
-
+Operatör Tablosu
+---
 1. ()  []  .  ->
 2. +  -  !  sizeof  (type)  & * ++ --
 3. *  /  %
@@ -727,6 +728,131 @@ Birler  x % 10;
 ++ operatörlerin operandları L value expression olmak zorunda. ++5 ifadesi sentaks hatası. Çünkü L value expression olmak zorunda. 
 
 Ön ek vay son ek kullanımındadki fark oepratörün ürettiği değerde.
+
+Atama operatörünün ürettiği değer nesneye atanan değerdir.
+
+
+Örnek:
+---
+int x, y, z, t;
+
+printf("4 sayi giriniz: ");
+scanf("%d%d%d%d", &x, &y, &z, &t);
+
+int pos_count = (x > 0) + (y > 0) + (z > 0) + (t > 0);
+
+printf("%d tanesi 0'dan büyük\n", pos_count);
+
+Karşılaştırma operatörlerinin ürettiği değer 1 veya 0 olduğu için bu örnekte yazdırılan sonuç pozitif sayı sayısı olur. 
+
+Ders 12 (17.09.2021) 13.56
+---
+
+min += sec / 60;
+sec %= 60;
+hour += min / 60;
+min %= %60;
+day += hour / 24;
+hour %= 24;
+
+Virgül operatörü
+---
+Sequence point (Yan etki noktası)
+
+++x; 
+X'in değeri ne zaman değişecek. Bu kodsal noktalara sequence point deniliyor. 
+
+Bir yan etki noktasından önce yan etkiy emaruz kalmış nesneyi tekrar kullanırsak tanımsız davranış oluşur. 
+
+yani: 
+y = x++ + x; Undefined behaviour
+
+yada :
+
+int x = 10;
+int y = (x = 7) + x;
+
+Yan etkiye maruz kalmış (x = 7) ama aynı ifade içinde sequence point geçmeden bu değer kullanılmış. Undefined behaviour.
+
+Diğer dillerde tanımsız davranıl yok fakat neden C'de var? Diğer dillerde bu kadar kod optimizasyonu olmadığı için. Derleyici diyor ki, ben kodu öyle bir şekilde derleyecem ki verimli çalışacak, fakat tanımsız davranış olmama koşulunu istiyor. Çünkü optimizasyon yaparken tanmımksız davarnış olmadığına güvenerek yağpıyor. 
+
+
+Virgül operatörünün sol oeprandından sonra bir yan etki noktası olması özelliği ne anlama geliyor?
+
+++a;
+++b;
+++c;
+
+++a, ++b, ++c;
+
+Yazmak arasında hiçbir farkl yok. Yani ifade deyimleri virgül operatörü ile birleştirilebilir.
+
+Her operatör bir değer üretir, virgül operatörü de bir değer üretir. Virgül operatörünün ürettiği değer sağ operandın değeridir.
+
+Örnek:
+int a, b = 10, c = 20;
+a = (b , c);
+
+Parantez içi ifadenin değeri 20. Yani a'ya atanan değer 20.
+
+return ++g , x;
+Önce g değeri arttırılacak sonra x değeri geridönüş değeri olacak.
+
+5.6 ifadesinin değeri 5.6
+5,6 ifadesinin değeri 6
+
+int a[10] = {(0,1,2,3,4,5,6,7,8,9)}
+
+a dizisi = (0,0,0,0,0,0,0,0,0,9)
+
+int x = 1'000'000;
+int y = 1'000'000;
+double dval = 3.5;
+
+printf("%f\n", x * y * dval);
+// burada (x*y) çarpma operatörünün sol operandı olacak ve işlem int türünden gerçekleşecek
+
+printf("%f\n", dval * x * y); 
+// Fakat burada işlem double türünden gerçekleşecek. Doğru değer budur.
+
+Bu iki işlemin sonucu aynı değil.
+
+Örnek
+---
+Armstrong sayıları
+
+
+for (int i = 100, i < 1000; ++i)
+{
+int d1 = i / 100;
+int d2 = i / 10 % 10;
+int d3 = i % 10;
+	if(i == d1 * d1 * d1 + d2 * d2 * d2 +  d3 * d3 * d3)
+	{
+	printf("%d\n" , i);
+	}
+}
+
+Not:
+---
+
+int func(void)
+{
+printf("func cagildi\n");
+return 0;
+}
+
+int main()
+{
+if(func)
+	{
+	printf("evet dogru\n");
+	}
+}
+
+Burada if içine girecek çünkü fonksiyon isimleri fonksiyonun adresine dönüştürülüyor ve bu adresler lojik doğru olarak yorumlanıyor. (Always true)
+
+
 
 
 
