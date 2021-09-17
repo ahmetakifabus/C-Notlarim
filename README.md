@@ -852,14 +852,34 @@ if(func)
 
 Burada if içine girecek çünkü fonksiyon isimleri fonksiyonun adresine dönüştürülüyor ve bu adresler lojik doğru olarak yorumlanıyor. (Always true)
 
+Ders 13 (17.09.2021) 16.58
+---
+int x = 5;
 
+if (x=3);
+	printf("dogru\n");
+	
+if sonundaki noktalı virgül aslında if'in doğru kısmını oluşturuyor. Bu yüzden printf çalışır.
 
+Boş deyim yazılabilen her yere boş blok ta yazılabilir {}
 
+Örnek
+---
+Noktalı virgül kullanmadan merhaba dunya yaz.
 
+if (printf("merhaba dunya\n"))
+  {}
 
+while (!printf("merhaba dunya\n"))
 
+getchar, putchar
+---
+printf ve scanf formatlı giriş çıkış fonksiyonları. Formatsız olan karakter bazında giriş çıkış yapan fonksiyonlar var.
 
+int getchar(void);
+int putchar(int);
 
+1.03
 
 
 
