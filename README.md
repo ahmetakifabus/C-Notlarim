@@ -876,10 +876,51 @@ getchar, putchar
 ---
 printf ve scanf formatlı giriş çıkış fonksiyonları. Formatsız olan karakter bazında giriş çıkış yapan fonksiyonlar var.
 
-int getchar(void);
+int getchar(void);  Standart inputun bufferındaki tam sayı değerini okuyor.
+
 int putchar(int);
 
-1.03
+
+Örnek:
+---
+int c1, c2, c3;
+int x;
+printf("bir giris yapin");
+
+c1 = getchar();
+c2 = getchar();
+c3 = getchar();
+
+printf("%d %d %d\n", c1, c2, c3);
+scanf("x = %d\n", &x);
+
+abc345 yazdığında 97 98 99 yazacak. (harflerin karşılığı) Ve 345 standart input buffer'ında durmaya devam edecek.
+
+Çağırılan getchar fonksiyonları acb'yi standart inputun buffer'ından çıkartacak ve sıra scanf e geldiğinde standart inputun bufferında abc olmadığı için 345 alacak.
+
+Yani scanf ve getchar aynı buffer ı kullanıyor.
+
+while ((c = getchar() != '\n')
+
+=>> standart inputun bufferından new line gelene kadar tüm karakterleri alır.
+
+Standart inputun bufferındaki karakterleri tek tek almak istediğiniz yer yerde kullanabilirsiniz.
+
+int _getch(void); // line buffered değil echo vermiyor.
+int _getche(void); // line buffered değil echo veriyor.
+
+getchar std newline istiyor echo veriyor
+getch   std değil newline istemiyor echo vermiyor
+getche  std değil newline istemiyor echo veriyor.
+
+1.53
+
+
+
+
+
+
+
 
 
 
