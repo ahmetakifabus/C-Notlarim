@@ -913,72 +913,129 @@ getchar std newline istiyor echo veriyor
 getch   std değil newline istemiyor echo vermiyor
 getche  std değil newline istemiyor echo veriyor.
 
-1.53
+int putchar(int);
+Standart outputa hangi karakter basılmışsa aynı değeri gönderiyor. Hata olması durumunda -1 değeri gönderiyor. Sadece karakter görüntüsü yazıyor.
 
+Bazı fonksiyonlar - ctype
+---
 
+int isupper(int c;)
+Büyük harf karakteri mi?
+Büyük harf ise nonzero, değilse 0.
 
+int islower(int c;)
+Küçük harf mi?
 
+int isalpha(int c;)
+Harf karakteri mi?
 
+int isdigit(int c;)
+Rakam karakte mi?
 
+int isalnum(int c;)
+Alpha numeric karakter mi?
 
+int isxdigit(int c;)
+Hexadecimalde basamak gösteren karakter mi?
 
 
+int isspace(int c;)
+Whitespace karakter mi?
+'\n' ' '  '\t'  '\V' '\f' '\r'
 
 
+int ispunct(int c;)
+Görüntüsü var ama harf ya da rakam değil.
 
+int isprint(int c;)
+Görüntüsü olan karakter. ' ' Boşluk karakteri dahil
 
+int isgraph(int c;) 
+' ' Boşluk dahil değil
 
+int isblank(int c;)
+Boşluk veya tab karakteri mi?
 
 
+int iscntrl(int c;)
+Görüntüsü olmayan karakterler
 
+Ders 14 (18.09.2021) 15.00
+---
 
+int toupper(int);
+Büyül harfe dönüşü yapan fonksiyon
+Küçük harf karakteri olmayan bir sayıyı gönderirsem aynı sayıyı geri döndürüyor.
 
+int tolower(int)
+Küçük harften büyük harfe dönüşüm yapan fonksiyon.
 
+Ternary operatörü (Koşul)
+---
+op1 ? op2 : op3
 
+m = a > b ? a : b * 5;
 
+a, b'den büyükse m'ni değeri a, büyük değilse m'nin değeri b * 5 ifadesi.
 
+isleap(y) ? 29 : 28;
 
+y artık yıl ise değeri 29 aksi halde 28.
 
 
+Örnek:
+---
+int x;
+int a;
 
+printf("Bir tam sayi girin: ");
+scanf("%d", &a);
 
+if (a == 5)
+	x = 7;
+else if (a == 9)
+	x = 27;
+else if (a == 27)
+	x = 19;
+else
+	x = -1;
+	
+printf ("x = %d\n" , x);
 
+Bunu yazmak yarine şunu da yazabiliriz:
 
+x = a == 5 ? 7 :
+a == 9 ? 13 :
+a == 27 ? 19 : -1
 
+printf ("x = %d\n" , x);
 
+şöyle de yazılabilir:
 
+x = a == 5 ? 7 : (a == 9 ? 13 : (a == 27 ? 19 : -1));
 
 
 
+Expression	c	c++
+---
+++x		R	L
+--x		R	L
+x,y		R	L
+a > 10 ? x : y	R	L
+x++		R	R
+x--		R	R
 
 
 
+Loop Statements (Döngü Deyimleri)
+---
+Bir kod parçasının bir koşula bağlı olarak yinelenmesinmi sağlayan kontrol deyimleri.
 
+while 
+do while
+for
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
+Yardımcı deyimler: break, continue
 
 
 
