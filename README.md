@@ -1037,6 +1037,227 @@ for
 
 Yardımcı deyimler: break, continue
 
+Ders 15 (18.09.2021) 21.35
+---
+Maximum munch kuralı: En uzun atom
+- Tokenizing ile ilgili bir kural.
+- Tokenizing yaparken en uzun atomu alıyor.
+
+int x = 5;
+int y = 9;
+int z = x+++y;
+
+printf("x = %d\n", x);
+printf("y = %d\n", y);
+printf("z = %d\n", z);
+
+6,9,14 çıktı.
+
+ctrl L -> satırı sil
+ctrl D -> Satırı kopyala yapıştır aşağıya
+shift + alt -> dikey seç
+
+for statement
+---
+for(;;)
+
+- İlk aralıkta herhangi bir ifade olmak zorunda değil. Föngü öncesine yazılabilir.
+- 3. ifadeyi silersem döngü sonuna yazarsam herhangi bir anlam farklılığı olmayacak.
+- 2. ifadeyi yazmazsan oraya lojik doğru ifadesi yazmış olursun.
+
+Ders 16 (19.09.2021) 08.53
+---
+- Tekrar edin
+- Kodları yeniden yaszın
+- Ödev sorularını yapmaya çalışın
+- Programlamaya ilişkin klasik kaynakları okumaya başlayın
+- stackoverflow sitesinde C ile ilgili soruları cevapları okuyun
+- quoura'da C ile ilgili yazan yazıları takip edin
+- hackerrank sitesine gir
+
+int factorial(int n)
+{
+	return n < 2 ? 1 : n * factorial(n - 1);
+}
+
+
+Ders 17 (19.09.2021) 10.42
+---
+
+Fonksiyon bildirimleri
+---
+
+void func(int x);
+
+Program akışının runtime da bu fonksiyonun koduna gitmesi için gerekli kodları derleyici üretiyor. Fonksiyona giriş kodları.
+Ve çıkış kodlarını da üretiyor. 
+Araya da referans bir isim yazıyor (external reference)
+
+Derleyici hiçbir şey atamıyor, derleyici sadece makina kodu üretiyor. Yani fonksiyonun geri dönüş değerinin bir adrese yazılacağını biliyor ve oraya yazacak şekilde bir kod üretiyor.
+
+int func(int x, int y);
+int foo(int x);
+double f(void);
+
+int main()
+{
+int x = func(10,20);
+int y = foo(x);
+double d = f();
+}
+
+
+Linker bu fonksiyonların derlenmiş halini arayacak ve bulamayınca hata verecek yani hatayı linlker veriyor.
+
+Bağlayıcı programın kaynak kod ile bir ilgisi yok, derlenmiş kod ile çalışıyor. Linker çalıştırılacak kodları birleştiriyor. Derleyici fonksiyonun geri dönüş değerinin nereye yazılacağını belirliyor ve kodu ona göre üretiyor. 
+
+
+Önişlemci komutlarının yazılması programı yavaşlatmaz çünkü içinde sadece bildirimler var.
+
+Derleyicide stdio.h 'da bildirilen fonksiyonların tanımları değil onların derlenmiş halleri var bunlara obje dosyalar deniliyor.
+
+Ders 18 (19.09.2021) 14.31
+---
+
+Önişlemci komutları
+---
+- Derleyicidn önce çalışan ayrı bir program.
+- Girdisi kaynak dosya çıktısı derleyicinin girdisi. (Translation unit)
+
+#include
+#define
+#undef
+#if
+#else
+#elif
+#endif
+#ifdef
+#ifndef
+#line
+#error
+#pragma
+
+
+Koşullu derleme bloğu
+
+#ifndef 
+-
+-
+#endif
+
+#define önişlemci komutu
+---
+- Bir isim önişlemci programa tanıtılması.
+- Buna macro denir.
+- #define	MAX 	100
+- Max gördüğün her yerde 100 yazıyor.
+
+Macro kullanma amacaı
+---
+Macro yerine neden bir değişken  tanımlamıyoruz?
+- Bunlar farklı araçlar. Değişkenler bellekte bir yer kaplayacak fakat macroda makina kodunun bir parçası haline geliyor. 
+
+Ders 19 (19.09.2021) 15.54
+---
+Fonksiyonel makrolar
+---
+#define sum_square(a,b)		((a) * (a) + (b) * (b))
+
+int main()
+{
+int x, y;
+printf("iki tam sayi girin");
+scanf("%d%d", &x, &y);
+
+z = sum_square(x,y);
+}
+
+
+Fonksiyonel makrolar ve foksiyonların karşılaştırılamsı
+---
+- Makrolar kaynak kodu büyütme eğiliminde
+- Programın hızlı çalışmasıyla derlenmiş kodun büyüklüğü arasında doğrudan bir ilişki yok. Daha hızlı çalışan bir kod olabilir fakat makina kodu daha fazla yer kaplıyor olabilir.
+- Makronun hızlandırma nedeni fonksşyona girii ve çıkış kodları olmuyor.
+- Makrolar türden bağımsız.
+- Makro kullanımı durumunda debugger desteği daha az olablir.
+- Makrolarda kodlama hatası rüski daha yüksek.
+- Fonksiyonlar türe bağlı
+- Fonksiyıon adresi kullanılan temalarda makrolar kullanılamaz (Callback function)
+
+Preprocessor Operators
+---
+#operatörü		String yapma operatörü (Stringification)
+##operatörü		Atom yapıştırma operatörü (Token pasting)	
+defined operatörü
+
+#x = "x"
+
+Örnek:
+---
+
+#define 	iprint(x)	printf("%d\n", x)
+
+int main()
+{
+int a = 10;
+int b = 7;
+int c = 21;
+
+iprint(a);
+iprint(a + b);
+iprint(a * a +  b * b + c * c);
+
+}
+
+## operatörü
+
+(a##b) = ab
+
+Örnek:
+---
+
+define uni(a,b)		a##b
+
+int main()
+{
+int counter = 0;
+uni(co, unter) = 20;
+//counter = 20;
+}
+
+2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
