@@ -1421,7 +1421,41 @@ int rand(void);
 
 void srand();
 
-1.26
+Zar örnek
+---
+for(;;){
+printf("%d%d\n", rand() % 6 + 1, rand() % 6 + 1);
+_getch();
+}
+
+
+Program baştan başladığında zarlar hep aynı gelecek. 
+
+Farklı bir zincir oluşturmak için:
+Gerçek rastgele sayı üreticisi kullan. get_true_random_number(void);
+
+Böyle bir fonksiyon yoksa:
+
+Calender time:
+<time.h> başlık dosyasındaki 
+time_t time(time_t *ptr); fonksiyonu
+
+Null pointer ile çağırırsan dönüş değeri epoktan(01.01.1970 00:00) (unix işletim sisteminin doğum tarihi )geçen saniye sayısını döndürecek.
+
+for(;;){
+printf("%ld\r", time(NULL));
+
+
+int main()
+{
+srand((unsigned)time(NULL));
+for (int i = 0; i < 10; ++i){
+	printf("%d", rand());
+}
+}
+Her seferinde farklı değer verecek çünkü doğum yerleri farklı.
+
+
 
 
 
