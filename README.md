@@ -1225,7 +1225,218 @@ uni(co, unter) = 20;
 //counter = 20;
 }
 
-2.
+
+Conditional Compiling
+---
+Koşullu derleme
+
+undef
+if
+else
+elif
+endif
+ifdef
+ifndef
+
+
+
+#if NEC > 1000
+
+#endif
+
+
+Ders 20 (20.09.2021) 06.45
+---
+
+ifdef : if defined
+---
+Makro define edildiyse önişlemci ifdef içine girecek.
+
+ifndef: if not defined
+---
+Önişlemcinin kod bloğuna girmesi için makronun tanımlanmamış olması gerekiyor.
+
+if defined EMRAH !defined FURKAN
+	int a[1200];
+endif
+
+Multiple Inclusion Guard
+---
+#ifndef NUTILITY_H  // #pragma once (standart değill)
+#define NUTILITY_H
+
+struct Data {
+	int a,b,c;
+};
+#endif
+
+
+
+Değişken isimleri programın çalışma zamanında bellekte yer kaplamaz. Varlıklara verilen isimler bizimle derleyici arasında bir iletişim yolu. Ürettiği kod olarak bakarsak bu nesneler aslında bellekteki bloklar. Derleyici kod üretirken adresleri kullanıyor. Yani değişken isimleri programın çalışma zamanında bellekte bir yer kaplamıyor.
+
+
+
+Stdio include edince program yavaşlamıyor mu?
+---
+Hayır çünkü başlık dosyaları içinde tanımlamalar yok bildirimler var. Derleyici bunları sadece derleme zamanında kullanıyor.
+
+
+#undef NEC 
+- nec makrosu tanımlanmamış kabul edilecek (Daha önce tanımlanmış olsa bile)
+
+
+Örnek:
+---
+#define		SIZE	100
+
+#define 	SIZE	500
+
+//tanımsız davranış
+Bir makronun farklı iki şekilde define edilmesi.
+- Var olmayan bir makroyu undef etmek tanımsız bir davranış değil. Önlem almak için yapılabilir.
+- Önişlemci için scope kavramı yok, bu kavram derleyici ile ilgili.
+
+Dil tarafından tanımlanmış makrolar (Define edilmese bile)
+---
+- __LINE__ Satır numarası ile yer değiştirecek.
+- __FILE__ Hangi kaynak dosya içerisinde kullanılmışsa o kaynak dosyanın ismi olan string ile yer değiştiriyor.
+- __DATE__ Derleme yapılan tarih ile yer değiştirecek
+- __TIME__ Saat ile değiştirecek.
+- __STDC__ Bir yer değiştirme makrosu değil. C derleyicisi ise iş yapılması için kullanılıyor.
+- __func__ fonksiyonun ismi ile yer değiştiriyor.
+
+
+Ders 21 (20.09.2021) 
+---
+'A' C'de karakter sabitlerinin türü int
+
+swith(integer expr){
+case 1:
+	statement1;
+case 2:
+	statement 2:
+}
+
+Ders 22 (20.09.2021) 15.01
+---
+Derleyicilerin "kodların bağlanması için" linker programınba hitaben obje kod içine (özel bir notasyonla) yazdığı isimlere "external reference" denir.
+
+Kaynak kodu olmayan bir fonksiyonu çağırdığınız zaman sentaks hatası almazsınız, ama link aşamasında hata alırsınız.
+
+Tür dönüşümleri
+---
+
+int main()
+{
+int x = -1;
+unsigned int y = 1;
+
+if(x > y)
+	printf("dogru"\n);
+else 
+	printf("yanlis\n");
+}
+
+çıktısı: dogru
+
+
+Operandlardan biri:
+
+unsigned short
+signed short
+unsigned char
+signed char
+char
+_Bool
+
+Bu türlerden biriyse (int altı türler) doğrudan int türüne yükseltiliyor.
+
+- Büyüklük sıralaması:
+unsigned long long
+signed long long
+unsigned long
+signed long
+unsigned int
+signed int
+
+
+long double > double > float > long long > long > int
+
+a + b
+
+operandların ranklari farklı ise işlem daha yüksek rank ile yapıalcak.
+
+aynı türün rank aynı türleri farklı ise (unsigned ve signed) tür dönüşümü işaretsiz yöne yapılacak
+
+ival + uval işlemi unsigned türde yapılacak.
+
+
+unsigned int x;  //4 byte
+signed long y;	 //4 byte
+
+x + y; 
+Burada eğer işaretsiz türün tutabileceği tüm değerler işaretli türde tutulabiliyorsa işlem işaretli türde yapılacak.
+
+
+char c1 = 10;
+char c2 = 20;
+
+c1 + c2 
+cevap int türünden yazılır.
+
+
+- Rankler aynı işaretler de aynı ise işlem yüksek rank'te yapılıyor.
+- Rankler farklı büyük rank işaretsiz ise işlem yüksek rank'te yapılıyor.
+- Rankler farklı büyük rank işaretli ise işlem ya yüksek rank'te ya da yüksek rankın işaretsiz olanında yapılıyor.
+
+Tam sayi türlerinde taşma tanımsız davranıştır.
+
+- İşaretsiz türlerde taşma yoktur. Tüm işlemler modüler aritmetiğe göre yapılır.
+
+
+Atama Tür Dönüşümleri
+---
+
+int x;
+x= expr;
+
+expr hangi türden olursa olsun tür dönüşümü kendisine atama yapılan nesnenin int türüne yapılacak.
+
+type cast operator (Tür değiştirme peratörü)
+---
+Bir ifadenin kendi türünden değil başka türdenmiş gibi işleme sokulmasını talep ediyoruz.
+
+- (int)dval
+- double dval = (double)x / y;
+
+Tür dönüştürme operatörü kalıcı değil.
+
+Ders 23 (20.09.2021) 17.35
+---
+
+Rastgele sayı üretimi
+---
+int rand(void); 
+0 - RAND_MAX arası rastgele sayı
+
+void srand();
+
+1.26
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
