@@ -1626,7 +1626,7 @@ int main()
 //	-2 işaretsiz int türüne dönüştürüldüğünde int değerinde en byükten 
 //	bir küçük sayıya dönüşüyor ve koşul yanlış oluyor döngüden çıkıyor.
 
-![image](https://user-images.githubusercontent.com/75746171/134195899-c71afa2c-0c28-4486-b0ea-e6e2b701d0e9.png)
+
 
 
 
