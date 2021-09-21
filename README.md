@@ -1507,6 +1507,35 @@ a yazmak ile &a[0] yazmak arasında bir fark yok.
 Ders 25 (21.09.2021) 14.10
 ---
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+
+int random_char(void)
+{
+	int c;
+
+	while (!isalnum(c = rand() % 128))
+		;
+	return c;
+}
+
+void print_random_password(void)
+{
+	int len = rand() % 5 + 6;
+	for (int i = 0; i < len; ++i)
+		putchar(random_char());
+}
+
+int main()
+{
+	randomize();
+	print_random_password();
+}
+
+- Kod bu haldeyken hep aynı rastgele parolayı üretiyor.
+- 
 
 
 Dizilere ilk değer verilmesi
@@ -1520,7 +1549,83 @@ int a[20] = { [5] = 67, [3] = 45, [1] = 11 };
 
  a[i] = i[a] (Pointerlar ile ilgili bir kural)
  
+ Sizeof OPeratörü
+ ---
+ - C'de anahtar sözcük ile ifade edilen tek operatör.
+ - Bir sabit ifadesi oluşturuyor.
+ - Bir türün storage ihtiyacının kaç byte olduğunu hesaplıyor
+ - Elde edilen değer bir tam sayı değeri ve bu değer bir türün bellekte kaç byte yere ihtiyacı olduğu değere eşit.
+ - Ürettiği değer işaretsiz bir tam sayı türü. (Derleyiciye göre değişir.)
  
+- sizeof (int), Bunun değer sistemdeki int türü için gerekli olan storage ihtiyacı
+- int a[sizeof(double)] = { 0 }; // Hata değil çünkü ifade bir sabit ifadesi.
+
+ char c = 1;
+ 
+ sizeof c ==== 1
+ sizeof +c === 4 (integer'a yükseltiliyor)
+ 
+ int main()
+{
+	int x = 10;
+
+	printf("%zu\n", sizeof(++x));
+	printf("%d\n", x);
+}
+// Çıktılar 4 ve 10
+
+- Bazı durumlarda bir ifadedeki işlemler için derleyici işlem kodu üretmiyor.
+- Yani sizeof(++x). sizeof oepratörünün operandı olan bir ifade için derleyici işlem kodu üretmiyor. Sadece tür bilgisi olarak bakıyor.
+- sizeof içine bir fonksiyon yazdığın zaman da fonksiyon çağrılmayacak.
+
+Örnek:
+---
+#include <stdio.h>
+
+int main()
+{
+	char buf[200];
+	int a[50];
+	double da[20];
+
+	printf("sizeof(buf)= %zu\n", sizeof(buf));	//200
+	printf("sizeof(a)= %zu\n", sizeof(a));		//200
+	printf("sizeof(da)= %zu\n", sizeof(da));	//160
+	
+	sizeof(a) / sizeof(a[0]); // Dizide kaç eleman olduğunu hesaplar.
+	//Dizinin toplam kaç byte yer kapladığını buldu ve dizinin 1 elamanının sizeof
+	//unu buldu ve böldü
+}
+
+Örnek
+---
+#include <stdio.h>
+
+int main()
+{
+	int a[] = { 2, 5, 7,1,34,6,9,44,678,123,45 };
+
+	for (int i = 0; i < sizeof(a) / sizeof(a[0]); ++i)
+		printf("%d", a[i]);
+}	// derleyici compile time da 11 değerini elde edecek.
+	// dizi değişse bile döngü sayısı aynı
+
+ Örnek:
+ ---
+ #include <stdio.h>
+
+int main()
+{
+	int a[5] = { 0, 1,2,3,4 };
+
+	for (int i = -2; i < (sizeof(a) / sizeof(a[0])); ++i)
+		printf("%d", a[i + 2]);
+	
+}
+//	sizeof(a) unsigned int değer
+//	< operandının sol operandı işaretli int sağ tarafı işaretsiz int
+//	-2 işaretsiz int türüne dönüştürüldüğünde int değerinde en byükten 
+//	bir küçük sayıya dönüşüyor ve koşul yanlış oluyor döngüden çıkıyor.
 
 
 
