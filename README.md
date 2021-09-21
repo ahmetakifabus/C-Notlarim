@@ -1509,6 +1509,19 @@ Ders 25 (21.09.2021) 14.10
 
 
 
+Dizilere ilk değer verilmesi
+---
+- Dizi boyutunu yazmak zorunda değilim.
+
+int a[20] = { [5] = 67, [3] = 45, [1] = 11 };
+
+- Burada değer verilmeyen elemanlar 0 değeri ile başlıyor.
+- a'nın içi boş ise dizinin boyutu da 6 olur.
+
+ a[i] = i[a] (Pointerlar ile ilgili bir kural)
+ 
+ 
+
 
 
 
