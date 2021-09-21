@@ -1455,6 +1455,60 @@ for (int i = 0; i < 10; ++i){
 }
 Her seferinde farklı değer verecek çünkü doğum yerleri farklı.
 
+Ders 24 (21.09.2021) 11.02
+---
+Dizinin max elemanını bul..
+
+int a[SIZE];
+
+int max = a[0];
+
+for (int i = 1; i < SIZE; ++i){
+	if (a[i] > max)
+		max = a[i];
+}
+
+Veri yapıları (Data Structure)
+---
+Birçok problemde bizim verilerimiz var. Bu verrileri işleme sokabilmek için bellekte tutmalıyız. Bunların bellekte nasıl tutulduğu bilgisine veri yapısı deniliyor.
+
+- Arrays
+- Heap
+- Hash Table
+- Graphs
+- Heap
+- Trees
+- Linked Lists
+- Deque
+
+Diziler 
+---
+C'de dizilerde ekleme silme işlemi yok.
+
+[] index operatörü. Operatör öncelik tablosunda 1. sırada.
+
+
+int a[100];
+int x,y,z,t;
+
+Aralarındaki fark derleyici dizi için tek bir bellek bloğu ayırıyor. diğerinde ise ardışık olmak zorunda değil, derleyiciye bağlı.
+
+- [] operatörü ile oluşturulan ifadeler her zaman L value expression.
+- Dizi isimleri hiçbir zaman atama operatörnün sol tarafında olamaz.
+
+- Bir dizi ismi bir ifade içide kullanıldığında (Bir iki istisna haricinde) her zaman dizinin ilk elemanının adresine dönüştürülür.
+
+Yani:
+
+int a[10];
+
+a yazmak ile &a[0] yazmak arasında bir fark yok.
+
+Ders 25 (21.09.2021) 14.10
+---
+
+
+
 
 
 
