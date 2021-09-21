@@ -1568,7 +1568,6 @@ int a[20] = { [5] = 67, [3] = 45, [1] = 11 };
  int main()
 {
 	int x = 10;
-
 	printf("%zu\n", sizeof(++x));
 	printf("%d\n", x);
 }
