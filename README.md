@@ -1627,63 +1627,70 @@ int main()
 //	bir küçük sayıya dönüşüyor ve koşul yanlış oluyor döngüden çıkıyor.
 
 
+Ders 26 (23.09.2021) 14.22
+---
+![image](https://user-images.githubusercontent.com/75746171/134501785-d080463b-818d-40f3-8392-78d7f50377ad.png)
+
+Koşul operatörünün 2. ve 3. operandları arasında da tür dönüşşümü söz konusu yani içerdeki ifade double türünden, çıktı olarak 8 alırız.
+
+![image](https://user-images.githubusercontent.com/75746171/134502026-5988a770-52c1-4e45-9a1d-e30669853732.png)
+
+C ifadesinin türü char fakat +c ifadesi ile int dönüşümü oluyor. Çıktı olarak 4 alrıız.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/134502795-4351cf59-3668-4a24-84c5-49faef0cd81b.png)
+
+Bir rastgele dizideki unique elemanları yazdıran kod.
+
+Subsequence
+---
+Bir dizinin içinde ardışık n tane elemanın oluşturduğu dizi.
+
+Örnek
+---
+
+![image](https://user-images.githubusercontent.com/75746171/134504065-8bf4ca57-1a41-4c5e-8cfb-875de787c4e4.png)
+
+Çıktısı:
+
+![image](https://user-images.githubusercontent.com/75746171/134504134-4f1889c3-92ce-4a83-8639-048b71926dc1.png)
+
+Farklı bir yazılış biçimi:
+
+![image](https://user-images.githubusercontent.com/75746171/134504250-10de6e7e-2a19-43b6-a498-c9b283f78e4d.png)
+
+Örnek:
+---
+Küçükten büyüğe sıralama yap
+
+![image](https://user-images.githubusercontent.com/75746171/134508490-5803ab6a-db40-4004-b8c4-4fb374a6ab1b.png)
+
+Örnek:
+Tekler başta ve kendi içinde sıralı
+Çiftler başta ve kendi içinde sıralı
+
+![image](https://user-images.githubusercontent.com/75746171/134509248-14cdf1e4-46e2-452f-8795-3c565b890a2d.png)
+
+Ekran çıktısı: 
+![image](https://user-images.githubusercontent.com/75746171/134509365-114818eb-a11c-4d9d-ab20-81a35cd80761.png)
 
 
+Örnek:
+---
 
+2 diziyi birleştirme sıralı şekilde
 
+![image](https://user-images.githubusercontent.com/75746171/134511229-aa59d925-bd43-45ad-b740-86957d17b234.png)
 
+2 dizinin elamanlarını karşılaştırıp küçük olanı al ve indeksini 1 arttır.
 
+Binary search algoritması
+---
 
+Sıralı bir veri yapısında bir değer aramaya yönelik. Aradığım değerden büyük mü küçük mü? Buna dayanarak eleme yapıyor.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1.46
 
 
 
