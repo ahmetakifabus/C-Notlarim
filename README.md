@@ -1827,17 +1827,22 @@ Ders 28 (29.09.2021) 22.31
 ![image](https://user-images.githubusercontent.com/75746171/135340747-d1e9c198-535a-4b91-ae23-48c9e17c3113.png)
 
 
-
-01.01
-
+inline -> Fonksiyonun çağırıldığı yerde kodu yerleştir demektir.
 
 
+Pointers
+---
 
+T x;
 
+- Eğer bir ifade T türünden bir nesnenin adresi anlamına geliyorsa o ifadenin türü T * kabul ediliyor.
+- int türden nesne adresi anlamına gelen ifadenin türü int *
+- int türünden bir nesnenin adresi olan ifadenin türü farklı bir tür, double türünden bir nesnenin adresi olan ifadenin türü farklı bir tür. 
+- Yani farklı türden nesnelerin adresleri farklı türdür.
 
-
-
-
+int* ptr;
+- // ptr, int türden bir nesnenin adresini (değer olarak) tutacak bir nesne.
+- 
 
 
 
