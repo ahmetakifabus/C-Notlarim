@@ -1689,6 +1689,182 @@ Binary search algoritması
 
 Sıralı bir veri yapısında bir değer aramaya yönelik. Aradığım değerden büyük mü küçük mü? Buna dayanarak eleme yapıyor.
 
+Ders 27 (29.09.2021) 17.50
+---
+
+Partitition point
+---
+Koşulu sağlamayan ilk terimin konumu. Tekelr başta çiftler sonda olacak ise bunu bozan ilk terim.
+
+- Dizide BABA yazısını tutmak demek dizideki her bir elemanında BABA yazısı karakterlerinin kodlarını tutmak demek.
+
+Null turnated byte stream (NTBS)
+---
+
+Yazının son karakterinden sonra başka karakter olmadığını belirtmek için dizinin o elemanına özel bir değer atanıyor. Bu değer null charavter. Değeri 0 olan tam sayıdır aslında. '\0' olarak yazılır.
+
+![image](https://user-images.githubusercontent.com/75746171/135308108-5e6719b9-b7df-4bb5-82d7-05936d54cb8c.png)
+
+Doğru şekilde can yazısını tutuyor diyemeyiz. 3 indexli eleman çöp değerdedir.
+
+![image](https://user-images.githubusercontent.com/75746171/135308580-0c813f4e-2542-4dc4-9261-59d24c3441e5.png)
+
+Tanımsız davranış yok. Dizinin tüm elemanları zaten 0'dı. İlk 3 karakteri değiştirdik.
+
+![image](https://user-images.githubusercontent.com/75746171/135309197-ab147dea-0f8f-4e36-8e2e-3f2189e98c15.png)
+
+Sentaks hatası, dizinin ismi hiçbir zaman atama operatörünün sol operandı olamaz.
+
+Bu ikisini karıştırma
+---
+- '0' sıfır karakterinin kodu ASCII 48
+- '\0' null karakterinin ASCII kodu 0
+
+![image](https://user-images.githubusercontent.com/75746171/135310243-88972908-f115-495d-8467-01e47a80e40a.png)
+
+Dizinin boyutu belirtilmedi. Yani dizinin son karakteri null karakter değil. Tanımsız davranış.
+
+![image](https://user-images.githubusercontent.com/75746171/135310390-f6326fd1-1086-4c4e-af6c-830625604a25.png)
+
+Bu şekilde tanımsız davranış ortadan kalkar.
+
+![image](https://user-images.githubusercontent.com/75746171/135312587-fa861a1b-2eaf-4ed7-93e1-01cd3e27d1c8.png)
+
+Bu durumda ise dizinin elemanlarına sırasıyla yazının karakterleri ile ilk değer verilmiş oluyor.
+
+![image](https://user-images.githubusercontent.com/75746171/135313209-a0b69c92-2f8e-44e3-8e99-ff7b6e30bdff.png)
+
+C++ 'ta sentaks hatası. C'de geçerli fakat sonunda null karakter yok.
+
+![image](https://user-images.githubusercontent.com/75746171/135313507-6d8a8bfd-8600-484d-8680-f05ef086bbb4.png)
+
+Dizinin ismi aslında dizinin adresine dönüştürülüyor, scanf'e adres gönderiyor. Dizinin ilk elemanının adresi. Yani &str[0]
+
+ Puts
+ ---
+ Sadece yazıyı yazdırıyor, standart inputa new line veriyor.
+ 
+![image](https://user-images.githubusercontent.com/75746171/135318886-d2d33788-f19f-43aa-916f-8442f44d7e51.png)
+
+çıktısı: 
+
+![image](https://user-images.githubusercontent.com/75746171/135318983-f06959c7-8d3b-4a6d-9024-5ff887e1e0b8.png)
+
+Örnek
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135319696-cec1a85c-05b7-432c-890c-38b8aef9861f.png)
+
+Yazılan yazının uzunluğunu verecek.
+
+
+![image](https://user-images.githubusercontent.com/75746171/135323733-00a0ed89-f67b-491e-9447-bc8facfe30d2.png)
+
+Karakterden kaç adet olduğunu veriyor.
+
+Örnek Mülakat:
+---
+
+Yazıdaki tüm karaakterlerden kaç tane olduğunu yazdıracak.
+
+![image](https://user-images.githubusercontent.com/75746171/135324483-8cffe88d-c115-47a2-adac-2d1f71ad731e.png)
+
+Örnek : Bir karakteri silen kod
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135325324-bf5bf4b0-6554-43e0-9efc-fe6462311e17.png)
+
+Örnek : Dizinin elemanlarını takas ettiren kod
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135326512-bc9fdc92-dc26-4e83-b90d-8b827ca2ca14.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/135326592-81efa050-8f0b-46fb-8ab6-a616d584fe08.png)
+
+Örnek : Yazıyı tesr çevir
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135327179-0ff72741-2cf0-4937-8886-1afdc5411ee6.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135327233-0d1c8b7d-2701-4f01-afe1-40fa92362806.png)
+
+Örnek: Yazının palindrom olduğunu anla
+---
+![image](https://user-images.githubusercontent.com/75746171/135328037-dd330927-f204-471f-ad36-930889f242e2.png)
+![image](https://user-images.githubusercontent.com/75746171/135328085-9455ca9f-b954-49f2-9c2b-7968de403b94.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135328149-fc0d50a3-968d-48cb-8a0c-60307d995fa0.png)
+
+Örnek: Kelime sayan kod
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135328757-9ec4339f-facd-43b5-9fdb-0d6f68556b5c.png)
+![image](https://user-images.githubusercontent.com/75746171/135328930-2b1c20c0-119a-4610-8959-0055ccbb039b.png)
+
+Ders 28 (29.09.2021) 22.31
+---
+
+Örnek: İki yazının eşitliğini sınamak
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135337052-5aff6cbe-8694-456b-8d6d-0bf945eafe99.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135337086-e47f108f-f05f-4089-ba4e-01cd24c861cc.png)
+
+Örnek: Yazının tersini kopyalamak
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135338580-ceff9afd-a657-4dce-978f-5c3150d0147e.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135338637-38ff8146-e7d1-4787-a13f-1c0ba800ba7c.png)
+
+Örnek: Sayının tersi
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135340701-88824f0f-9244-4ff9-aead-a4c10c01b6f3.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135340747-d1e9c198-535a-4b91-ae23-48c9e17c3113.png)
+
+
+
+01.01
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
