@@ -1690,7 +1690,7 @@ Binary search algoritması
 
 Sıralı bir veri yapısında bir değer aramaya yönelik. Aradığım değerden büyük mü küçük mü? Buna dayanarak eleme yapıyor.
 
-1.46
+
 
 
 
