@@ -31,13 +31,13 @@ Programlama dilleri 2 tür olabiliyor;
 2) Imperative 
 
 Imperative dillerde sadece sonucu değil, sonuca ulaşmak için neler yapılacağı da anlatılıyor. C - C++ arasındaki en önemli fark bu. C++ birden fazla paradigmaya destek veren bir programlama dili.
-Fakat declarative diller sonuç odaklıdır(Ne istediğimizi söylüyoruz)
+Fakat declarative diller sonuç odaklıdır. (Ne istenildiği söyleniyor)
 
-Assembly dili, makine dilinin komutlara dönüştürüldüğü bir hali gibi düşünebiliriz.
-Teknik tanıma göre C düşük seviyeli bir dil değil. Düşük seviye derken kastedilen aslında assembly ve aşağısı. Bu yüzden C'ye düşük seviyeli diyemeyiz. C yüksek seviyeli bir dil fakat daha alt kesiminde. Makinaya yeterince yakın, insana da uzak değil.
+Assembly dili, makine dilinin komutlara dönüştürüldüğü bir hali gibi düşünülebilir.
+Teknik tanıma göre C düşük seviyeli bir dil değil. Düşük seviye derken kastedilen aslında assembly ve altındaki diller. Bu yüzden C'ye düşük seviyeli diyemeyiz. C yüksek seviyeli bir dil fakat daha alt kesiminde. Makinaya yeterince yakın, insana da uzak değil.
 
-1. Kuşak diller -> Makina diller
-2. Kuşak diller -> Assembly diller
+- Kuşak diller -> Makina diller
+- Kuşak diller -> Assembly diller
 
 Ben 1 dediğimde 1'e dönüşüyorsa makina dili, 2-3'e dönüşüyorsa assembly dili, daha fazla dönüşüyorsa yüksek seviyeli diller diyebiliriz.
 C, sistem programlama alanının ana dilidir, mikroişlemci programlama dilidir.
@@ -82,14 +82,13 @@ Java, c# gibi diller programcının verimli olması açısından geliştirilmiş
 
 C'den sonra geliştirilen programlama dillerinin çok önemli bir kısmı C'nin sentaksından, genel yapısından, ifade gücünün yüksekliğinden faydalanmıştır.
 
-Taşınabilir bir dil!
----
-Java her yerde çalışıyor demek dilin portable olduğunu göstermez. Bu taşınabilirlik kaynak kodu kapsamıyor.
-
 3.. Kuşak diller
 ---
 3. kuşak diller 3 tane dilden türetilmişler.
-    Fortran, Cobol, Algol.
+
+- Fortran
+- Cobol
+- Algol.
     
 Günümüzdeki dillerin soy ağacı buraya gidiyor.
  
@@ -157,12 +156,12 @@ Bu tokenlar belirli kategorilere ayrılıyor.
 
 Tokenlar
 ---
-Keywords   -> Anahtar sözcükler
-Identifier -> İsimler
-Sabitler   -> Constants
-Operators  -> Operatörler
-String Literals  -> String sabitleri
-Delimeter  -> Ayıraçlar
+- Keywords   -> Anahtar sözcükler
+- Identifier -> İsimler
+- Sabitler   -> Constants
+- Operators  -> Operatörler
+- String Literals  -> String sabitleri
+- Delimeter  -> Ayıraçlar
 
 Anahtar sözcükler 
 ---
@@ -215,9 +214,9 @@ Bir ifadenin değer kategorisi ikisinden biri olmak zorunda.
 Aritmetik ifadelerle oluşturulanlar R value expression.
 Değişken isimlerinin oluşturduğu ifadeler L value expression.
 
-x L value
-x+5 R Value
-12  R Value
+- x L value
+- x+5 R Value
+- 12  R Value
 
 Başına & eklersen hata vermezse L value expression verirse R valu expression.
 Constant Expression (Sabit İfadesi)
@@ -276,24 +275,24 @@ Sizin bir bildirim yapmanıza gerek yok. Bunlar dil tarafından hazır sunulan d
 
 
 
-_Bool  1 byte
+- _Bool  1 byte
 
-char 1 byte
-signed char 1 byte 
-unsigned char 1 byte
+- char 1 byte
+- signed char 1 byte 
+- unsigned char 1 byte
 
-signed short int 2 byte
-unsignedshort int 2 byte
+- signed short int 2 byte
+- unsignedshort int 2 byte
 
-signed long int 4-8 byte
-unsigned long int 4-8 byte
+- signed long int 4-8 byte
+- unsigned long int 4-8 byte
 
-signed long long int 8 byte
+- signed long long int 8 byte
 
-unsigned long long int 8 byte
+- unsigned long long int 8 byte
 
-signed int 2-4-8 byte
-unsigned int 2-4-8 byte
+- signed int 2-4-8 byte
+- unsigned int 2-4-8 byte
 
 Soru
 ---
