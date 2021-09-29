@@ -1842,7 +1842,86 @@ T x;
 
 int* ptr;
 - // ptr, int türden bir nesnenin adresini (değer olarak) tutacak bir nesne.
+
+
+Ders 29 (30.09.2021) 01.26
+---
+
+int* ptr; 	// ptr is a pointer to int
+
+... türünden bir değişkenin adresini tutacak bir değişken!
+
+- Global değişkenler ya da static yerel değişkenler ilk değer vermezsek özel bir adres sabiti ile hayata başlıyorlar. Bu adres sabitine null pointer deniliyor.
+
+Pointerlar 2 ayrı kategoriye ayrılıyor.
+---
+- Object pointers (Nesne adresleri)
+- Function pointers
+
+
+- Nesne adresleri hangi türden olursa olsun aynı miktarda yer kaplıyor. (4 byte, visual stdio)
+
+
+int* p1, p2;
+- Burada p1 int* türünden fakat p2 int türünden tanımlanmış oluyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/135358403-a853b1b9-8219-4851-9892-fa004f970c44.png)
+
+Yapılmaması gerek bir hata, fakat sentaks hatası değil.
+
+Pointer Operators
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135358753-e754072a-1047-429c-b312-366bbed7c40f.png)
+
+Adress of operators
+---
+
+- Sağdan sola öncelik yönüne sahip. 
+- Adres operatörünün operandı sol taraf değeri olmak zorunda.
+- Adres operatörü ile oluşturulan ifadeler sol taraf değeridir.
+
+&x = x'in adres değeri.
+
+Örnek:
+---
+int* ptr = &x; //ptr değişkenine x nesnesinin adresi değeri verildi. Bu ilk değer verme olayıdır.
+
+ptr = &y; //Bu ise atama olayıdır.
+
+Burada ptr'nin değeri x isimli değişkenin adresi ise bunun anlamı "ptr x'i gösteriyor" demektir. (ptr points to x)
+
+![image](https://user-images.githubusercontent.com/75746171/135359890-2fc32044-800b-4860-a825-869052d280cc.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/135360793-7b09079b-9ade-451a-bfe2-7a6310c3089d.png)
+
+Array decay, pointer'a dizi atamıyor. Dizinin ilk elemanının adresine dönüşen değeri atıyor.
+
+Soru:
+---
+Array decay olmayan durumlar?
+
+- sizeof operatörü
 - 
+
+![image](https://user-images.githubusercontent.com/75746171/135361137-0ffc23f4-c66a-400c-a688-21c49cc7c81e.png)
+
+- Printf işlevi ile bir adresi formatlı olara std. çıkış akımına yazdırabiliriz.
+- Burada kullanılan conversion specifier %p
+
+
+![image](https://user-images.githubusercontent.com/75746171/135361377-74e3845a-f661-4845-90d9-babe5750736a.png)
+
+1.25
+
+
+
+
+
+
 
 
 
