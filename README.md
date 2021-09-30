@@ -1915,7 +1915,59 @@ Array decay olmayan durumlar?
 
 ![image](https://user-images.githubusercontent.com/75746171/135361377-74e3845a-f661-4845-90d9-babe5750736a.png)
 
-1.25
+Bir dizinin adresi = Bir dizinin ilk elemanının adresi
+
+(*) Operatörü
+---
+Operandı adres olmak zorunda.
+
+![image](https://user-images.githubusercontent.com/75746171/135458589-07e92bdb-677d-46f6-bd05-bc7a3dbede48.png)
+
+*x	hata
+&*x	hata değil
+*ptr	hata değil
+*a	hata değil
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/135459912-43558f9a-68fb-4375-9e6d-bf499e32493f.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135459947-9257bf6f-39c1-4305-8777-558973d2190b.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135460180-9579e86a-9ec9-4372-b889-e0e168927dce.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135460214-c8e916ce-b4cf-4de5-8266-38a5eccb43b0.png)
+
+- C'de tüm fonksiyon çağrıları call by value dur.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135478264-0c7575b0-2745-43dd-bb17-4b0176ac14c3.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135478567-b880cbe4-8672-44cb-a647-c5228c205c65.png)
+
+- Burada a'nın kendisini değil, a'nın değerini fonksiyona gönderiyor. Yani a değişmiyor.
+- Nesnenin değerini değil de kendisini göndermek istiyorsak (Call by reference) pointer kullanacağız.
+
+Örnek 2:
+---
+![image](https://user-images.githubusercontent.com/75746171/135479016-ab792359-cfb5-4a6f-976a-c9e5f8b7e49f.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/135479043-1de27336-b2ad-4524-8015-b5924f0b3266.png)
+
+
+Örnek: Gerçek bir swap fonksiyonu
+---
+![image](https://user-images.githubusercontent.com/75746171/135479913-799da61d-f732-4a43-aec1-1aa14a2cce2c.png)
+
+![image](https://user-images.githubusercontent.com/75746171/135479960-262a4a27-9edc-42a1-90b1-de262b3c861e.png)
+
+Örnek: scanf fonksiyonu yazma
+---
+
+![image](https://user-images.githubusercontent.com/75746171/135522713-44092878-7d00-4123-a338-3daf92680635.png)
 
 
 
