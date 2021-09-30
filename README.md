@@ -1969,7 +1969,16 @@ Operandı adres olmak zorunda.
 
 ![image](https://user-images.githubusercontent.com/75746171/135522713-44092878-7d00-4123-a338-3daf92680635.png)
 
+Ders 30 (30.09.2021) 23.06
+---
 
+- Pointerların en çok kullanıldığı yerler call by reference fıonksiyon çağrıları. (Bir fonksiyon başka bir fonksiyonun yerel değişkenine erişmek isterse)
+
+
+Neden bir fonksiyonun parametre değişkeni pointer olur?
+- Fonksiyon diyor ki sen bana bir nesnenin adresini gönder ben de değeri o adresteki nesneye yazayım. (Alternatif return)
+
+14.19
 
 
 
