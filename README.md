@@ -1978,15 +1978,110 @@ Ders 30 (30.09.2021) 23.06
 Neden bir fonksiyonun parametre değişkeni pointer olur?
 - Fonksiyon diyor ki sen bana bir nesnenin adresini gönder ben de değeri o adresteki nesneye yazayım. (Alternatif return)
 
-14.19
+Yanlış swap fonksiyonu
+---
+![image](https://user-images.githubusercontent.com/75746171/136140325-146f399b-b485-4462-9e10-72932f412f9d.png)
+
+Değerler değişmeyecek.
+
+Örnek: Daire alanını hesapla, Call by reference
+---
+![image](https://user-images.githubusercontent.com/75746171/136140857-d22e3ba9-1673-42fe-8c5d-72d715260c0d.png)
+
+Fonksiyonun geri dönüş değeri kaldırıldı, işlemler pointerlar ile yapılıyor.
+
+
+- Return deyimi ile geri dönüş değeri ürtetiliyorsa geri dönüş değeri için bir belek ayırılıyor. İfadenin değeri kopyalanıyor. yüksek değerlerde kopyalamanın maliyeti fazla olur.
+- Hesaplanacak değerin sizeof değeri düşük ise return ile geri dönüş almak uygun olabilir. Fakat büyük boyutlarda adres ile atama yapılması gerekir.
+- Birden fazla değer döndürmek için pointer kullanılablir. Diğer türlü fonksiyoınun geri dönüş değeri var ise sadece 1 değer döndürebilir.
+- C dilinde bir fonksiyon bir başka fonksiyona bir dizi gönderecek ise call by reference zorunlu.
+- Diziler fonksiyonlar arasında adres yolu ile geçilir.
+
+
+Const Anahtar sözcüğü ve sematiği (Değişmez değişken)
+---
+
+- Const
+- colatile
+- restrict
+
+
+- Bir değişkeni const ile tanımladığımızda; (Dizi de olabilir)
+
+const int x = 45;
+
+- Hayata bu değer ile başlayacak ve bir daha hiç değişmeyecek.
+
+Pointer değişkenler ile const
+---
+
+int	*	ptr	=	&x;
+
+- Burada const anahtar sözcüğü asteriksten önce veya sonra kullanılması tamamen farklı anlamlara geliyor.
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136145160-6acc6159-a932-4936-abf4-1f8511167824.png)
+
+- ptr nin değeri hiç değişmeyecek (Hayatı boyunca hep x'i gösterecek.)
+
+![image](https://user-images.githubusercontent.com/75746171/136145507-bb794e96-d2e6-4920-a8cc-9709d2b3cd43.png)
 
 
 
+![image](https://user-images.githubusercontent.com/75746171/136146432-3a6294c6-abdf-4a12-8386-ae8ee822ee2e.png)
+
+- Adresini aldığı nesneyi değiştirecek.
 
 
+![image](https://user-images.githubusercontent.com/75746171/136146593-e885139e-4520-4432-887f-bcce5462b1bd.png)
+
+- Salt okuma amaçlı erişecek.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136147566-d57b4c28-831a-4200-a79b-63d1654d5567.png)
+
+- Dizinin elemanları değişmeyecek. Const yaptık. Ama fonksiyonun parametresi const int* değil. Lojik bir hata var.
+
+Pointer aritmetiği
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136154090-f7bcfb6c-c084-43a5-b0f9-add0b6b86370.png)
+
+- Bir adres ile 1 toplandığında bir sonraki (aynı türden) nesnenin adresi elde edilir.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136154852-351e3998-ffbd-4728-9b26-5028e9debd72.png)
+
+![image](https://user-images.githubusercontent.com/75746171/136154897-aaa98a51-1fbf-41c7-aa88-a55153365224.png)
 
 
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136155142-7cd13ee0-4be0-42e8-a64e-e61107b86c40.png)
 
+- ++ptr demek ptr'yi 1 arttırmak demek. Yani ptr dizinin ilk elemanını değil 2. elamanını gösteriyor.
+- Pointer değişkeninin 1 arttırılması dizinin 1 sonraki elamanını gösteriyor anlamına gelir.
+- Yani a + 1 demek dizinin 1 indisli elemanının adresi demek. &a[0] + 1 = &a[1] , a[5] = *a(a+5)
+Burada içerik operatörünün operandı bir adres olduğundan o adresteki nesneye eriimini sağlıyor.
+
+- Yani a[i] demek *(a+i) ifadeleri aynı anlama gelir.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136155759-47f567e0-53cf-4cc1-bc12-88fdfff55bf9.png)
+
+![image](https://user-images.githubusercontent.com/75746171/136155795-34cdcac2-964b-411b-95fd-f8d994c13d3e.png)
+
+
+- a[i] ile i[a] aynı anlama geliyor. Bunu sebebi ifadenin şuna dönüşmesi:
+- *(a+i) *(i+a)
+
+Ders 31 (06.10.2021) 10.30
+---
 
 
 
