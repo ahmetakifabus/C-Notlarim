@@ -2083,11 +2083,67 @@ Burada içerik operatörünün operandı bir adres olduğundan o adresteki nesne
 Ders 31 (06.10.2021) 10.30
 ---
 
+- Pointerın arttırılması dizinin elemanlarını gösteren pointerlar için anlamlı, bundan bir fayda sağlamak içi.n kullanılıyor.
+
+Index operatörü []
+---
+Bir operandı adres bir oerandı tam sayı olması gerekiyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/136343355-b424bf51-fbfd-4535-bf48-f1ba8c9a2dd9.png)
+
+x = 23
+
+![image](https://user-images.githubusercontent.com/75746171/136343557-ac464ce2-d498-4ae3-9d9e-89d5fdb64d79.png)
+
+Aynı anlama geliyor.
+
+Soru:
+---
+![image](https://user-images.githubusercontent.com/75746171/136343919-a8f1665c-81bd-4dde-be8b-065bc3bc09ea.png)
+
+Çıktı:
+
+![image](https://user-images.githubusercontent.com/75746171/136343981-ab6a99d4-99fa-44f1-b116-1d002d16b979.png)
+
+Özet:
+
+![image](https://user-images.githubusercontent.com/75746171/136344244-f114b25a-9de9-413a-a0f2-7994cb4f37a4.png)
 
 
+- C ve C++ dillerinde iki adresin toplanması geçersizdir. (Sentaks hatası)
 
 
+Adreslerin çıkartılması
+---
 
+![image](https://user-images.githubusercontent.com/75746171/136363620-1e773eed-0872-44c2-ab77-73bc7f65a459.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136363747-065a59db-0823-4305-b30c-f3c552e8899b.png)
+
+![image](https://user-images.githubusercontent.com/75746171/136363776-51db2019-f839-49f0-a37a-3118eabaeddf.png)
+
+
+Soru:
+---
+ptr, a isimli bir dizinin bir elemanını göstermektedir. ptr'nin gösterdiği dizi elemanının indisi nedir?
+
+ptr - a
+
+
+Özet
+---
+- Adres ve tam sayı toplanabilir.
+- Adresten tam sayı çıkartılabilir.
+- Tam sayıdan adres çıkartılamaz.
+- 2 adres toplanamaz.
+- 2 adres çıkartılabilir.
+
+32.00
 
 
 
