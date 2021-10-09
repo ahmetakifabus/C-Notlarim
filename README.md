@@ -2141,9 +2141,46 @@ ptr - a
 - Adresten tam sayı çıkartılabilir.
 - Tam sayıdan adres çıkartılamaz.
 - 2 adres toplanamaz.
-- 2 adres çıkartılabilir.
+- 2 adres çıkartılabilir.  Sonucun ne olduğu tamamen derleyiciye bağlı ve elde edilebilecek hiçbir şey yok.
 
-32.00
+Örnek: Dizinin tüm elemanlarını yazdır.
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136643260-17a7f7a4-8e08-43a5-a155-e9e8e400bf18.png)
+
+Size kez döner. Pointer 1 artar her seferinde gösterilen adres değişecek.
+
+Örnek: Dizinin en büyük elemanını hesaplayan program
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136643570-83bca93c-0535-48c4-b1a5-e2a68fa5b3a0.png)
+
+Örnek: Dizinin hem en büyük hem en küçük değerini hesapla
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136643665-885f37af-cb6d-48f5-b317-a69ba703f54e.png)
+
+Örnek: Bir diziden bir diziye n tane öge kopyala
+---
+![image](https://user-images.githubusercontent.com/75746171/136643968-c90adbd1-8db9-4af7-ad21-04ba8712199e.png)
+
+Başka bir yazma şekli:
+
+![image](https://user-images.githubusercontent.com/75746171/136643984-14f5aa9f-078b-4bdd-8299-98040f39fa12.png)
+
+
+A'nın .. indisli elemanında b'nin .. indisli elemanına
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136644086-a5736f6e-31af-430d-a11d-5f13be35a1a9.png)
+
+Örnek: Bir tam sayı dizisini ters çevireecek reverse array fonksiyonu
+---
+
+![image](https://user-images.githubusercontent.com/75746171/136644147-8a102bf1-962a-485c-94dc-cca7addb603b.png)
+
+![image](https://user-images.githubusercontent.com/75746171/136644152-c7423480-b24c-4e3d-aea4-a74c88336b56.png)
+
 
 
 
