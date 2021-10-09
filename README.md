@@ -219,6 +219,7 @@ Değişken isimlerinin oluşturduğu ifadeler L value expression.
 - 12  R Value
 
 Başına & eklersen hata vermezse L value expression verirse R valu expression.
+
 Constant Expression (Sabit İfadesi)
 ---
 10 * 5 + 20 -> Derleyici derleme zamanında bu ifayenin değerini anlıyor, Hesaplamak için bir zamana ihtiyaç yok.
