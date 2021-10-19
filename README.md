@@ -2310,6 +2310,72 @@ Null pointer ile yapılabilecek işlemler
 ![image](https://user-images.githubusercontent.com/75746171/137979002-6de951f9-063f-43b8-8521-d0f14138cc8f.png)
 
 
+Ders 33 (19.10.2021) 
+---
+
+Null pointer nerelerde kullanılır?
+---
+
+- Adres döndüren bir fonksiyonun başarısızlık bilgisini iletmesi. Adres döndüren bir işlev başarısızlık durujmunda null pointer döndürüyor.
+- Arama fonkksiyonları adres döndürüyorlar (Çoğunlukla). Değer bulunutrsa bulduğu karakterin adresini gönderiyor bulamazsa null pointer döndürüyor.
+- Bir fonksiyonun parametresinin pointer olması durumunda bu fonksiyona bir nesne adresi göndermemiz gereliyor. Null pointer gönderilirse tanımsız davranış olur. (Bazı fonksiyonlar null pointergöndermeyi seçenek olarak verebiliyor.)
+
+
+Örnek:
+---
+Bir tam sayı dizisinde bir değeri arayan search adlı fonksiyonu tanımlayınız
+
+![image](https://user-images.githubusercontent.com/75746171/137989984-2c539e07-8fa7-4276-a7ec-0baf5b0d17aa.png)
+
+
+Not:
+---
+Pointer değişkeninin değeri ya bir nesnenin adresidir ya da null pointer olması özelliği bazı durumlarda pointer değişkenlerini bayrak değişkeni olarak kullanabilmemii sağlıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/137991126-0ba31d83-2bea-4a7c-b111-b006eaaa0640.png)
+
+Burada if içine girip girmediğini pointerin bull olup olmadığına bakarak anlaşılabilir.
+
+Diğer kullanım alanı: Dinamik bellek yönetimi
+---
+
+ptr = nesne adresi
+
+- Pointer değişkenimizin hayatı devam ederken onun göstermekte olduğu nesnenin hayatı sona eriyor.
+
+Null pointer			Null character
+---
+Null				'\0'
+Adres sabiti			Tam sayı sabiti
+Pointer değişkene atanır	Bir char dizisinin elemanına atanıyor(int değişkene)
+
+Örnek (Puts işlevi)
+---
+
+![image](https://user-images.githubusercontent.com/75746171/137996935-1e1faa92-2e10-443f-8b63-049826cd6604.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137996968-b6667b5d-dd55-494b-973e-59aefeab1a0c.png)
+
+1.20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
