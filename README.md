@@ -2183,6 +2183,156 @@ A'nın .. indisli elemanında b'nin .. indisli elemanına
 ![image](https://user-images.githubusercontent.com/75746171/136644152-c7423480-b24c-4e3d-aea4-a74c88336b56.png)
 
 
+Örnek : Bir dizinin standart sapması
+---
+![image](https://user-images.githubusercontent.com/75746171/137942965-0b5ac1a7-f52d-4306-b8b1-124b0c51befc.png)
+
+Ders 32 (19.10.2021)
+---
+
+![image](https://user-images.githubusercontent.com/75746171/137944102-5bf6dfb1-8778-43df-abe4-888f7995689b.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/137944890-9125dd52-27a1-455c-8e27-12eaeb762204.png)
+
+Hepsi sentaks hatası
+
+Örnek
+---
+
+![image](https://user-images.githubusercontent.com/75746171/137945310-ff306afa-9506-46ed-852b-7f6e3ecf1259.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137945364-c99b8ba1-2be1-43aa-adc3-1e0c642573aa.png)
+
+Not:
+---
+![image](https://user-images.githubusercontent.com/75746171/137946816-9928194e-fa59-4588-8c36-0dc2cfdbdf26.png)
+
+Tür Eş isim bildirimleri 1
+---
+
+![image](https://user-images.githubusercontent.com/75746171/137948502-0b3d378a-669c-4582-868e-381c4633d330.png)
+
+
+Word demek int demek.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/137948941-ddd3f54f-c235-43c0-ab42-71ff878e7dc0.png)
+
+Burada p1 pointer fakat p2 değil. Mülakatlarda soruluyor.
+
+- typedef yapsaydın ikisi de pointe olacaktı.
+
+Örnek
+---
+![image](https://user-images.githubusercontent.com/75746171/137951067-574961d6-4b48-4c61-ad88-ebabc943b037.png)
+
+size_t türü nerelerde kullanılıyor?
+---
+
+- Bazı fonksiyonmlar size of değeri istiyorsa size_t türündendir
+- Dizi boyutu istiyorsa size_t'dir
+- Yazı uzunluğu istiyor ise
+- Tane - adet türü olarak kullanılıyor.
+
+Ders 33 (19.10.2021)
+---
+
+Adres döndüren fonksiyonlar
+---
+
+Örnek
+
+![image](https://user-images.githubusercontent.com/75746171/137958044-231c1584-3cd1-473b-a363-79420b926b1c.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137958077-dd4aec17-d1c5-430f-8e84-4654613d2414.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/137958376-1453981d-b975-45fe-bccf-cda75e77d4a2.png)
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/137958852-e897826c-d55f-4976-be71-eb2bf6770d9c.png)
+
+- Otomatik ömürlü, hayat bitmiş bir değişkenin değeri döndürülüyor. UB.
+
+![image](https://user-images.githubusercontent.com/75746171/137966059-fef1a59a-a364-4b92-b23c-f7ae2af40661.png)
+
+Örnek: Dizinin max elemanının adresini döndüren fonk.
+---
+![image](https://user-images.githubusercontent.com/75746171/137969093-d02007a8-2acf-488d-9744-839c541c34f2.png)
+
+Örnek: Dizinin max elemanından sonuna kadarki elamanları yazdır
+---
+![image](https://user-images.githubusercontent.com/75746171/137970241-4fbc8623-d81c-4328-b0a0-89f66d34972e.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137970291-fefaef71-bf2e-49a3-93d9-ca50f955ab16.png)
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/137972108-fc14bb2c-c1c2-41e9-a66e-11529c937411.png)
+
+Dizinin en büyük ve en küçüğünü yer değiştir sonra sağda kalan dizideki en büyük ve küçüğü yer değiştir.
+
+
+Null Pointer
+---
+
+- Null bir makrodur. (Önişlemci programı ilgilendiren bir isim, bir sembolik sabittir)
+- Bir keyword değil, identifier değil.
+- stdio.h , string.h, stdlib.h başlık dosyalarında tanımlanmıştır.
+- Null bir adres sabitidir. (Null pointer diye okuyunuz.)
+- Null pointer, Null character
+- Pointer değişkkenlere ilk değer olarak verilebilir.
+- Null pointer herhangi bir türden bir pointer değişkene atanabilir.
+
+
+Null pointer ile yapılabilecek işlemler
+--
+
+![image](https://user-images.githubusercontent.com/75746171/137978380-286b313a-12f6-4403-b073-c153189b6fce.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137978449-c14a43a5-bc43-4bb3-9b44-be4b5496f13e.png)
+
+
+- İlk değer verilmemiş global pointer değişkenler ve statik yerel değişkenler hayata bull pointer değeri ile başlarlar.
+
+![image](https://user-images.githubusercontent.com/75746171/137978758-5ea7a0fd-fbcb-4854-89cc-cfed0aee151d.png)
+ 
+ Bu ikisi aynı anlama geliyor.
+
+![image](https://user-images.githubusercontent.com/75746171/137978835-ca70eeb5-d525-4ce0-b48a-3f3f5d187fe0.png)
+
+![image](https://user-images.githubusercontent.com/75746171/137979002-6de951f9-063f-43b8-8521-d0f14138cc8f.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
