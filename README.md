@@ -2356,7 +2356,157 @@ Pointer değişkene atanır	Bir char dizisinin elemanına atanıyor(int değişk
 
 ![image](https://user-images.githubusercontent.com/75746171/137996968-b6667b5d-dd55-494b-973e-59aefeab1a0c.png)
 
-1.20
+
+Örnek: Tanımsız davranış
+---
+![image](https://user-images.githubusercontent.com/75746171/138084862-fa83dd0d-b2e0-4241-9c4c-a932acb70aa2.png)
+
+Otomatik ömürlü dizinin adresi ile dönüş ypıldı.
+
+
+![image](https://user-images.githubusercontent.com/75746171/138085192-0aa0ce25-dfff-4f3c-b456-3850b511402a.png)
+
+Burada static ömürlü nesnenin adresi ile dönüyorsa bu şekilde kullanılamaz. Her seferinden eski değer gidip yeni değer geliyor. Çağırılma şekli yanlış:
+
+![image](https://user-images.githubusercontent.com/75746171/138085381-347dea09-1617-44a4-8ead-ecb70dcaa99a.png)
+
+
+<string.h>
+---
+- Yazılar ile ilgili işlem yapıyorlar
+
+- strlen
+- strchr
+- strtok
+- strrchr
+- strstr
+- -----
+
+Örnek: Tersten yazdır
+---
+![image](https://user-images.githubusercontent.com/75746171/138087537-4ca6f418-133e-4afb-bc12-db1c88db5667.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138087571-c9b7d283-1239-44d2-a31f-0caefd4ee04f.png)
+
+Bu da fonksiyon ile yazdırma:
+
+![image](https://user-images.githubusercontent.com/75746171/138087688-8eda90d4-a39e-4d25-9590-a20abb2beb25.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138087713-f2441768-641f-46e9-9d35-a96015bbe724.png)
+
+
+char *strchr(const char *p, int c);
+Bir karakteri arıyor, Bulujduğpu yerin adresinin döndürüyor bulamazsa null pointer döndürüyor.
+
+Ders 35 (20.10.2021)
+---
+
+Önek: Bir yazının adresini tutan pointeri yazının sonundaki null karakteri gösterecek hale getir.
+---
+![image](https://user-images.githubusercontent.com/75746171/138096738-3702e758-55a3-4b3e-951c-95a5651ace8f.png)
+
+
+
+![image](https://user-images.githubusercontent.com/75746171/138096858-c090e5bd-e6c4-42b0-8475-062548c0515d.png)
+
+Fakat bu dpoğru olmaz. Yazının boş olması durumunda ilk karakter null karakterdir ve onu atlar.
+
+![image](https://user-images.githubusercontent.com/75746171/138097009-47235265-5b7d-4495-ab20-da61c815923f.png)
+
+Burada ise yazının başlangıç adresine yazının uzunluğu ekleniyor, geçerlidir.
+
+Örnek: kopyala
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138097717-010c1e95-80f7-4bc6-abab-397ef8bfd372.png)
+
+Örnek: Bir kopyalama fonksiyonu yaz
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138097904-91feffe5-6aee-48d7-a574-0c2bd628f17e.png)
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138098122-d19648f4-d7f2-46f3-8b69-64ecf0cb3a24.png)
+
+Bu bir tanımsız davranış
+
+Sebep:
+
+Kesişen bloklar.
+
+Okuma yazma işlemi kesişen bloklar üstünde yapılıyor (str+2 ve str)
+
+Buradaki restrict anahtar sözcüğü ile kesişim kümesi olmadığını gösteriliyor.
+
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138099643-a6577d74-e5aa-4eb1-baac-d18de2234054.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138099713-28a51506-e034-4925-bb3b-5a724ab7c770.png)
+
+Ders 36 (20.10.2021)
+---
+
+Konular:
+
+![image](https://user-images.githubusercontent.com/75746171/138099938-31d6df66-5922-48ce-8ef8-1f35db565492.png)
+
+Not: 
+![image](https://user-images.githubusercontent.com/75746171/138101235-cc852b2c-d66e-47b7-8b4e-2bdd0e560568.png)
+
+Bu bir dizinin ilk elemanını yazdırır yani n.
+
+![image](https://user-images.githubusercontent.com/75746171/138101799-9975218a-06c7-40ff-9279-e3efa842f26e.png)
+
+Bu bir tanımsız davranış çümkü string literali sadece okuma amaçlı erişilebilir.
+
+- Burada bir fonksiyona string literali gönderilecekse türü const char* olmalıdır.
+
+
+Not:
+---
+- String literalleri static ömürlü dizilerdir.
+- Programınb başından sonuna kadar hayatta kalırlar
+- Yazı adresi döndüren bir fonksiyonun bir string literali adresi döndürmesi ub değildir.
+
+
+![image](https://user-images.githubusercontent.com/75746171/138103708-6cdfa0d8-f9ad-48b3-a010-f501df0e875b.png)
+
+- printf'in ilk parametresi const char*
+- Burada biz argüman olarak merhaba arkadaşlar yazısı olan dizinin adresini gönderiyoruz.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138104580-921e2323-3b49-4a81-a509-c12a0e4ddf1d.png)
+
+İkisi de aynı anlama geliyor.
+
+
+![image](https://user-images.githubusercontent.com/75746171/138107177-8d1ee033-e119-4e1a-a667-b1b2455276d4.png)
+
+
+Burada aslında bir dizi tanımlanıyor.
+
+Mülakat sorları:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138108428-ec65a04b-5381-43dd-bc77-6105721d858c.png)
+
+----
+
+![image](https://user-images.githubusercontent.com/75746171/138108729-0c9c4a3e-9732-404f-a019-2d2a9fb8b128.png)
+
+P nin değeri sizeof yüzünden değişmior o yüzden p değeri 6 yazar.
+
+
+
+
+
+
 
 
 
