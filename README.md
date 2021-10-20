@@ -2502,7 +2502,7 @@ Mülakat sorları:
 
 P nin değeri sizeof yüzünden değişmior o yüzden p değeri 6 yazar.
 
-
+1.43
 
 
 
