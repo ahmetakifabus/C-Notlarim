@@ -2574,9 +2574,33 @@ Her tuşa basıldığında rastgele bir ay elde ediyor.
 
 Ders 37 (21.10.2021)
 ---
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138366912-09360c30-269b-4b17-9bf8-3e295ef22c94.png)
 
+Bu dizinin elemamnlarının ilk harflerini yazdır.
 
+![image](https://user-images.githubusercontent.com/75746171/138366981-18381ae1-417d-4031-84cc-2e7be2d267f3.png)
 
+![image](https://user-images.githubusercontent.com/75746171/138367022-7ccf71a8-f5cc-4a1f-81ad-d444849c7450.png)
+
+Son elemanlarını yazdır.
+
+![image](https://user-images.githubusercontent.com/75746171/138367133-388d7f91-0568-4293-8915-3851784b4e10.png)
+
+İçinde c karakterierl olanları yazdır.
+
+![image](https://user-images.githubusercontent.com/75746171/138367209-469e5507-5cb5-491d-8f33-1b32609b6e6e.png)
+
+Belli karakterleri içerenleri yazdır.
+
+![image](https://user-images.githubusercontent.com/75746171/138367307-5193f3d5-dedc-4897-aa4f-41e47a65f365.png)
+
+Küçükten büyüğe sırala.
+
+![image](https://user-images.githubusercontent.com/75746171/138367872-ec8b3227-bdcd-4357-8217-ea0ba14d9f5b.png)
+
+Kısa olanlar başta ve kendi içinde sıralı.
 
 
 
