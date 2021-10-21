@@ -2502,22 +2502,75 @@ Mülakat sorları:
 
 P nin değeri sizeof yüzünden değişmior o yüzden p değeri 6 yazar.
 
-1.43
+Pointer Arrays
+---
+
+Örnek:
+![image](https://user-images.githubusercontent.com/75746171/138276637-a5814a77-f1fb-4168-9101-2a0b6d700dfd.png)
+
+Ekrana 10 yazar.
+
+Örnek: Pointerin gösterdiği nesnelere erişecek
+---
+![image](https://user-images.githubusercontent.com/75746171/138276771-fd1402b4-c44c-472d-adaa-9691855987e6.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138276792-2e0543ac-0099-4b08-9ef6-e66f1d3df279.png)
+
+Başka bir örnekte :
+
+![image](https://user-images.githubusercontent.com/75746171/138276949-fe0dda48-80b8-443d-85f5-b3353cc39895.png)
+
+a'nın değerini 77 yapıyor.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138277326-9ac3c5ae-1a34-4e64-836b-f8acb4bcd5dd.png)
+
+p[1], dizinin 1 indisli elemanı. Onun değeri ise b dizisinin adresi. [2] 'nin sol operandı b dizisi oluyor. b dizisinin 2 indisli elamanını değiştiriyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138278035-7d6d4079-df1e-445b-8b88-d3c5e1b99f95.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138278071-97f5404d-0c98-4c39-ad25-4e01a1a865d6.png)
+
+p[2], dizinin 2 indisli elemanı
+
+---
 
 
+![image](https://user-images.githubusercontent.com/75746171/138278629-8bdc6227-b82b-49e6-b7a6-b10d8799f97b.png)
+
+Bu dizinin elemanları const demek.
+
+![image](https://user-images.githubusercontent.com/75746171/138278909-9d805a0b-9fab-4559-8a8b-f80a40bfae3d.png)
+
+Burada ise dizinin elemanları const int* demek.
+
+![image](https://user-images.githubusercontent.com/75746171/138279919-a8169b9e-2655-41d3-85b9-76abc003fc1f.png)
+
+Bu ifade dizinin boyutu demek ile aynı anlama geliyor.
 
 
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138289186-32358f90-1073-4288-acea-cff7b6195d98.png)
 
+- Burada pointer dizilerini oluşturmaktaki asıl amaç lookup table yapmak.
 
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138289506-359ce969-df62-452a-a7ca-9b82ad8f82c1.png)
 
+Her tuşa basıldığında rastgele bir ay elde ediyor.
 
+Örnek:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/138289821-4f4fc38f-5abc-4607-bfa9-11ae3d412455.png)
 
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/75746171/138289859-3a325922-4fed-4a9a-aceb-3e3c4e1fa095.png)
 
 
 
