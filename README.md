@@ -2572,6 +2572,8 @@ Her tuşa basıldığında rastgele bir ay elde ediyor.
 
 ![image](https://user-images.githubusercontent.com/75746171/138289859-3a325922-4fed-4a9a-aceb-3e3c4e1fa095.png)
 
+Ders 37 (21.10.2021)
+---
 
 
 
