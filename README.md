@@ -2603,10 +2603,274 @@ Küçükten büyüğe sırala.
 Kısa olanlar başta ve kendi içinde sıralı.
 
 
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138448963-7fde196f-4f61-4fbe-b23a-14676b830319.png)
+
+Dizinin sonuna null poniter ekleyerek sonunu belirledik. Diziyi yazdırdırk.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138449200-5bcb69a4-a96b-4e42-a933-90665518a192.png)
+
+- Dizide 2 string literali arasında virgül yok. Buınlar birleşecek ve tek string literali olarak tanımlanacak. Dizinin 20 elemanı olması gerekşiyordu 19 tane oldu. Son elemana null pointer oldu. Döngünün sonunda null pointer dereference edilmiş olacak.
+
+Pointer to Pointer (Gösterici gösteren gösterici)
+---
+
+
+ptr değişkeninin adresini bir pointer değişkende tutmak istersem : 
+
+![image](https://user-images.githubusercontent.com/75746171/138450566-346f1480-9885-4c51-a6a6-5aba8c5f64a5.png)
+
+
+Not:
+---
+![image](https://user-images.githubusercontent.com/75746171/138450925-513c9a7f-1122-49d5-8e9e-32d4fc9bc8fa.png)
+
+- Burada p değişkeni içerik operatörünün operandı yapılırsa ptr'ye erişilecek.
+- ptr değişkeni içerik opratörünün operandı yapılırsa x'e erişilecek.
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138482711-5247201c-b9e6-46e6-a190-2f46a536a891.png)
+
+- ptr, x'e diyor ki,  sen benim gösterdiğim nesnesin.
+- p'de ptr'ye diyor ki, sen benim gösterdiğim nesnsin.
+- Ve p, x'e diyor ki, sen benim gösterdiğim nesnenin gösterdiği nesnesin.
+
+Not: Pointerların en çok kullanıldğı yerler, call by reference fonksiyon çağrıları.
+
+
+Örnek: Değişkenlerin değerlerini takas et
+---
+![image](https://user-images.githubusercontent.com/75746171/138484487-553fb756-2f62-4e4c-9bfc-2083899be2cc.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/138484460-39cd25d5-8b32-488e-9293-745e2be4f2a2.png)
+
+
+- Bu işlem sık yapılıyorsa bunu fonksiyona yaptıralım. Ama bu fonksiyon değişkenleri adresleri ile çağırmalı,
+
+![image](https://user-images.githubusercontent.com/75746171/138484751-98c25a40-8ade-4fe1-a4ba-bd93517c5041.png)
+
+Not:
+---
+Bu ikisini karıştırma
+
+![image](https://user-images.githubusercontent.com/75746171/138485027-a69da6f9-e5d2-497a-997d-ec744319fa36.png)
+
+- Birincide ptr'nin değeri olan adresi gönderiyorum
+- ikinicide ptr'nin kendi adresini gönderiyorum.
+
+
+Örnek:
+---
+Öyle bir fonks,yon tanımlayınız ki bir taö sayı dizisinin hem en küçük hem de en büyük elemanlarının adreslerini, çağıran koda iletsin.
+
+![image](https://user-images.githubusercontent.com/75746171/138486944-3eceb871-69b7-4078-9146-badb9776ff94.png)
+
+
+
+Fonksiyonda,
+- 1. parametre dizinin adresi
+- 2. parametre dizinin boyutu
+- 3. parametre int* türden bir nesnenin adresini ver ben min elamanın adresini yazıcam
+- 4. parametre int* türden bir nesnenin adresini ver ben max elamanın adresini yazıcam
+
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138487349-37e78ef3-60e5-44d0-bede-33e168e99cb4.png)
+
+Bu kod dizinin elemanlarını yazdırıyor.
+Eğer ben bu işlemi sık sık yapacaksam bunu bir fonksiyonda yapmalıyım. Fonksiyon char* türden bir adres aldığı için parametresi char** olmalıdır.
+
+Kitap:
+Understanding and usin c pointers
+
+Ders 38 (22.10.2021)
+---
+
+Void Pointers
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138493746-639487f5-1ad6-4480-bd68-0f398d38ef46.png)
+
+- void pointeri dereference edip o nesneye erişip kullanmak sentaks hatası.
+
+![image](https://user-images.githubusercontent.com/75746171/138494172-1e0234aa-87cd-4b6d-9a10-b4f3c7cd98c7.png)
+
+Void pointer ne işe yara?
+---
+
+Generic programming: türden bağımsız programlama
+
+Generic functions: Bellirli bir türe hizmet vermiyor, her türe hizmet veriyorum. Türü ne olursa olsun.
+
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138495639-dfe37684-7f5b-44f0-8f06-d33d751903b2.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138495662-1a2b7efb-1f12-48e0-bbd8-965e9cdd18f6.png)
+
+Burada nesneler byte byte takas edildi.
+
+Bazı fonksiyonlar
+---
+Hemen her uygulamada kullanılan fonksiyonlar.
+
+Memset
+---
+![image](https://user-images.githubusercontent.com/75746171/138501115-9c906eb3-3601-42f0-90ee-7afda530c368.png)
+
+- Bir bellek bloğunun bütün bytelarını bir tam sayı değeri ile doldurur.
+
+![image](https://user-images.githubusercontent.com/75746171/138501415-c6309adf-9abc-446f-a0ea-f8073f5e6895.png)
+
+Bir dizi var ve tüm elemanlarını sıfırlamak istiyoruz.
+
+- memset ile dizinin bütün bytelarına sıfır yazarsam dizinin elemanları sıfır oldu.
+
+![image](https://user-images.githubusercontent.com/75746171/138501538-93c4a9cb-be0e-4f2b-9875-8fa1466e7da2.png)
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138501722-8fe3d40e-c5b1-4e7e-bc34-45f02ff1af29.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138501741-910b348c-9c57-4039-b013-52f1f5132c8a.png)
+
+Memset'in kodu
+---
+![image](https://user-images.githubusercontent.com/75746171/138502002-67388dbf-d04b-4313-9c65-c86848f2ec5e.png)
+
+Memcpy
+---
+- Bir bellek bloğunu bir yeren bir yere kopyalıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/138503974-54f6fdc0-cbdf-463e-b7c6-96327884aed2.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138502504-b6465eb7-d571-40cc-8952-2b7e9efc388b.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138502528-e1b5a2d9-2666-4a64-a4b9-19be449872dc.png)
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138502765-df6e24e2-44d0-4494-9754-b1d03312d838.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138502801-72d9ac1c-4a6d-4292-8814-9bc8a09fdfc6.png)
+
+memcpy'nin kodu
+---
+![image](https://user-images.githubusercontent.com/75746171/138502907-3bb8e9d6-f62f-4a4b-9699-3c77ab27b758.png)
+
+memmove
+---
+![image](https://user-images.githubusercontent.com/75746171/138504057-16dd14d8-de66-4c32-8ab8-c9a8f4b3e119.png)
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138504237-df41aaeb-bed6-478a-ba6e-f8807591ce5b.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138504266-80a530c3-739c-4846-be46-68aa76d1c706.png)
+
+
+Memchr fonksiyınu
+---
+Bellek bloğunda bir byte arıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/138504523-ccc88e8f-332e-4807-99f1-f57da8f31dd8.png)
+
+- Eğer vp adresinden başlayan bellek bloğuda (boyutu n olan) val varsa adresini döndürecek yoksa null pointer döndürecek.
+
+Örnek
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138505342-deca2ef9-4705-4db0-a016-9f8608b20fb1.png)
+
+- memchr char* dönüştürüldü çünkü void*
+
+![image](https://user-images.githubusercontent.com/75746171/138505452-d3b3e946-8aba-4a9d-b090-4feaf73fa74b.png)
+
+memcmp fonksiyonu
+---
+strcmp iki yazıyı karşılaştırıyor, memcmp 2 bellek bloğunu karşılaştıroyor.
+
+![image](https://user-images.githubusercontent.com/75746171/138505612-486034a6-d3a7-41e9-98a3-a5d8cafffd67.png)
+
+Birinci blok büyük ise pozitif, ikinci büyük ise negatif, eşit ise 0 değeri döndürüyor.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138505947-b2d055aa-2736-4142-befc-c54c2cbc71cf.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138505976-b4f9e13d-f6f3-461f-b3ba-8b163ceb0068.png)
+
+
+Fonksiyonun kodu
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138506161-c9c8a42d-3b14-4dd0-b1bf-c36d4aa5ee59.png)
+
+
+Örnek:
+---
+Türden  bağımsız olarak diziyi reverse et (büyüklüğünün yarısı kadar olan döngüde elemanlarını takas et)
+
+![image](https://user-images.githubusercontent.com/75746171/138506944-edccbd4e-f9c0-4ef3-96e9-e8c3129b6284.png)
+
+
+Örnek: Bir dizide arama yapan fonksiyınu generic olarak oluştur.
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138528596-2acca282-b3c9-418c-9bf2-0ca6c0edd748.png)
+
+1- dizinin adresi
+2- Dizinin boyutu
+3- Dizinin elamanının sizeof değeri
+4- Aranacak değeri tutan nesnenin adresi
+
+
+![image](https://user-images.githubusercontent.com/75746171/138531042-451a0cac-b3f5-4018-8142-c01e8fccba47.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138531054-07ffe13e-d5eb-4d85-a993-af93bc1f8596.png)
+
+Ders 39 (23.10.2021)
+---
 
 
 
 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+- memmove
+- memchr
+- memcmp
 
 
 
