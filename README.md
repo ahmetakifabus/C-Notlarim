@@ -2847,6 +2847,153 @@ Türden  bağımsız olarak diziyi reverse et (büyüklüğünün yarısı kadar
 Ders 39 (23.10.2021)
 ---
 
+Fill işlemi
+---
+- Veri yapısının elemanlarını belli bir değerle set etme.
+
+int türüne bağlımlı olan fill fonksiyonu:
+
+![image](https://user-images.githubusercontent.com/75746171/138551735-8d1b9d7e-c08b-4b49-a2e3-95a693fbaa3f.png)
+
+Türden bağımsız hali:
+
+![image](https://user-images.githubusercontent.com/75746171/138551938-49dc1b58-1ddb-48ab-b2db-b801010f63fd.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138551942-7824faa9-9105-4d2f-931c-2ed26a024017.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138551951-9806861b-1ee9-40b0-8aba-5b146d3d8b00.png)
+
+
+3.. parametre, bir elama nınnın sizeof değeri
+4.. parametre set edilecek olan değere sahip nesneye ait olan adresi
+Diziyi fonk içinde char* çeviriyor. ve onu da char* olan başka bir diziye atıyor.
+
+Not:
+---
+void** türü void* türden bir nesnenin adresi olan tür. Bir generic tür değil.
+
+![image](https://user-images.githubusercontent.com/75746171/138552184-7596f5c7-d5f7-4627-b2be-a3156902025f.png)
+
+Bu adresin türü void** 'dır.
+Yani void* türü gösterecek bir değişkene ihtiyaç varsa void** türü kullanılır.
+
+Function Pointers (Fonksiyon Göstericileri)
+---
+
+Nesne adresi: Programın çalışma zamanında o nesne bellekte nerede?
+Fonksiyon adresi: Fonksiyon kodununb çalıpması için makina koduna ihtiyaç var. Bu makina komutlarının belleğe yüklenmesi gerekiyor. Yüklenen bu adres fonksiyonun adresi.
+
+Fonksiyonun adresi nasıl elde edilir?
+---
+Fonksiyonun ismini ades operatörünün operandı yap.
+&func ifadesi func işlevinin adresi anlamına geliyor.
+
+Nasıl bir dizinin ismi bir ifade içinde kullanıldığında dizinin ilk elemanının adresine dönüştürülüyor ise (erray decay) bir fonksiyon ismi de ifade içinde kullanıldığında o fonksiyonun adresine dönüştürülür.
+
+yani func = &func
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138552597-02244b20-04a4-4558-b28d-aa657d064fbd.png)
+
+Not
+---
+
+Nasıl nesnelerin adreslerini tutan değişkenler oluşturabiliyorsak, fonksiyonalrın adreslerini tutan değişkenler de oluşturabiliyoruz.
+
+![image](https://user-images.githubusercontent.com/75746171/138552864-9d07655f-4c5a-43ff-a0d7-99cc8cb86663.png)
+
+Örnek:
+---
+
+İsmi fp olan bir değişkene strcmp nin adresi ile ilk değer verelim.
+
+![image](https://user-images.githubusercontent.com/75746171/138552919-69b3bb82-64e6-4873-a989-b76019cf683b.png)
+
+Ne işe yarar?
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138552962-ba02bb24-546d-4816-a10f-526590d82ece.png)
+
+Func fonksiyonu çağırıldı. Peki nasıl çağırılıyor? Burada bir operatör kullanılıyor. Operatör öncelik tablosunun en yüksek seviyesinde. Function call operatör. ()
+
+- () operatörünün operandı aslında fonksiyonun adresi. O adresteki fonskiyınun adresini çağırıyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138553066-e499d1fb-fde7-4211-be30-8a2c8fe4cde4.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138553075-cdb4cc4d-278f-4af8-bfd4-227c3639dfd1.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138553151-d83c79af-9b67-40c9-9e3f-39098e486925.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138553155-c43b9bba-9857-4c3f-bbb2-37c64a66e6cf.png)
+
+Bir fonksiyıonu ismi ile çağırmakla, fonksiyon pointerı ile çağırmak farklı çünkü fonksiyon ismi ile çğırırsam o fonksiyon çağrılacak fakat fonk. pointer ile çağırırsam çağrı yapıldığı noktada fp'nin değeri hangi fonk adresi ise o fonk çağrılacak.
+
+Not: Fonk pointer türü ile ona atadığımız adres aynı türden olmak zorunda.
+
+![image](https://user-images.githubusercontent.com/75746171/138553296-e2b5ea20-a64e-4dac-9689-af0caf3fc632.png)
+
+Aralarında bi fark yok.
+
+Not:
+---
+- Tüm object pointers sizeof değeri aynıdır.
+- tüm function pointers sizeof değeri aynıdır.
+- Object pointer sizeof depğeri ile func pointer size of değeri aynı olmak zorunda değil.
+
+Bir fonksiyonun parametre değişkeninin function parametre olması, sık karşılaşılan bir drum.
+
+![image](https://user-images.githubusercontent.com/75746171/138554585-b908bf77-e4d6-435b-bdf7-0ddc42b10176.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138554639-360969eb-4d15-44fe-bd88-4b50b9a389c4.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138554649-d057d699-e861-4073-9734-ecbd4e969590.png)
+
+Fonksiyon çağırttık...
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138554903-1c149da9-a156-491f-8d63-ac9a86796e87.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138554907-b7f35c75-0710-477d-8e52-4f6f9f51a751.png)
+
+Soru
+---
+a fonksiyonunun içinde b isimli başka bir fonksiyon çağrılıyor. Ben a'yı başka bir sefer çağırdığımda bu sefer a'nın içinde b yerine c fonksiyonu çağırmak istiyotrum. Bu iş için function pointer kullanılabilir mi?
+
+![image](https://user-images.githubusercontent.com/75746171/138555047-1524c0d6-8f1e-4dc3-be68-02170cb4c414.png)
+
+- globalde bir fptr tanımlanır ve main içinde o değişken b yapılır.
+
+
+- func'ın başka bir fonksiyonu çağırmasını istersen setfunc yap ve ona başka fonksiyonun adresini ver.
+
+![image](https://user-images.githubusercontent.com/75746171/138559312-94237822-b7fb-4f07-8df8-2b539a20b317.png)
+
+qsort fonksiyonu
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138559378-a6173238-95bb-4705-a266-79f8fb6db092.png)
+
+- Generic bir fonksiyon. Bir sıralama ilişkisi ile bir diziyi sıralıyor.
+
+1- parametre sıralanacak dizinin adresi
+2- parametre sıralanacak dizinin boyutu
+3- parametre sıralanavak dizinin bir ögesinin sizeof değeri
+4- parametre sıralanacak dizinin 2 elemanını karşılaştırma amaçlı kuıllanılacak olan fonksiyonun adresini isteyen function poniter
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138559772-ed694231-bc0a-4529-ae42-9faf12a91da8.png)
 
 
 
@@ -2854,7 +3001,6 @@ Ders 39 (23.10.2021)
 
 
 
- 
 
 
 
@@ -2868,9 +3014,30 @@ Ders 39 (23.10.2021)
 
 
 
-- memmove
-- memchr
-- memcmp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
