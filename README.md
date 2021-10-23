@@ -2995,7 +2995,7 @@ qsort fonksiyonu
 
 ![image](https://user-images.githubusercontent.com/75746171/138559772-ed694231-bc0a-4529-ae42-9faf12a91da8.png)
 
-
+1.50
 
 
 
