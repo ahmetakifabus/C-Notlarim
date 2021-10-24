@@ -2995,7 +2995,153 @@ qsort fonksiyonu
 
 ![image](https://user-images.githubusercontent.com/75746171/138559772-ed694231-bc0a-4529-ae42-9faf12a91da8.png)
 
-1.50
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138597589-fcee5ef1-2fb7-4120-8ca2-70cd892b3d7f.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138597605-e144094c-e8d7-461e-9f84-3c652d918274.png)
+
+Örnek: 
+---
+Bubble sort algoritması ile sıralama yapan qsort benzeri parametrik yapıya sahip bir fonksiyon tanımlayınız.
+
+![image](https://user-images.githubusercontent.com/75746171/138600365-9fabe837-3fa5-4b27-b2d4-29e8edb67907.png)
+
+Not: O zman her fonksiyonu generic olarak yazabilrim. (call back kullanılarak)
+
+- Dizinin elemanlarını yazdıran generic bir fonksiyon yazabiriliz. 
+
+
+Örnek:
+---
+- Son parametresi dizinin bir elemanının adreisni alacak ve değerini yazdıracak fonklsiyon.
+
+Döngünün her turunda fprint fonksiyonuna p'yi argüman olarak gönderdim.
+
+![image](https://user-images.githubusercontent.com/75746171/138600694-55f81bcd-5748-4ff6-a934-8d6736e7474d.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138600705-3565d4d2-1756-47b7-af8d-9aebf5851662.png)
+
+Foınksiyon Göstericileri ve typedef bildirimleri
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138600917-59b5c756-7f3d-450b-a99e-c444e0f05b24.png)
+
+Böyle yazmayacağız.
+- Function pointer türleri hemen her zaman kütüphaneler tarafından typedef bildirimerli yapılıyor. ve okuma yazma kolaylığı sağlanıyor.
+
+Örnek:
+
+![image](https://user-images.githubusercontent.com/75746171/138600995-085243ca-9234-47c8-acd1-b3a960d399ff.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138601010-423c3f85-bb39-4cf0-b21b-4a21d6bf7c75.png)
+
+fptr türünden fp tanımlandı.
+
+![image](https://user-images.githubusercontent.com/75746171/138601034-36e3a7b5-1340-4c41-985a-ff5aa8eb5d99.png)
+
+fptr türünden bir nesnenin adresini isteyen pointer
+
+![image](https://user-images.githubusercontent.com/75746171/138601068-30b74cea-9984-4d83-a226-f754f10fa0be.png)
+
+elemanları fptr türünden 10 elemanlı fa dizisi.
+
+![image](https://user-images.githubusercontent.com/75746171/138601145-852dd2e9-ddfb-4256-ad3d-a7695e782765.png)
+
+
+2 paramöetresi olan ve ikisi de fptr türünden olan bir fonksiyon.
+
+![image](https://user-images.githubusercontent.com/75746171/138601159-cc2ce756-dc01-4dc4-895c-a5ee88a97776.png)
+
+geri dönüş değeri fptr olan 2 parametresi fptr türünden olan fonksiyon.
+
+Ders 40 (24.10.2021)
+---
+
+- Fonksiyon göstericileri kullanan bildirimler karmaşık oldığu için fonksiyon göstericisi türleri ytpedef bildirimine tabi tutuluyor.
+- 
+![image](htt ps://user-images.githubusercontent.com/75746171/138602145-f615692e-3499-4bd8-957a-57d383f3e7a0.png)
+
+Böyle tanımlamak yedrine;
+
+![image](https://user-images.githubusercontent.com/75746171/138602160-8c76d9a3-1676-41c3-8741-fd574de5491d.png)
+
+Aynı anlama gelir.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138602246-e74b6a25-2243-4540-ba47-3fc71565ecaf.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138602256-05f084c1-3aff-4027-8b56-27b850f591ea.png)
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138602564-20b37369-d006-454a-aaa7-ceea77f9b3f6.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138602579-50364317-d340-496c-9279-72723711e47e.png)
+
+Örnek: pointer to function pointer
+---
+![image](https://user-images.githubusercontent.com/75746171/138602711-a5214792-8642-45da-be85-9e36039f650f.png)
+
+--------------------
+
+![image](https://user-images.githubusercontent.com/75746171/138602840-8c2b4f9b-7c3f-49f4-ae89-05ae6719541e.png)
+
+Geri dönüş değeri olmayan parametresi olmayan bir fonksiyon adresi türünü fptr ile isimlendirdi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
