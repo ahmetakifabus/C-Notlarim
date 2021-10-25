@@ -3150,7 +3150,226 @@ Evet. Bir int pointer dizinin ilk elemanının son elemanınıgösteriyorsa bunu
 
 a[10][4] a'nın elemanlarının adresleri arasındaki fark 16 olacak.
 
-1.20
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138645370-cd751559-bfe1-4c64-a7cd-59e16e25c101.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/138645336-ac78dade-6aaf-4e55-9a81-0b11fd1e95a8.png)
+
+Örnek:
+---
+Elemanları 10 elemanlı double dizi olan boyutu 5 olan a dizisini tanımlayınız.
+
+double a[5][10];
+
+- Elemanları 10 elemanlı const char* olan 5 elemanlı
+
+const char* a[5][10];
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138646006-1d032e81-5e55-497e-a05c-97ba12565eb5.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138646024-68fccfc6-5aea-4ff6-831a-97d304d8740b.png)
+
+
+Not:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138646865-12e2c389-b8d2-48ad-9c82-7d58dd1c78bf.png)
+
+
+a[5] ile *(a+5) aynı anlamda..
+
+Çok boyutlu dizilere ilk değer verilmesi
+---
+
+Örnek: Diziyi yazdır.
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138647906-3d319526-9979-4ebc-b031-12372af4342c.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138649892-079b1488-56ea-4d9b-99f0-f4874a07f95a.png)
+
+
+Not:
+
+int a[5][4];
+Bu dizinin elemanlarının türü int değil. int[4], yani 4 elemanlı int diziler.
+
+
+![image](https://user-images.githubusercontent.com/75746171/138650814-3f1bb110-0cec-492d-b5a5-c4a91862acf4.png)
+
+typedef yaptık bu ikisi aynı oldu.
+
+Ders 41 (25.10.2021)
+---
+![image](https://user-images.githubusercontent.com/75746171/138652770-b78987f6-bdc4-43a8-969b-d6c120966df2.png)
+
+- Bu diziler türleri farklı olan diziler.
+- a, elemanları 20 elemanlı dizi olan bir dizi
+- b, elemanları 8 elemanlı dizi olan bir dizi
+- c, elemanları 4 elemanlı dizi olan bir dizi.
+
+Bu dizilerin türleri tamamen farklı. Dolayısıylar bunların adreslerini isteyen fonksiyonlar farklı parametrik yapıdadır.
+
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138664512-a70e04ea-7861-4ed4-992c-c838d2a438f0.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138664561-2bf88bf2-5e63-4eba-bce8-8b26f1d12860.png)
+
+Örnek: Diziyi yazır
+---
+![image](https://user-images.githubusercontent.com/75746171/138665577-f61e903a-27ae-4121-96cf-a7702a631526.png)
+
+
+Not: Dikkat!
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138666280-40c8547d-3901-46ba-8250-1ee2347e89c0.png)
+
+- erdinc proramın sonuna kadar bellekte kala nbir string literali, static ömürlü bir dizi.
+- Bu şekidle bir tanımlama yaptığımızda aslında 2 ayrı işlem yapılıyor birisi pointer değişken diğeri de char dizi.
+
+- mustafa ise programın sonunak kdar bellekte kalan bir char dizi değil. 
+
+
+Not:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138667485-d2238e4f-9e73-4c8e-8953-374aa94aaaba.png)
+
+
+- Pointerları fonksiyonun parammetre değişkenleri olmaları urumunda farklı tanımlanabilir.
+- Bu bir dizi değil. Fonlsiyonların parametre değişkenleri dizi olamaz.
+
+ ![image](https://user-images.githubusercontent.com/75746171/138667691-4f3075a8-a9b0-4328-9e8f-1140cc0587c2.png)
+
+Bunların arasından da bir fark yok.
+
+Bazı önemli standart c fonksiyonları
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138668323-74567224-779f-4025-9f1b-4aecd53bc722.png)
+
+Böyle yazdığımızda 3452 tam sayısını tutmuyor. Bu dizide tutulanlar 3 4 5 2 sayılarının ascii kodları ve sonda da null karakter var.
+
+
+atoi : Alphasbetic to integer
+---
+![image](https://user-images.githubusercontent.com/75746171/138668997-69e8ce65-d5b5-4674-a157-f1c7b8c1c41e.png)
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138672106-95a2aec4-d23e-432d-9a4c-cb5984026f72.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138672157-b7fbd1bd-8a70-40a8-a78b-ee37f732d4be.png)
+
+atol: Yazıdan long değer çekiyor
+atof: Yazıdan float değer çekiyor.
+
+cppreference.com sitesinden bakabilirsin.
+
+Yazılan tüm fonksiyonlar:
+
+![image](https://user-images.githubusercontent.com/75746171/138673574-852695b0-f5b4-46f8-a2dc-4bc5fe0e5682.png)
+
+
+strtok fonksiyonu: string tokenize
+---
+Yazının içinden bir kurala uyan yazıları elde etmeye (tokenlarına ayırmaya) çalışıyor.
+
+Ör: bir yazıdan kelimeler, bir yazıdan telefon numarası
+
+![image](https://user-images.githubusercontent.com/75746171/138673877-0963a2c0-6fac-4635-ad33-8c2bb5950b8e.png)
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138674308-a43c2840-2d07-441a-8147-db6ee0ba833c.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138674355-24ffb785-76fd-45fd-b641-eddcceb47117.png)
+
+- Null adresi geçmemizin nedeni fonksiyonun ikinci çağrı mı ilk çağrımı olduğnu ayır edilmesini sağlamak. Fonksiyona gelen değişken null poniter ise ilk çağrı olmaıdğını anlıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/138674955-b77de05b-5b08-443d-aff6-7d7bdba2ed4f.png)
+
+Bu şekilde tokenin sonuna null karakter koyuyor. Aslında null pointer döndürdüğünde static bir değişkende null pointerin adresini tutuyor ve aramaya kaldığı yerden devam ediyor.
+
+Bellek üstünde formatlı okuma yazma işlemleri
+---
+
+Formatlı giriş çıkış işlemleri 3 farklı biçimde yapılıyor.
+
+Formatlı çıkışi işlemleri:
+- Fkrmatlanmış veriyi standart outputa yazıyoruz. (Konsol ekrana bağlıysa yazı ekranda çıkıyor.
+- formatlı yazı char dizide oluşturuşuyor. (Ekranda değil char dizide tutuluyor) (Bellek üstünde yazma işlemi)
+- Dosyaya yazılıor
+
+Formatlı çıkış işlemleri yapan fonmksşiyonların hepsi aynı (printf). Parametrik yapıları ve isimleri farklı.
+
+printf - Çıktısını standart outputa veriyor
+sprintf - Çıktısını belleğe veriyor
+fprintf - Çıktısını dosyaya veriyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138676347-ec06d9aa-f5d5-48f0-8d2f-a9f4576e56c0.png)
+
+sprintf çıktısını bu diziye yazacak.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138676866-f253cb2a-f1fa-4f93-830b-e7c3505316d2.png)
+
+Program çalıştığında ekrana bu yazıyı yazacak fakat ben ekranda görmek istemiyorum dosya isminde görmek sitiyorum.
+
+![image](https://user-images.githubusercontent.com/75746171/138677153-1bac01aa-1c78-4a8f-92ab-f7641b355291.png)
+
+Dosyayı oluşturduve içine yazıyı yazdı.
+
+
+sscanf fonksiyonu farklı olarak karakterleri standart inputtan almıyor, bizim verdiğimiz adresteki diziden alıyor. 
+
+fscanf fonksiyonu ise dosyadan eçkiyor.
+
+Programı sonlandıran standart c fonksiyonları
+---
+
+- exit
+- atexit
+- abort
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
