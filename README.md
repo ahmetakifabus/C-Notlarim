@@ -3352,6 +3352,253 @@ Programı sonlandıran standart c fonksiyonları
 - abort
 
 
+Ders 42 (25.10.2021)
+---
+
+2 tür program sonu var.
+
+- Normal termination (exit)
+- Abnormal termination (abort) 
+
+Programlar main'de sonlanmak zorunda değil.
+Farklı bir fonksiyonda da bitebilir.
+
+atexit:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138684123-e138a352-9324-4962-afc7-9db46638adb7.png)
+
+- Adresini aldığı fonksiyonu kaydediyor. 
+- Yani adreslerini elemanları function pointer olan bir diziye yazıyor. Exit çağırıldığında programı sonlandırmadan önce atexit in yazdığı fonksiyon pointer dizisine erişiyor ve orada adresleri yazan fonksiyonu çağırıyor. (Sondan başa doğru)
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/138684726-5e22bdd1-6390-4338-aefe-1b58d4b28a17.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138684752-e129919b-d9e3-467a-8bba-c7cf20093a23.png)
+
+
+Not:
+---
+return 0; --- exit(0) 'a dönüştürülüyor.
+return 1; --- exit(1) 'a dönüştürülüyor.
+
+- Eskiden main fonksiyonunun içinde return statement olmaması onun çöp değer döndürmesi anlamına geliyordu fakat c99 standartları ile eğer return koymazsan yazmış kabul ediliyor.
+
+Abort fonksiyonu
+---
+
+Paramatresi de yok geri dönüş değeri de yok. Direkt programı sonlandırıyor.
+
+
+Dinamik Bellek Yönetimi
+---
+Dymacmic memory management
+
+Storage Durations
+- automatic
+- static
+- dynamic
+
+Dinamik ömür: Programın çalışma zamanında istediğim herhangi bir anda neyneyi hayata getircem ve istediğim zaman çıkarıcam.
+
+Örnek:
+---
+
+func fonksiyonu olsa ve kendisini çağıran koda kendisinin oluşturduğu bir nesneyi iletmek istese, bunu diğer ömür kategorileri ile yapamayız. Otomatik ömürlü nesnenin adresi döndürülemez. Static ömürlü olsa hep aynı nesnenin adresini döndürürüz. Dinamik ömürlüde her seferinden farklı nesne gönderrebiliriz.
+
+Dinamik ömürlü nesne ile dinamik bellek yönetimi bağlantısı:
+
+Dinamik ömürlü nesnelerin bir yere sahip olması gerekiyor. Bu bellek alanının programın çalışma zamanında elde edilmesi süreci dinamik bellek yönetimi oluyor.
+
+Not: Sanal bellek nedir?
+---
+İşletim sistemi bellekte yeterli alan olmadığında iskteki alanları sanki bellekmiş gibi kullanılmasını sağlıyor.
+
+
+Özet:
+- Dinamik bellek yönetimi, programın çalışması sırasında bir bellek alanının elde edilmesine ve kullanımı sona erdiğinde sisteme geri verilmesi ile ilgili faaliyetlerdir.
+
+- Dinamik bellek yönetimi c ve c++ programlama dillerinde en fazla kodlama hatası yapılan bölüm.
+- Maliyeti arttırır. Hata yapma riskini arttırır. Kod okunmasını zorlaştırır.
+
+Dinamik ömürlü nesneler (programın çalışma zamanında bellekte yeri ayrılan nesneler) kllandığı bellek alanına heap bellek alanında tutuluyor.
+
+Bellek alanını alıp işi bittiğinde geri vermeme olayı memory leak problemini oluşturuyor. (Bellek sızıntısı)
+
+Dinamik bellek yönetimi fonksiyonları
+---
+malloc : Memory allocation
+
+- Program çalışma zamanında bellek alanına ihtiyaç oldjğunca çağırılır. Temiz bellek verir.
+
+callog : 
+
+- malloc ile aynı fakat elde edilen bellek bloğunu garbage value ile bize veriyor.
+
+realloc: 
+
+- Daha önce elde edilen bellek bloğunu büyütmek istediğimiz zaman çağrılır.
+
+free :
+
+- Bellek bloğunu geri vermek için çağrılır.
+
+malloc fonksiyonu
+---
+![image](https://user-images.githubusercontent.com/75746171/138689986-f047f49b-99df-4a83-86b9-2d7044e72a3b.png)
+
+kaç byte lık blok istediğini söyle ve elde etmeye çalışayım. Elde edebilirsem elde ettiğim bloğun adresini döndüreyim. Edemezsen null pointer döndüreyim.
+
+Önemli
+--
+- Asla dinamik bellek işlevleriyle elde edilmemiş bellek bloklarını free etme girişiminde bulunma. Undefined behaviour
+- Free işlevi ile dinamik bellek boyutunu küçültemezsiniz.
+- Free çağrısından sonra bellek bloğunun adresini tutmakta olan pointer geçersiz (invalid) pointer olur.
+- Free edilmiş bir bellek bloğunun tekrar free edilmesi işlemi tanımsız davranış.
+
+free(pd) yaptığımızda pd'nin değeri nul pointer mıdır?
+- Hayır. pd'nin değerini değiştirecek fonksiyonun çağrısı ancak o değişkenin adresi ile yapılablir.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138694018-e518f39b-8498-4425-9a9d-8aa9cb98d0b8.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138694056-ec5e8e60-8ed3-4c3c-9efb-aff083904c18.png)
+
+
+Soru
+---
+Dinamik bellek kullanılacak
+20 tane 1000 byte lık blok
+1000 tane 20 byte lık blok
+arasında bir fark var mıdır?
+
+- Evet. Her malloc çağrısı veri yapısına giriş yapmak demek.
+- Yani her tahsisat için 16 bytelık bellek bloğunu kullandık. 
+- 20 x 16 = 320 byte
+- 1000 x 16 = 16000 byte
+
+Yine bellek bloğu ihtiyacının 16 byte olduğunu düşünelim.
+40 byte istersek 40 byte ayırtmıyor. 40+16 byte ayırıyor. 16 byte ını kendi kullandığı veri yapısına giriş için kullanıyor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
