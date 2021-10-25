@@ -3093,6 +3093,105 @@ Aynı anlama gelir.
 
 Geri dönüş değeri olmayan parametresi olmayan bir fonksiyon adresi türünü fptr ile isimlendirdi.
 
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138617108-a40576d6-ae32-49f6-be3c-7837f8d61036.png)
+
+Parametresi bir fonksiyon göstericisi.
+
+![image](https://user-images.githubusercontent.com/75746171/138617185-a2bccc26-057c-4349-bc19-f46b3d1dbc87.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138617193-4e160e5a-6afb-4d84-8dca-b8abf0973855.png)
+
+- func çağırıldığında fregister ile kayıt edilen fonksiyonları (kayıt edildikleri sıra ile ya da son olanı önce ) çağıracak. Peki bu nasıl oluyor?
+- Çünkü aslında fregister bunları elemanları function pointer olan array'de tutacak.
+
+
+![image](https://user-images.githubusercontent.com/75746171/138617351-26fac048-9f37-47eb-a8ec-b23ce7c6b89d.png)
+
+Özet:
+---
+- String literalleri
+- Pointer dizileri
+- Ponter to pointer
+- Void pointer
+- Function pointers
+
+konuları bitti.
+
+- Sodility ili (akıllı kontratlar, blockchain) bak
+
+Çok Boyulu Diziler
+---
+Multi dimensional arrays
+
+- C'de çok boyutlu diziler yoktur.
+- C'de aslında çok boyutlu diziler, elemanları dizi olan dizilerdir.
+- 
+
+![image](https://user-images.githubusercontent.com/75746171/138617671-51b6e18c-cf76-4f14-b55d-3b4105b32984.png)
+
+- Burada 10 a dizisinin boyutu. a, elemanları 20 elemanlı int dizi olan bir dizi.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/138617752-60a395cf-b65c-4556-97e9-5b68d6fd0082.png)
+
+![image](https://user-images.githubusercontent.com/75746171/138617808-638ebb5d-0a78-4ec0-a3a7-07630e09012d.png)
+
+
+- a[0], a'nın elemanlarından biri. Bu elemanlar 20 elemanlı int diziler. Yani sizeof a[0] 80 olur.
+-  Yani a[10][20] demek 20 elemanlı 10 diziden oluşan bir diziir. a boyutu 10 olan bir dizi. Ama a'nın elemanları boyutu 20 olan int diziler.
+
+Not: a'yı 200 elemanlı bir int dizi olarak kullanabilir miyim?
+Evet. Bir int pointer dizinin ilk elemanının son elemanınıgösteriyorsa bunu 1 arttırdığıızda bu pointer dizinin 20 elemanlı 2. elemanını gösterir.
+
+a[10][4] a'nın elemanlarının adresleri arasındaki fark 16 olacak.
+
+1.20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
