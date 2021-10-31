@@ -3596,6 +3596,110 @@ realloc çağrıalrında 1. parametreye bull pointer geçilirse realloc malloc g
 
 realloc(pd, n) = malloc(n)
 
+Ders 44 (31.03.2021)
+---
+
+Veri yapısı: Mantıksal ilişki içindeki verileri erişilebilir şeklide bir arada tutan düzenekler.
+
+Default kullanılan veri yapısı dinamik dizi. İhtiyaç olduğunda diğerşerini kullanıl-yırouz.
+
+Storage class specifiers (Yer belirleyicileri)
+---
+C'nin bazı anahtar sözcüklerine verilen özel isimler.
+
+- auto
+- register
+- extern
+- static
+
+type qualifiers (tür niteleyicileri)
+---
+
+- const
+- volatile
+- restrict
+
+linkage (bağlantı) kavramı ile tanışacağız.
+
+- auto artık kullanılmıyor.
+- register da aynı şekilde kullanımı azalıyor.
+
+auto
+---
+Değişkenlerin bildiriminde kullanılan bşir anahtar sözcük.
+![image](https://user-images.githubusercontent.com/75746171/139587310-6d245e55-ea17-4ef5-89a6-77ae12d53d53.png)
+
+- Değişkenin otomatik ömürlü olduğunu anlatıyor.
+
+register
+---
+Derleyiciye bu değişkenin register'da tutulması ricasını iletiyoruz.
+
+32 bit işlemci dediğimizde 32 bit registerın büyüklüğü. Değişkene işlem yapılması için register a çekiliyor.
+
+Neden gereksiz hale geldi?
+Çünklü artık modern derleyiciler bu optimizasyonu çpok iyi yapıyor. Derleyiciye registerda tut dememize gerek yok.
+
+static
+---
+Blok içinde ve globalde kullanımındaki anlamı farklı.
+
+
+Neden static yerel değişkenleri kullanıyoruz?
+
+- Global değişkenleri ömrü ile static yerel değişkenlerin ömrü aynı sadece scope farklı.
+
+- Çağrılan fonksiyonun kendisini çağıran fonksiyona değer iletmesi gerekiyor. Bunun yolalrından biri static bir yerel değiŞkende bu değeri tutmak ve bunun adresini iletmek.
+
+Static yerel değiğşkenin adresini döndüren programlar.
+
+İsimlerin bağlantı (Linkage) kavramı
+---
+
+farklı kaynak dosydaki isimlerin aynı varlığa ait olması, external linkage (dış bağlantılı). 
+
+- external linkage
+- internal linkage
+- no linkage
+
+
+![image](https://user-images.githubusercontent.com/75746171/139589086-1556a133-03a8-4de2-b03a-fd30704c22a5.png)
+
+- Tanımlanan global değişkenin ismiyle diğer kaynak dosyalrda kullanılabilsin istiyoruz. Dış bağlantıya ait bir isim yapmak zorundayız. External
+
+- Kullanıldığında başka bir varlığa ait olsun diyorsan internal.
+
+- Normal tanımlanan gloabal değişkenleri external linkage
+- Fonksiyonlarda da aynısı geçerli.
+
+
+nutility (başlık dosyası) içinde extern olarak tanımladıktan sonra main içinde bu değişkeni kullanabiliriz. (Önişlemci include komutu ile birliklte)
+
+![image](https://user-images.githubusercontent.com/75746171/139589274-52370455-1e72-465b-872d-917feb3d7efb.png)
+
+- Extern sadece bir bildirim. Derleyici bunun için yer ayırmıyor.
+
+- Global düzeyde static anahtar sözcüğünü kullandığımız zaman bu isim iç bağlantıya ait demektir. Bu değişkeni diğer kaynak dosyalardan ismi ile kullanılmasını isytemiyoruz.
+
+- Aynı şekilde fonskiyonlarda sadece bu kaynak dosyada çağırılmasını istiyorsam static kullancam.
+
+![image](https://user-images.githubusercontent.com/75746171/139589628-424861a6-13bb-4acc-b03d-6335b04d4e17.png)
+
+![image](https://user-images.githubusercontent.com/75746171/139589645-12d3ea01-7e5c-4794-a9c6-d796595f5897.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
