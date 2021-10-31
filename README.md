@@ -3484,227 +3484,117 @@ Yine bellek bloğu ihtiyacının 16 byte olduğunu düşünelim.
 40 byte istersek 40 byte ayırtmıyor. 40+16 byte ayırıyor. 16 byte ını kendi kullandığı veri yapısına giriş için kullanıyor.
 
 
+Ders 43 (31.10.2021)
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139580779-8442a73f-26fa-4832-8d67-2e428a9d14f3.png)
 
+Verdiğimiz adresteki yazının bir kopyasını çıakrtıyor ve adresini döndürüyor. Ancak kopyasını dinamik bellek bloğunda oluturuyor. Yani işimiz bittiğnide free etmemiz gerekiyor.
 
+Örnek:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139580873-ffba8567-957c-432f-ae74-14811e40b6b3.png)
 
+En sonda free yapmazsak bellek sızıntısı oluyor. 
 
+![image](https://user-images.githubusercontent.com/75746171/139580893-855c0e29-2ffc-4414-baea-7269e6174c34.png)
 
+Bellek sızıntısı:
+---
+Dinamik bellek yönetimi fonksiyonları ile elde ettiğimiz belle blokları heap denilen bellek havuzundan veriliyor. Bu alan sonsuz değil. malloc ile bu alandan bir yer almıl oluyoruz. Bu alanı geri verene kadar başka bir amaçla kullanılamıyor. 
 
+- Bu alanlar geri verilmezse başka bir kodun dinamik bellek bloğu ihtiyacı olduğu durumda yer kalmadığı için bu ihtiyaç karşılanamayacak.
 
+- Birçok dilde garbage collector denilen bir sistem var. C'de bu sistem yok. Bi dillerde dinamik belle kyönetimi kolay. Bellek bloğu alınıyor fakat geri vermek zorunluluk değil. Bu alanın kullanımı sona erince sistem tarafından geri veriliyor.
 
+strdup fonksiyon kodu.
+---
 
+Yazının uzunluğu + 1 kadar alını ayırmam gerek. (Null karakter)
 
+![image](https://user-images.githubusercontent.com/75746171/139581532-41273d00-9310-4f92-a751-fa477d76c1c1.png)
 
+Not:
+---
 
+Sınıftaki öğrecilerin notlarını tutmakl için bir diziye ihtiyaç var. 
 
+![image](https://user-images.githubusercontent.com/75746171/139581839-33f4a078-e1f2-45d2-b98a-af81ff386e4e.png)
 
+Bir bellek bloğu elde edip onun adresinin bir poniterda tutabiliriz. pd int türden n elemanlı bir dizinin başlangıç adresi olarak kullanılabilir.
 
+Dinamik bir matris oluşturmak.
+---
+Matrisin satır ve sutunsayısı programın çalışma zamanında blli oluyorsa dinamik bellek yönetimii le oluşturulabilir.
 
+row 5
+col 20
 
+5 tane 20 elemanlı diziye ihtiyaç var.
 
+Ben 20 elemanlı dizileri dinamik bellek yönetimi ile elde edebilirim.
 
+Adresler ile bunlara erişebilirm. Bu adresleri tutan dinamik 5 elemanlı bir poniter dizisi oluşturmam gerekiyor.
 
+Ve dinamik pointer dizisinin de adresini tutan bir pointera ihtiyaç olacak. Bu da int** olacak.
 
+![image](https://user-images.githubusercontent.com/75746171/139582146-fc3868a9-0dd1-4070-a980-5ce253c8afdd.png)
 
 
 
+![image](https://user-images.githubusercontent.com/75746171/139582204-c6c7fc82-540a-4f6d-8523-2ad904e56742.png)
 
+- row adet pointerın sığabileceği bir pointer dizisi için yer ayırmış oldum. 
 
 
+Memory fragmentation
+---
+Parçalara ayırma.
 
+![image](https://user-images.githubusercontent.com/75746171/139583222-eeb10fe5-c248-4f5b-9999-8c98f9f51a89.png)
 
+Böyle bir durumda yüksek bir belleke ihtiyaç oldu ve ardışık olarak yok. 
 
+--------
 
+Not:
+Malloc fonksiyonuna 0 ile çağrı yapıldığında 
 
+![image](https://user-images.githubusercontent.com/75746171/139583455-9bfe9fe8-14ac-47d5-bad4-5aa796d224c7.png)
 
+![image](https://user-images.githubusercontent.com/75746171/139583461-0f161437-d465-41d4-8714-af0afac9a353.png)
 
+Callog
+---
+![image](https://user-images.githubusercontent.com/75746171/139583491-2a89ffd7-ae16-4215-8686-497d87b0244a.png)
 
+malloc'un tel parametresi var. 100 elemanlı int dizi için yer ayırdığımda 100xsizeofint. 
+callog ise ilk parametresi kaç tane nesne için yer ayırdığım, 2. parametresi her bir nesnenin sizeof değeri.
 
+reallog fonksiyonu
+---
+re ön eki tekrar anlamında. Daha önce elde edilmiş bellek bloğunu büyütme için, yada küç.ültmek için.
 
+Birinci parameteresi bellek bloğnun adresi, ikincisi bellek bloğunun yeni boyutu.
 
+- Başarısız olursa null poniter, başarılı olursa elde edilenbellek bloğınun adresini döndğrür.
 
+![image](https://user-images.githubusercontent.com/75746171/139583971-4b939dcb-2006-4c05-97f8-9bdc6cbb7c76.png)
 
+Not:
+---
 
+büyük boyutlu alanımız var. realloc çağırıldığı zaman çok az bir alan arttırsa bile çok büyük bellek bloğu başka bir alana kopyalanıyor. Bunun cidi bir maliyeti var. Reallocation take time! Büyük ihtimalle eski bellek bloğunun yeni bellek bloğuna kopyalanması ile gerçekleşecek.
 
+reallocation invalidates pointers!
+Yani: Malloc ile elde etitin bellek bloğnu realloc ile büyüttüğün zaman eski bellek bloğu geri verilmiş olabilir. Sen eski bellek bloğundaki pointerları dereference edersen tanıksız davarnış.
 
+Not:
+---
+realloc çağrıalrında 1. parametreye bull pointer geçilirse realloc malloc gibi davranır.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+realloc(pd, n) = malloc(n)
 
 
 
