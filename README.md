@@ -3773,101 +3773,120 @@ Bir pointerın gösterdiği nesneyi gösteren tek pointer olduğu, onun gösterd
 Bu fonksiyonun kodu çalışırken dest in gösterdiği nesne ile src nin gsöterdiği nesne farklı nesneler.
 Bu pointerların aynı nesneyi gösterme ihtimali yok.
 
+Ders 46 (01.11.2021)
+---
 
+User defined types
+---
+Programcı tarafından oluşturulan türler
 
+Dilin bazı araçlarını kullanarak kendi türümüzü oluşturabiliyotuz. Bunun için bildirim yapmamız gerekiyor.
 
+User defined types: Hazır olarak gelmeyen ama bir bildirimi le kullanılabilir hale getirdiğimiz türler.
 
 
+User defined types oluşturmak için 3 araç var.
 
+1. Structers (Yapılar)
+2. Union (Birlikler)
+3. Enumarations (Numaralandırmalar)
 
 
+![image](https://user-images.githubusercontent.com/75746171/139710798-8d72442f-7091-4210-b62e-cf6fd474da37.png)
 
+Yapı ve yapının elemanları. Bu bellekte bir yer kaplamıyor bu sadece bir bildirim.
 
 
+![image](https://user-images.githubusercontent.com/75746171/139710856-e7785fde-ea18-413c-890b-bc8982febd2f.png)
 
+Burada mydata bir nesne, bellekte bir yer kaplıyor.
 
+- Bir yapı türünün sizeof değeri (storage ihtiyacı) elemanlarının sizeof değerlerinin toplamı kadardır. 
 
+Memory selection operators
+---
+Yapının elemanlarına erişim için kullanılıyor.
 
+Not:
+---
+![image](https://user-images.githubusercontent.com/75746171/139713767-f5a591ec-fc3c-4661-ba57-348f39b36e8c.png)
 
+- Derleyici x değişkeni için ayrı bir yer ayırıyor ama mydata.a için ayırmıyor, struct data türünden mydata nesnesi için yer ayırıyor.
+- Yani a, mydata nesnesinin içnde yer alan int türden bir değişken.
 
 
+![image](https://user-images.githubusercontent.com/75746171/139714151-5d3b55c4-56c9-4287-b7a9-02f10b385fe7.png)
 
+ 
+![image](https://user-images.githubusercontent.com/75746171/139715716-65266780-9e01-4cc4-888c-6393461135ab.png)
 
+mydata nesnesinin x'ine erişmiş olduk.
 
+![image](https://user-images.githubusercontent.com/75746171/139715797-fd0ee5f5-b862-47ed-95e4-7fc2efd50cf1.png)
 
+Bu ikisi de aynı anlamda.
 
+![image](https://user-images.githubusercontent.com/75746171/139721902-148080e5-272f-40df-ad26-cd808b4cb857.png)
 
+Yapı nesnesine bir yapı nesnesi atandığında derleyici karşılıklı elemanalrı birbirine kopyalıyor
 
+![image](https://user-images.githubusercontent.com/75746171/139722009-482d3b5c-00c6-46ef-95d4-4d25378be0a2.png)
 
+Yapı nesnelerine ilk değer verme
+---
+![image](https://user-images.githubusercontent.com/75746171/139722572-84a5191a-077d-4ead-ac60-9185940569b3.png)
 
+Örnek:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139722950-d0441680-c949-4e9b-adc9-a6e35ca8bbea.png)
 
+![image](https://user-images.githubusercontent.com/75746171/139722971-a4ec3811-2301-40ce-b2ad-4e0bd454bf05.png)
 
 
+![image](https://user-images.githubusercontent.com/75746171/139723273-f6f3a71f-07ad-4efd-a156-ee587437be5a.png)
 
+![image](https://user-images.githubusercontent.com/75746171/139723303-0dffee46-153a-4cbd-b7a4-3fedff790dde.png)
 
+Not:
+---
+![image](https://user-images.githubusercontent.com/75746171/139723971-fda15e1b-405a-4b4e-bcde-92bbc91789ac.png)
 
 
+Burada hem struct data türünü bildiriyorum hem de struct data türüden bir global değişken tanımlamış oluyorum. 
 
+Örnek:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139724939-304a20eb-1476-4524-91cb-b15f92ea2c16.png)
 
+![image](https://user-images.githubusercontent.com/75746171/139724981-f6d5a47c-f6c8-4cab-ac7b-3dde1432338c.png)
 
+Not:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139725367-657b300d-94d1-4210-bba7-48cd890a2741.png)
 
+Örnek:
+---
 
+![image](https://user-images.githubusercontent.com/75746171/139725581-66473d1a-206c-4bab-b868-252ee72bf2a4.png)
 
+![image](https://user-images.githubusercontent.com/75746171/139725606-82c81d9a-4148-4a6e-bc08-15d00a9f2e42.png)
 
+Not:
+--
+![image](https://user-images.githubusercontent.com/75746171/139725934-a8f06240-31d4-49a0-b942-ee822fb8e926.png)
 
+Aynı anlamdalar.
 
+![image](https://user-images.githubusercontent.com/75746171/139726021-ed1c8237-6f0d-4967-ae2b-8e532f49dac1.png)
 
+Burada ise bir sentaks hatası yok.
 
+![image](https://user-images.githubusercontent.com/75746171/139726136-80495d39-eb43-43ab-988f-7e35d505907b.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Dizinin 2 indisli elemanının id isimli elemanını 1 arttırdı.
 
 
 
