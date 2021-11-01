@@ -3688,6 +3688,122 @@ nutility (başlık dosyası) içinde extern olarak tanımladıktan sonra main i�
 ![image](https://user-images.githubusercontent.com/75746171/139589645-12d3ea01-7e5c-4794-a9c6-d796595f5897.png)
 
 
+Ders 45 (01.11.2021)
+---
+
+Bir global değişken ya da bir fonksiyon söz konusu olduğunda 2 seçeneğimiz var:
+
+1. Global değişken ya da fonksiyonu diğer moddüllerden ismi kullanılır kılmak (external linkage)
+2. Global değiğşken ya da fonksiyonu sadece bu kaynak dosya kullanabilsin. (internal linkage)
+
+No linkage isimler : Parametre değişkenleri ve yerel değişkenlerin isimleri.
+
+- Header file'da extern bildirimi ile tanımlanan x dxdeğişkenini, başlık dosyasını include ettiğimde ve x ismini kullandığımda derleyici x ismini arayacak ve extern bildirimi ile karşılacşacak ve bunun için ayrıca yer ayırmayacak.
+- Değişkenlerde extern zorunlu fakat fonksiyonlarda default olarak extern yazıyor ayrıca belirtmeye gerek yok.
+
+- Global değişkeni ya da fonksiyonu diğer modüllere kapatmak istiyorsak static anahtar sözcüğü ile tanımlayacaz. (Yerel düzeyde kullanılan static anahtar sözcüğü ile karıştırma)
+- Ve böyle bir değişkeni başka modüller de tanımlayabilir, fakat bunlar ayrı ayrı değişkenlşer.
+
+
+- Nesne yönelimli programlama ile benzerlik oluşturmak amaçlı Makro ile private ve public sözcükleri tanımlanabilir.
+
+#define		private		static
+
+- makroda ismi yazıp karşılığını yazmazsam derleyici bunu görmüyor ve siliyordu. Burdan hareketle;
+
+
+ ![image](https://user-images.githubusercontent.com/75746171/139657686-b21cc75f-0fc3-430d-be95-697f3110dc63.png)
+
+![image](https://user-images.githubusercontent.com/75746171/139657701-31e46588-cc10-4518-bf52-10fe5d59595b.png)
+
+- Fonksiyonlar için böyle bir ipucu verilebilir.
+
+
+Namespace
+---
+C++ dilinde global isim alanı namespace delinen varlıklar içeriyo.r. Namespace elr isimleri birbirinden ayırmak gizlemek çakışmayı önlemek için kullanılanvarlıklar. İstediğimiz kadar oluşturabiliriz. Ayın isimde farklı namespacelerde tanımlanabilşir. C'de namespace yok. 
+
+type qualifiers
+---
+- Const
+- volatile
+- restrict  (C++'da yok)
+
+Volatile Anahtar Sözcüğü
+---
+
+Bir değişkene bir sabit atadğımızda onu kendi kodumuz değiştirmediği sürece değişmemsi lazım. Fakat öyle senaryolar var ki Bizim kodumuz bir değişkenin değerini değiştirmese de program dışı kaynaklar x değişkeninin değerini değiştirebiliyor.
+
+Örneğin bir başka işlemci kendi reigsterını değiştiriyor fakat bu bizim kullandığımız bir bellek alanı ve bir adres vasıtası ile ona erişiyoruz. 
+
+Ya da kesmeler ile olabilir. Kesme bir fonksiyonu çağırıyor ve o sziin değişkeninizi değiştiriyor. Fakat bu bizim progrmaımız dışında oluşturulmuş ayrı bir program.
+
+Derleyici bizim değişkenimizin program dışı kaynakalr tarafından değiştirilebileceğinibilmezse bir takım optimizasyonlar yapıyor ve o bellekteki nsneye erişmek yerine onun daha önce registerda tutulan değerini kullanabiliyor. Böylece programımızın lojik yapğısoından bir farklılık oluyor.
+
+![image](https://user-images.githubusercontent.com/75746171/139666736-22bcfe62-afbb-4617-a36b-f08418f2b5ec.png)
+
+Örneğin burada bu döngüden çıkması için bir kesmenin x'i değiştirmesi gerekiyor ancak derleyici bunu bilemez, derleyici kaynak koda bakıyor. X'i değiştirecek bir kod olmadığı için x'in registerdaki değerini kullanıyor. X'in değeri program dışı kaynaklar tarafından değiğştirildiği için derleyicinin yaptığı optimizasyon, kodumuzun lojik yapısını değiştiriyor. 
+
+Kesme geldi ve x'i değiştirdi fakat derleyici bunu farkında olmadığı için x'in eski değerini kullandı.
+
+Bu gibi durumlarda biz değişkeni volatile anahtar sözcüğü ile tanımlıyoruz. Ve derleyiciye şunu söylüyoruz:
+
+- x değişkeninin değeri sen görmesen de program dışı kaynaklar tarafından değiştirilebilr, ben kaynak kodda x'i kullandığpım her yerde hiçbir optimizasyon yapmayacaksın. x'in bellek alanına erişip oradaki değeiri alacaksın. 
+- Eğer bunu yapmazssak x'in değer değişikliğini derleyicinin ürettiği kod yapkalayamayacak.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/139667558-ea4b15d6-5d0c-4a80-9bd6-37eb88f573a4.png)
+
+biz yıldız p'yi kullandığımız zaman derleyici o adresteki nesnenin değerini elde etmek zorunda değil. Çünkü O değeri en son bir bellek alanında ya da register da tutuyor olabilir. Yani biz kullandıığımız zaman nasıl olsa değer değişmedi diyerek en son sakladığı değperi kullanıyor olabilir. Bu bir optimizasyon tekniği.
+
+Biz volatile kullanırsak derleyicinin optimizasyon yapmasını engelleriz ve doğrudan bu adresteki nesnenin değerini get etmek zorunda bırakırız.
+
+Örneğin interrupt yazdığınız fonksiyondaki flag'ler volatile olmak zorunda. Eğer yapmazsak flag değeri değişmesine rağmen bu değer değişikliği runtime'da yakalanamaz.
+
+restrict  Ders 45 sonu.
+---
+C99 standartları ile dile eklenen bir anahtar sözcük. 
+C++ dilinde yoktur.
+
+Bir pointerın gösterdiği nesneyi gösteren tek pointer olduğu, onun gösterdiğin nesneyi gösteren başka bir pointer olmadığını anlatıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/139668800-7db110c1-f570-4d68-84bb-91d42e1d8440.png)
+
+Bu fonksiyonun kodu çalışırken dest in gösterdiği nesne ile src nin gsöterdiği nesne farklı nesneler.
+Bu pointerların aynı nesneyi gösterme ihtimali yok.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
