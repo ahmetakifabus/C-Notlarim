@@ -3888,6 +3888,162 @@ Burada ise bir sentaks hatası yok.
 
 Dizinin 2 indisli elemanının id isimli elemanını 1 arttırdı.
 
+Ders 37 (01.11.2021)
+---
+
+2 operatör öğrendik.
+
+- Dot operator
+- ->(ok) operator
+
+![image](https://user-images.githubusercontent.com/75746171/139728541-7fa30d1f-85d2-4265-8513-96b8b269596f.png)
+
+Aynı anlamda.
+
+Yapılar ve typedef bildirimleri
+---
+
+En sık kullanılan yer yapı türlerine eş isimler vermek.
+
+- Struct anahtar sözcüğünden kurtulmanın yolu typedef bildirimleri.
+
+1. Hangi türe eş isim vereceksen o türden bir değişken tanımla.
+2. Başına typedef getir.
+3. Değişken ismini değiştir ve bu türe vermek istediğin isim yap.
+
+![image](https://user-images.githubusercontent.com/75746171/139729503-fb5c4aec-fe23-4fcd-93a8-f07ce19fd51e.png)
+
+
+10 Elemanlı int dizi türüne typedef ismi verebiliriz.
+
+![image](https://user-images.githubusercontent.com/75746171/139729604-1e051e47-f43d-49dd-b525-f53fbbb4b826.png)
+
+![image](https://user-images.githubusercontent.com/75746171/139729701-a0445347-b7fa-4328-a24e-48533b70e811.png)
+
+
+Yapılarda typedef
+---
+![image](https://user-images.githubusercontent.com/75746171/139729812-5adebf63-dda3-4e6b-a634-51ed05393c12.png)
+
+Önce bu türden bir değişken tanımladık.
+
+![image](https://user-images.githubusercontent.com/75746171/139729859-9f941acb-143b-4993-b021-5044776ebfae.png)
+
+Sonra başına tyedef koyduk ve değişken ismini tür eş ismi olarak değiştirdik.
+
+![image](https://user-images.githubusercontent.com/75746171/139729971-29c287b7-5591-41d9-9908-d0be5bb59169.png)
+
+- Artık bu ikisini de kullanabilirim.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/139730255-8ef6ed92-d952-4da8-807b-b02950bd4502.png)
+
+- Burada bir yapı türü oluşturdum bu türün ismi hem struct data ve aynı zamanda bir typedef ismi var ve o da data.
+
+![image](https://user-images.githubusercontent.com/75746171/139730380-6c78bb30-fa91-475e-beff-d5a6cd05da71.png)
+
+Hem yapı tanımlıyoruz hem isim bildirimi yapıyoruz.
+
+Not :
+---
+En sık kullanılan typedef bildirimlerinden biri.
+
+
+![image](https://user-images.githubusercontent.com/75746171/139730804-09259af8-d9d3-4ce9-a5e0-1b94f3a9b23a.png)
+
+- Ve böyle tanımlarsak sentaks hatası.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/139730925-ccc06418-b70b-4024-b49d-b6e778bae13d.png)
+
+- Burada aynı şekilde başında typedef olduğu için DataPtr, struct Data* türünün eş ismi.
+
+Artık böyle yazabilirim:
+
+![image](https://user-images.githubusercontent.com/75746171/139731089-a341a3dd-756a-40e7-a0d4-9dcd5fb3dc9a.png)
+
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/139731252-4b2b25e8-c4d9-45db-8a62-4aac727abed7.png)
+
+g, global bir değişken. ptr global bir pointer ve bu türün bir ismi yok.
+
+![image](https://user-images.githubusercontent.com/75746171/139731449-1cd6ac81-a416-43cc-9d9e-b67450224396.png)
+
+- İster etiket ismi olsun ister olmasın, g struct data türünden bir global değişkenin ismi, ptr ise struct data türünden bir pointer değişkenin ismi.
+- Şimdi başına typedef anahtar sözcüğünü getirirsek, 
+
+![image](https://user-images.githubusercontent.com/75746171/139731534-771859ab-e204-46cf-a0aa-5b7a5c4eb6e8.png)
+
+- g, struct Data türünün eş ismi, ptr ise struct Data* türünün eş ismi.
+![image](https://user-images.githubusercontent.com/75746171/139731938-00246bca-5a96-41bf-b4bc-e4b73622df55.png)
+
+- Burada ise DataPtr pointer türünün eş ismi fakat bu türün bir ismi yok.
+
+Bu ne işe yarayabilir?
+- Böyle bir typedef bildirimi bu türden sadece dinamik ömürlü bir nesne oluşturma olanağı veriyor.
+
+Açıklama:
+
+![image](https://user-images.githubusercontent.com/75746171/139732124-2ac6944e-7805-49a7-b925-7aedcca9462c.png)
+
+- Sizeof operatörünün operandı bir ifade olduğunda derleyici o ifadenin türüne bakıyor ve sizeof değerini elde ediyor. Burada bu tür herhangi bir şekilde isimlendirilmemiş ama derleyici bu ifadenin türünün yukardaki yapı türü olduğunu gördüğü için sizeof değerinin 16 olduğunu biliyor. ve malloc ile nesnenin ihtiyaç duyduğu bellek alanı ayrılmış oluyor.
+
+Diğer önemli nokta ise:
+- pd bureada çöp değerde, aslında çöp değerde olan pd'yi dereference ettiğim için tanımsız davranış olması gerekir fakat değil. Çünkü derleyici sizeof operatörünün operandı olan ifade için derleyici kod üretmiyor.
+
+Örnek:
+---
+
+![image](https://user-images.githubusercontent.com/75746171/139732875-9c70bb53-7361-4855-8419-71b127afd686.png)
+
+- Böyle bir typedef bildiriminde bir yapının bildirimi yapılmış oluyor. Fakat u yapı türüne bir isim verilmiyor. Fakat bildirilen yapı türünden nesnelerin adresi olan türe DataPtr ismi veriliyor.
+- Bunun yapılma amacı bu türden oluşturulacak nesnelerin salt dinamik ömürlü olmasını sağlamak. 
+
+45.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
