@@ -4004,7 +4004,84 @@ Diğer önemli nokta ise:
 - Böyle bir typedef bildiriminde bir yapının bildirimi yapılmış oluyor. Fakat u yapı türüne bir isim verilmiyor. Fakat bildirilen yapı türünden nesnelerin adresi olan türe DataPtr ismi veriliyor.
 - Bunun yapılma amacı bu türden oluşturulacak nesnelerin salt dinamik ömürlü olmasını sağlamak. 
 
-45.
+Yapılar ve Fonksiyonlar
+---
+
+Bazı c kütüphanelerinde fonksiyonların parametrik yuapısı şu biçimde:
+
+![image](https://user-images.githubusercontent.com/75746171/139742616-a53d8f0f-95ac-4000-8666-d7c407006f39.png)
+
+T bir yapı türü. T türünden bir nesne oluşturacaksınız. onun elemanlarından bazılarını set edeceksiniz. O nesnenin adresini böyle bir fonksiyona göndereceksiniz. Fonksiyon sizin set ettiğiniz elemanların değerlerini input olarak kullanacak. Ama kendisi de iletmek istediği delğerlere adresini aldığı yapı nesnesinin bazı elemanlarını yazacak. Yani hem adresini verdiğiniz nesneyi input olarak hem de kendi ürettiği derğerleri iletmek için kullanacak. Böyle parametrelere in-out parametre deniliyor.
+
+
+
+Şimdi fonksiyonun parametresine değil de geri dönüş değerine bakalım.
+
+Bir fonksiyonun geri dönüş değeri
+a) bir yapı türü olabilir
+b) bir yapı türünden adres olabilir ve bir yapı türünden const nesne adresi olabilir.
+
+En çok karşımıza çıkacak fonksiyon yapısı geri dönüş değeri bir yapı türünden adres olan fonksiyonlar.
+
+API: Uygulama programcıları için oluşturulan arayüz. Application programmer's interface. Bize işimizi görecek bazı fonksiyonları sağlayan kütüphaneler.
+
+----------------
+
+Kullanacağımız kütüphaneler yapıları kullanarak parametreleri yapı türünden olan fonksiyonlar veriyorlar. 
+
+- C tarzı kütüphaneler
+- OOP (object orianted programming) tarzı kütüphaneler
+
+C Tarzı kütüphaneler: Bu tür kütüphanelerde yapıların elemanlarını kullanarak işinizi görüyorsunuz.
+
+Tüm elemanları bilmemiz gerekiyor ve sorumluyuz. Bu büyük bir yük.
+
+OOP tarzı kütüphaneler: Yapının elemanlarını bilmemiz gerekmiyor. Çünkü kullanmayacağız. Yapmamız gereken kütüphanenin bize verdiği fonksiyonları çağırmak.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/139745465-2a452170-25b5-4c3a-a7c9-7333404f3fb2.png)
+
+Bu fonksiyıonu çağırıyoruz ve bize date nesnesi adresi veriyor. Ama bu fonksyondan aldığımız adresteki nesneyi elemanlarına erişerek kullanmak yerine fonksiyonlara gönderiyoruz.Yani hrer şey fonksiyonlar yolu ile yapılıyor. Yapı nesnesinin değer değiştirmesi, değer elde edilmesi. 
+
+Bu yaklaşım daha sağlam çünkü, hata riski az. Çağrılan fonksiynolar ona erişecek ama biz erişmeyeceğiz. 
+
+<time.h>
+---
+struct tm yapısı
+
+![image](https://user-images.githubusercontent.com/75746171/139746578-3ddf6417-5bb0-4840-a50c-a5fcf5d66419.png)
+
+9 Elemanı var.
+Her eleman tarih zaman bilgisinin bir bileşenini tutuyor.
+
+tm_year;  Yıl değeri tutuyor. 1985 değil 1900 tutacak. O yüzden 1900 ekle.
+
+tm_mon;  index 0 dan başlıyor. 0=ocak 1=şubat
+tm_mday;  Ayın günü. 
+tm_wday;  haftanın günü. 0 Değeri pazar.
+tm_yday;  yılın kaçıncı günü olkduğuun tutuyor
+tm_hour;  0-23 aralığında. 
+tm_min; dakika
+tm_sec; saniye
+tm_isdst; is daylight saving time. Gün ışığı tasarruf modu. -1 ise bu bilgi tutulmuyor. 0 ise tasarruf modunda değiliz. nonzero değer ise tasarruf modundayız.
+
+Standart time fonksiyonu
+---
+
+![image](https://user-images.githubusercontent.com/75746171/139747414-6f8b5050-3da4-4a01-9dbf-84b34a10e832.png)
+
+time_t türünden nesnenin adresini alıyor ve bu adresteki nesneyi epoktan geçen saniye sayısı ile set ediyor.
+
+Örnek:
+---
+![image](https://user-images.githubusercontent.com/75746171/139747713-33520cfc-6f98-4ca9-9d2f-1d58e0009089.png)
+
+
+![image](https://user-images.githubusercontent.com/75746171/139747730-6b0c3b54-25d6-4b4d-9517-72e47e14d93d.png)
+
+Saniyeleri sayarken görüyoruz.
+
 
 
 
