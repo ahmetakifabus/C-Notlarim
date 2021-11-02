@@ -3888,7 +3888,7 @@ Burada ise bir sentaks hatası yok.
 
 Dizinin 2 indisli elemanının id isimli elemanını 1 arttırdı.
 
-Ders 37 (01.11.2021)
+Ders 47 (01.11.2021)
 ---
 
 2 operatör öğrendik.
@@ -4082,9 +4082,62 @@ time_t türünden nesnenin adresini alıyor ve bu adresteki nesneyi epoktan geç
 
 Saniyeleri sayarken görüyoruz.
 
+Ders 48 (02.11.2021)
+---
 
+Gecikme sağlayacak bir fonksiyon:
 
+![image](https://user-images.githubusercontent.com/75746171/139799127-30515c57-9aa4-40b5-aa7b-3c2673d2866f.png)
 
+Ders 49 (02.11.2021)
+---
+
+Complete type, incomplete type
+---
+![image](https://user-images.githubusercontent.com/75746171/139802632-81127a88-6eb4-48c0-a76f-539a5d49f547.png)
+
+Hata mesajı: Incomplete type is not allowed
+
+![image](https://user-images.githubusercontent.com/75746171/139802830-dec6e1ca-71e4-42cc-b45a-f1981ed329a4.png)
+
+- Bir yapı türünü belirli bağlamlarda "incomplete type" olarak kullanabiliriz.
+
+struct Data;
+
+Sadece böyle bir bildirimle yazabileceğimiz bazı kodlar var.
+
+![image](https://user-images.githubusercontent.com/75746171/139803251-53d0d87a-b690-486f-af02-1407e85566e7.png)
+
+Yani bir fonksiyonun bildiriminde fonksiyonun parametre türleri ya da geri dönüş değeri türü incomplete type olabilir.
+
+![image](https://user-images.githubusercontent.com/75746171/139803407-e650af61-42a6-44dc-90c9-b994b45ffb6a.png)
+
+- Yani bir yapı türüne eş isim vermek için o yapının complete type olması gerekmiyor.
+
+![image](https://user-images.githubusercontent.com/75746171/139803546-47231551-59f8-4196-9878-5b58be35d827.png)
+
+- Global değişkenlerin extern bildirimlerini yapabiliriz.  Burada extern tanımlama değil, derleyici bunun için yer ayırmıyor.
+
+![image](https://user-images.githubusercontent.com/75746171/139804878-78be4e71-ea1e-41b7-8b94-5e07a054f592.png)
+
+Not:
+---
+Eğer bir yapı türünü başlık dosyasında salt incomplete type olarak kllanmılıyorsa o zaman onun başşlık dosyasını include etmemize gerek yok.
+
+Ders 50 (02.11.2021)
+---
+Composition
+---
+Bir yapının elemanlarının başka bir türden olması
+
+- Bir yapını elemanı kendi türünden olamaz.
+
+Fakat kendi türünden bir pointer olabilir.
+
+![image](https://user-images.githubusercontent.com/75746171/139819736-d5c5f983-9c43-4e8d-ad9b-6394fcda520b.png)
+
+- Çünkü bir pointerın sizeof değeri sistemde belli. Derleyici bu bildirimden stuctdata türünün sizeof değerini çıkarabiliyor.
+- 
 
 
 
