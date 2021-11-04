@@ -246,11 +246,6 @@ x = y + 10;
 Bu işlemin yapılabilmesi için makina kodlarının yürütülmesi gerekiyor o zaman bu bir deyim.(İsim tanıtılmıyor, doğrudan iş yapırılıyor.)
 
 
-Namespace
----
-Global namespace -> Fonksiyonun dışı genel kod yeri 
-Local namespace  -> Fonksiyon birimlerinin içindeki alan 
-
 Ders 4 (23.06.2021)
 ---
 
@@ -363,19 +358,8 @@ Statik ömürlü değişkenler ilk değer verilmeden tanımlandıklarında 0 ile
 
 örnek
 ---
-void func()
-{
-int x=10;
-printf(x);
-x+=10;
-}
 
-int main
-{
-func();
-func();
-func();
-}
+![image](https://user-images.githubusercontent.com/75746171/140424229-410ec758-9cb9-45c4-8581-6d4d40443689.png)
 
 Açıklama
 ---
@@ -400,9 +384,6 @@ Defined behaviour -> Kodun nasıl çalışacağı dilin kurallarına göre belli
 
 Tanımsız davranış kullanırsak derleyiciye vermiş olduğumuz sözü çiğniyoruz.
 
-Unspecified Behaviour
----
-Hata değildir. Kodu başka şekilde üretilebilir.
 
 Örnek
 ---
@@ -465,21 +446,7 @@ Static int y;
 Örnek
 ---
 
-void func(void)
-{
-int x=10;
-static int y = 10;
-printf(x,y);
-x++;
-y++;
-}
-
-int main()
-{
-func();
-func();
-func();
-}
+![image](https://user-images.githubusercontent.com/75746171/140424477-fdfa55b6-81fb-44fe-a029-8eb0319c572c.png)
 
 
 x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon çağırıldığında 10 değerini alıyor. Ama y hayata 10 değeri ile geldi ve derğini değiştirdiğimizde hala hayatta.
@@ -523,13 +490,14 @@ Fonksiyona geri dönüş değeri yazmazsan int yazfdın kabul eder hata vermez a
 
 Statement (Deyim)
 ---
-Expression Statement (İfade Deyimi)
-Compound Statement (Bileşik Deyim)
-Null Statement (Boş Deytim)
-Control Statement (Kontrol Deyimi)
+- Expression Statement (İfade Deyimi)
+- Compound Statement (Bileşik Deyim)
+- Null Statement (Boş Deytim)
+- Control Statement (Kontrol Deyimi)
 
-z = 10; Expression Statement
-++a; Expression Statement
+
+- z = 10; Expression Statement
+- ++a; Expression Statement
 
 Comtrol Statement (Küme Parantezi içine alınmış)
 
@@ -577,13 +545,7 @@ Call by reference ise nesnenin direkt kendisini kllanıyor.
 
 C'de tüm fonksiyon çağrıları call by value dur.
 
-int main()
-{
-	int x= 10;
-	printf("x = %d\n", x);
-	foo(x);
-	printf("x = %d\n",x);
-}
+![image](https://user-images.githubusercontent.com/75746171/140425440-5ce21e78-90a4-4b9e-a180-d3e16c0a219b.png)
 
 Burada x değeri ekrana 10 olarak yazdırılır çünkü fonksiyon çağrıları call by value olduğu için x değerini değiştiremez.
 
@@ -790,6 +752,7 @@ Yazmak arasında hiçbir farkl yok. Yani ifade deyimleri virgül operatörü ile
 Her operatör bir değer üretir, virgül operatörü de bir değer üretir. Virgül operatörünün ürettiği değer sağ operandın değeridir.
 
 Örnek:
+---
 int a, b = 10, c = 20;
 a = (b , c);
 
@@ -819,36 +782,12 @@ Bu iki işlemin sonucu aynı değil.
 
 Örnek
 ---
-Armstrong sayıları
-
-
-for (int i = 100, i < 1000; ++i)
-{
-int d1 = i / 100;
-int d2 = i / 10 % 10;
-int d3 = i % 10;
-	if(i == d1 * d1 * d1 + d2 * d2 * d2 +  d3 * d3 * d3)
-	{
-	printf("%d\n" , i);
-	}
-}
+![image](https://user-images.githubusercontent.com/75746171/140427339-b90744c6-646b-4155-8855-a6151daddec0.png)
 
 Not:
 ---
 
-int func(void)
-{
-printf("func cagildi\n");
-return 0;
-}
-
-int main()
-{
-if(func)
-	{
-	printf("evet dogru\n");
-	}
-}
+![image](https://user-images.githubusercontent.com/75746171/140427368-419117d5-d62c-4ca5-a90c-eaec48aa0972.png)
 
 Burada if içine girecek çünkü fonksiyon isimleri fonksiyonun adresine dönüştürülüyor ve bu adresler lojik doğru olarak yorumlanıyor. (Always true)
 
@@ -883,16 +822,7 @@ int putchar(int);
 
 Örnek:
 ---
-int c1, c2, c3;
-int x;
-printf("bir giris yapin");
-
-c1 = getchar();
-c2 = getchar();
-c3 = getchar();
-
-printf("%d %d %d\n", c1, c2, c3);
-scanf("x = %d\n", &x);
+![image](https://user-images.githubusercontent.com/75746171/140427884-52d03bba-007b-41a4-82b4-6b945f567190.png)
 
 abc345 yazdığında 97 98 99 yazacak. (harflerin karşılığı) Ve 345 standart input buffer'ında durmaya devam edecek.
 
