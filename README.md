@@ -946,14 +946,7 @@ x = a == 5 ? 7 : (a == 9 ? 13 : (a == 27 ? 19 : -1));
 
 
 
-Expression	c	c++
----
-++x		R	L
---x		R	L
-x,y		R	L
-a > 10 ? x : y	R	L
-x++		R	R
-x--		R	R
+![image](https://user-images.githubusercontent.com/75746171/140499614-e5b84156-2645-474e-8fb3-b5f915b807e6.png)
 
 
 
@@ -1192,13 +1185,7 @@ endif
 
 Multiple Inclusion Guard
 ---
-#ifndef NUTILITY_H  // #pragma once (standart değill)
-#define NUTILITY_H
-
-struct Data {
-	int a,b,c;
-};
-#endif
+![image](https://user-images.githubusercontent.com/75746171/140502940-b5aa5586-835f-4e0f-8a2f-4b1f086fd9b9.png)
 
 
 
