@@ -1277,17 +1277,7 @@ Ders 23 (20.09.2021) 17.35
 
 Rastgele sayı üretimi
 ---
-int rand(void); 
-0 - RAND_MAX arası rastgele sayı
-
-void srand();
-
-Zar örnek
----
-for(;;){
-printf("%d%d\n", rand() % 6 + 1, rand() % 6 + 1);
-_getch();
-}
+![image](https://user-images.githubusercontent.com/75746171/142156815-2d810df6-44ed-4d96-952f-8c915745db08.png)
 
 
 Program baştan başladığında zarlar hep aynı gelecek. 
@@ -1295,39 +1285,11 @@ Program baştan başladığında zarlar hep aynı gelecek.
 Farklı bir zincir oluşturmak için:
 Gerçek rastgele sayı üreticisi kullan. get_true_random_number(void);
 
-Böyle bir fonksiyon yoksa:
-
-Calender time:
-<time.h> başlık dosyasındaki 
-time_t time(time_t *ptr); fonksiyonu
-
-Null pointer ile çağırırsan dönüş değeri epoktan(01.01.1970 00:00) (unix işletim sisteminin doğum tarihi )geçen saniye sayısını döndürecek.
-
-for(;;){
-printf("%ld\r", time(NULL));
-
-
-int main()
-{
-srand((unsigned)time(NULL));
-for (int i = 0; i < 10; ++i){
-	printf("%d", rand());
-}
-}
-Her seferinde farklı değer verecek çünkü doğum yerleri farklı.
+![image](https://user-images.githubusercontent.com/75746171/142156882-0da0ae6d-b694-43b2-adcc-d7ec1f2a21a9.png)
 
 Ders 24 (21.09.2021) 11.02
 ---
-Dizinin max elemanını bul..
-
-int a[SIZE];
-
-int max = a[0];
-
-for (int i = 1; i < SIZE; ++i){
-	if (a[i] > max)
-		max = a[i];
-}
+![image](https://user-images.githubusercontent.com/75746171/142156975-871c568f-4f63-4b91-b3ff-fcb4d50c3eae.png)
 
 Veri yapıları (Data Structure)
 ---
@@ -1368,35 +1330,7 @@ a yazmak ile &a[0] yazmak arasında bir fark yok.
 Ders 25 (21.09.2021) 14.10
 ---
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-
-
-int random_char(void)
-{
-	int c;
-
-	while (!isalnum(c = rand() % 128))
-		;
-	return c;
-}
-
-void print_random_password(void)
-{
-	int len = rand() % 5 + 6;
-	for (int i = 0; i < len; ++i)
-		putchar(random_char());
-}
-
-int main()
-{
-	randomize();
-	print_random_password();
-}
-
-- Kod bu haldeyken hep aynı rastgele parolayı üretiyor.
-- 
+![image](https://user-images.githubusercontent.com/75746171/142157187-c2c7374d-9564-4e96-9d46-3bda08dd33ba.png)
 
 
 Dizilere ilk değer verilmesi
@@ -1421,18 +1355,7 @@ int a[20] = { [5] = 67, [3] = 45, [1] = 11 };
 - sizeof (int), Bunun değer sistemdeki int türü için gerekli olan storage ihtiyacı
 - int a[sizeof(double)] = { 0 }; // Hata değil çünkü ifade bir sabit ifadesi.
 
- char c = 1;
- 
- sizeof c ==== 1
- sizeof +c === 4 (integer'a yükseltiliyor)
- 
- int main()
-{
-	int x = 10;
-	printf("%zu\n", sizeof(++x));
-	printf("%d\n", x);
-}
-// Çıktılar 4 ve 10
+![image](https://user-images.githubusercontent.com/75746171/142157377-4f29d25d-c7da-4c88-ace2-c6e22b15a010.png)
 
 - Bazı durumlarda bir ifadedeki işlemler için derleyici işlem kodu üretmiyor.
 - Yani sizeof(++x). sizeof oepratörünün operandı olan bir ifade için derleyici işlem kodu üretmiyor. Sadece tür bilgisi olarak bakıyor.
@@ -1440,52 +1363,15 @@ int a[20] = { [5] = 67, [3] = 45, [1] = 11 };
 
 Örnek:
 ---
-#include <stdio.h>
-
-int main()
-{
-	char buf[200];
-	int a[50];
-	double da[20];
-
-	printf("sizeof(buf)= %zu\n", sizeof(buf));	//200
-	printf("sizeof(a)= %zu\n", sizeof(a));		//200
-	printf("sizeof(da)= %zu\n", sizeof(da));	//160
-	
-	sizeof(a) / sizeof(a[0]); // Dizide kaç eleman olduğunu hesaplar.
-	//Dizinin toplam kaç byte yer kapladığını buldu ve dizinin 1 elamanının sizeof
-	//unu buldu ve böldü
-}
+![image](https://user-images.githubusercontent.com/75746171/142157485-1a38a945-322e-48ce-babc-c39b32ba88c2.png)
 
 Örnek
 ---
-#include <stdio.h>
-
-int main()
-{
-	int a[] = { 2, 5, 7,1,34,6,9,44,678,123,45 };
-
-	for (int i = 0; i < sizeof(a) / sizeof(a[0]); ++i)
-		printf("%d", a[i]);
-}	// derleyici compile time da 11 değerini elde edecek.
-	// dizi değişse bile döngü sayısı aynı
+![image](https://user-images.githubusercontent.com/75746171/142157650-bf19ab08-8fd3-4bb5-b785-4192548e19c9.png)
 
  Örnek:
  ---
- #include <stdio.h>
-
-int main()
-{
-	int a[5] = { 0, 1,2,3,4 };
-
-	for (int i = -2; i < (sizeof(a) / sizeof(a[0])); ++i)
-		printf("%d", a[i + 2]);
-	
-}
-//	sizeof(a) unsigned int değer
-//	< operandının sol operandı işaretli int sağ tarafı işaretsiz int
-//	-2 işaretsiz int türüne dönüştürüldüğünde int değerinde en byükten 
-//	bir küçük sayıya dönüşüyor ve koşul yanlış oluyor döngüden çıkıyor.
+![image](https://user-images.githubusercontent.com/75746171/142157688-7f27a890-7564-44aa-8cac-c4ef172b3c2d.png)
 
 
 Ders 26 (23.09.2021) 14.22
