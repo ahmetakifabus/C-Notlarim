@@ -1243,72 +1243,16 @@ Kaynak kodu olmayan bir fonksiyonu çağırdığınız zaman sentaks hatası alm
 Tür dönüşümleri
 ---
 
-int main()
-{
-int x = -1;
-unsigned int y = 1;
-
-if(x > y)
-	printf("dogru"\n);
-else 
-	printf("yanlis\n");
-}
-
-çıktısı: dogru
+![image](https://user-images.githubusercontent.com/75746171/142155963-1439ec82-7ff4-4f33-be00-1c00a0b445ba.png)
 
 
-Operandlardan biri:
-
-unsigned short
-signed short
-unsigned char
-signed char
-char
-_Bool
-
-Bu türlerden biriyse (int altı türler) doğrudan int türüne yükseltiliyor.
-
-- Büyüklük sıralaması:
-unsigned long long
-signed long long
-unsigned long
-signed long
-unsigned int
-signed int
+![image](https://user-images.githubusercontent.com/75746171/142155994-eeb7460f-8e81-44a4-8b2f-82c10f9ce3aa.png)
 
 
-long double > double > float > long long > long > int
-
-a + b
-
-operandların ranklari farklı ise işlem daha yüksek rank ile yapıalcak.
-
-aynı türün rank aynı türleri farklı ise (unsigned ve signed) tür dönüşümü işaretsiz yöne yapılacak
-
-ival + uval işlemi unsigned türde yapılacak.
+![image](https://user-images.githubusercontent.com/75746171/142156022-2c6a85c6-fe15-480e-8723-4077dcf6be25.png)
 
 
-unsigned int x;  //4 byte
-signed long y;	 //4 byte
-
-x + y; 
-Burada eğer işaretsiz türün tutabileceği tüm değerler işaretli türde tutulabiliyorsa işlem işaretli türde yapılacak.
-
-
-char c1 = 10;
-char c2 = 20;
-
-c1 + c2 
-cevap int türünden yazılır.
-
-
-- Rankler aynı işaretler de aynı ise işlem yüksek rank'te yapılıyor.
-- Rankler farklı büyük rank işaretsiz ise işlem yüksek rank'te yapılıyor.
-- Rankler farklı büyük rank işaretli ise işlem ya yüksek rank'te ya da yüksek rankın işaretsiz olanında yapılıyor.
-
-Tam sayi türlerinde taşma tanımsız davranıştır.
-
-- İşaretsiz türlerde taşma yoktur. Tüm işlemler modüler aritmetiğe göre yapılır.
+![image](https://user-images.githubusercontent.com/75746171/142156043-c03c77fd-66fb-4a8b-b77c-924f2a4cfa4f.png)
 
 
 Atama Tür Dönüşümleri
