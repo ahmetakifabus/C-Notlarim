@@ -292,7 +292,7 @@ Sizin bir bildirim yapmanıza gerek yok. Bunlar dil tarafından hazır sunulan d
 
 Soru
 ---
-C'de neden geleneksel olarak 1 byte lık char tüeü yerine 4 byte lık int türü kullanılıyor?
+C'de neden geleneksel olarak 1 byte lık char türü yerine 4 byte lık int türü kullanılıyor?
 >> İşlemciniz 32 bitlik bir işlemciyse belleğe 4 byte'ın katları şeklinde erişir. 1 Byte ın kullanılması bir avantaj sağlamıyor. 
 
 Soru 
@@ -449,7 +449,7 @@ Static int y;
 ![image](https://user-images.githubusercontent.com/75746171/140424477-fdfa55b6-81fb-44fe-a029-8eb0319c572c.png)
 
 
-x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon çağırıldığında 10 değerini alıyor. Ama y hayata 10 değeri ile geldi ve derğini değiştirdiğimizde hala hayatta.
+x'in değeri hep 10, y nin değeri sürekli artıyor. Çünkü x her fonksiyon çağırıldığında 10 değerini alıyor. Ama y hayata 10 değeri ile geldi ve değerini değiştirdiğimizde hala hayatta.
 
 Ayrıca y ismi main fonk. içinde kullanılamaz. Bunun ömür ile değil kapsam ile alakası var.
 
