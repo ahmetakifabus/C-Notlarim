@@ -559,7 +559,7 @@ Dil tarafından derleyicilerin size sunulması garantşisi verilen hazırr bazı
 
 Başlık dosylarında standart C fonksiyonlarının bildirimleri var, kodları değil (stdio.h)
 
-Bildirim -> bir ismin  ne anlama geldiğini anlatan C cğmleleri.
+Bildirim -> bir ismin  ne anlama geldiğini anlatan C cümleleri.
 
 Standartlar printf fonksiyonunun kodunu değil bildirimini (ne olduğunu) verir. Kodunu insanlar yazar.
 
